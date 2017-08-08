@@ -1,0 +1,6 @@
+framework module MLHybrid {
+  umbrella header "MLHybrid-umbrella.h"
+
+  export *
+  module * { export * }
+}

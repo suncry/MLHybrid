@@ -1,0 +1,6 @@
+framework module Pods_MLHybrid_Tests {
+  umbrella header "Pods-MLHybrid_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

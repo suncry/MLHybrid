@@ -1,0 +1,22 @@
+{
+  "name": "MLHybrid",
+  "version": "0.1.0",
+  "summary": "A short description of MLHybrid.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/yang cai/MLHybrid",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yang cai": "caiyang@medlinker.com"
+  },
+  "source": {
+    "git": "https://github.com/yang cai/MLHybrid.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MLHybrid/Classes/**/*"
+}

@@ -1,0 +1,16 @@
+PODS:
+  - MLHybrid (0.1.0)
+
+DEPENDENCIES:
+  - MLHybrid (from `../`)
+
+EXTERNAL SOURCES:
+  MLHybrid:
+    :path: ../
+
+SPEC CHECKSUMS:
+  MLHybrid: 0b8268362fc2e6a5b815881b17a3094db0dd5642
+
+PODFILE CHECKSUM: d0cf4618af91bf59d568f55997681169a15b4fbf
+
+COCOAPODS: 1.2.1
