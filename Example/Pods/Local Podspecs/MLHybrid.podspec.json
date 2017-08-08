@@ -1,9 +1,9 @@
 {
   "name": "MLHybrid",
   "version": "0.1.0",
-  "summary": "A short description of MLHybrid.",
+  "summary": "Hybrid take U fly",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/yang cai/MLHybrid",
+  "homepage": "https://github.com/suncry/MLHybrid",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "yang cai": "caiyang@medlinker.com"
   },
   "source": {
-    "git": "https://github.com/yang cai/MLHybrid.git",
+    "git": "https://github.com/suncry/MLHybrid.git",
     "tag": "0.1.0"
   },
   "platforms": {

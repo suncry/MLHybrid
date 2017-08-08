@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D19E8961F39C9EE0018FAE8 /* MLHybrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D19E8951F39C9EE0018FAE8 /* MLHybrid.swift */; };
+		07C4C8E53909D1F6DFC5E42D44C00888 /* MLHybrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEC69772BBCF4CCD6304CD174E18253 /* MLHybrid.swift */; };
 		112A90A41035A86CA1A954FC37AFB3E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		2F56A863495055B31F6B84C6958CD2E3 /* Pods-MLHybrid_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A022625CC4C26FD1B38002E3A8DFF6 /* Pods-MLHybrid_Tests-dummy.m */; };
 		3BBADBAEC199837C0B29278630C40365 /* Pods-MLHybrid_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E04B665DF78DE2E21C6A66AB8AFC2B /* Pods-MLHybrid_Example-dummy.m */; };
+		4E80DA08DEC0B777E77E3201A17C58A7 /* MLHybrid-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C8527D9F19931E0EFBAEC66E2A0D0B /* MLHybrid-dummy.m */; };
 		84C22C658B4DD8BB6E8618F7916C5882 /* Pods-MLHybrid_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 86CA64CB47B5053B409DE91CBEC49970 /* Pods-MLHybrid_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		90266DC98985A7B4C49B040C1ED3A5E7 /* MLHybrid-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BF3C82D695BF7AA169298BE19BB7F37 /* MLHybrid-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3A3A48439116006CAECD048341E912D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		B799AD4F77DCA2613EAA45E76E532B68 /* Pods-MLHybrid_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 99FBF24ACDE4C2ED2A4F7F38A5287D67 /* Pods-MLHybrid_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BE5AA299C9F28B1508A110BDD2663EEF /* MLHybrid-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C8527D9F19931E0EFBAEC66E2A0D0B /* MLHybrid-dummy.m */; };
 		D82ACCD762A367ED8F452DB88B2D8E39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,12 +31,12 @@
 
 /* Begin PBXFileReference section */
 		001F4E6FC6A403B3D90D0745949FCE7B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		07A717656C08E7DF7CE2B721986AF4F9 /* Pods-MLHybrid_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MLHybrid_Example.modulemap"; sourceTree = "<group>"; };
+		07A717656C08E7DF7CE2B721986AF4F9 /* Pods-MLHybrid_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MLHybrid_Example.modulemap"; sourceTree = "<group>"; };
 		091ADEB917106D3C17E6D9A282D6BD39 /* MLHybrid-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MLHybrid-prefix.pch"; sourceTree = "<group>"; };
 		0A2CA426CF09AF76C122B50E8FE52B00 /* Pods-MLHybrid_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLHybrid_Example.release.xcconfig"; sourceTree = "<group>"; };
 		0C6BC60AC49A4B7AD582AF31CBA22AB7 /* Pods-MLHybrid_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLHybrid_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		0D19E8951F39C9EE0018FAE8 /* MLHybrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybrid.swift; sourceTree = "<group>"; };
-		159753373F0E224AB8C2C2974DEF7670 /* MLHybrid.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MLHybrid.modulemap; sourceTree = "<group>"; };
+		0EEC69772BBCF4CCD6304CD174E18253 /* MLHybrid.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MLHybrid.swift; sourceTree = "<group>"; };
+		159753373F0E224AB8C2C2974DEF7670 /* MLHybrid.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MLHybrid.modulemap; sourceTree = "<group>"; };
 		2430D5971BE571CA82B50E1518A71372 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28E04B665DF78DE2E21C6A66AB8AFC2B /* Pods-MLHybrid_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MLHybrid_Example-dummy.m"; sourceTree = "<group>"; };
 		3F215F344031F3046F2D4715125BE32F /* Pods-MLHybrid_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MLHybrid_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -44,14 +44,14 @@
 		4EFA30F934C9E035ED45D7FAF9F365E1 /* Pods-MLHybrid_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MLHybrid_Example-frameworks.sh"; sourceTree = "<group>"; };
 		50806C2B18D639EA1C6D441134A94AEB /* Pods-MLHybrid_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLHybrid_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		74772F22E9C1F10518D48A96F0CED14D /* MLHybrid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLHybrid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7804E26C5B06E55FDB4E31BCB281023A /* Pods_MLHybrid_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLHybrid_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		78BB41505E5418BBC6CE3A6A90EF8F32 /* Pods-MLHybrid_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MLHybrid_Tests.modulemap"; sourceTree = "<group>"; };
+		74772F22E9C1F10518D48A96F0CED14D /* MLHybrid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MLHybrid.framework; path = MLHybrid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7804E26C5B06E55FDB4E31BCB281023A /* Pods_MLHybrid_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MLHybrid_Tests.framework; path = "Pods-MLHybrid_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78BB41505E5418BBC6CE3A6A90EF8F32 /* Pods-MLHybrid_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MLHybrid_Tests.modulemap"; sourceTree = "<group>"; };
 		7CB0FE83289923C61A10475790B193A7 /* Pods-MLHybrid_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MLHybrid_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		851475142084E1EC007EA860C4C392F7 /* MLHybrid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MLHybrid.xcconfig; sourceTree = "<group>"; };
 		86CA64CB47B5053B409DE91CBEC49970 /* Pods-MLHybrid_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MLHybrid_Tests-umbrella.h"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		953B6B60603993D5831A8A627E15388E /* Pods_MLHybrid_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLHybrid_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		953B6B60603993D5831A8A627E15388E /* Pods_MLHybrid_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MLHybrid_Example.framework; path = "Pods-MLHybrid_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99FBF24ACDE4C2ED2A4F7F38A5287D67 /* Pods-MLHybrid_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MLHybrid_Example-umbrella.h"; sourceTree = "<group>"; };
 		9BF3C82D695BF7AA169298BE19BB7F37 /* MLHybrid-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MLHybrid-umbrella.h"; sourceTree = "<group>"; };
 		A1C8527D9F19931E0EFBAEC66E2A0D0B /* MLHybrid-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MLHybrid-dummy.m"; sourceTree = "<group>"; };
@@ -121,8 +121,9 @@
 		39C68A94EBEF21D67F7700C3C29492B1 /* MLHybrid */ = {
 			isa = PBXGroup;
 			children = (
-				451233EC0DA76BC79C39B0F46124505E /* Classes */,
+				FDE2EA4CF1F137D263A75D486284B44D /* Classes */,
 			);
+			name = MLHybrid;
 			path = MLHybrid;
 			sourceTree = "<group>";
 		};
@@ -134,14 +135,6 @@
 			);
 			name = MLHybrid;
 			path = ../..;
-			sourceTree = "<group>";
-		};
-		451233EC0DA76BC79C39B0F46124505E /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				0D19E8951F39C9EE0018FAE8 /* MLHybrid.swift */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -222,6 +215,15 @@
 			path = "Target Support Files/Pods-MLHybrid_Example";
 			sourceTree = "<group>";
 		};
+		FDE2EA4CF1F137D263A75D486284B44D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0EEC69772BBCF4CCD6304CD174E18253 /* MLHybrid.swift */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -256,7 +258,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE3755A0122A8220D57D5597C0FF85BA /* Build configuration list for PBXNativeTarget "MLHybrid" */;
 			buildPhases = (
-				DEDDDB274DA728A8F22E12ABE2A6A897 /* Sources */,
+				19FF809A11A1E4F8F746AE6586D8E418 /* Sources */,
 				2BFF0A873960713515BAD643201A49CC /* Frameworks */,
 				3E749E6B18072D84668171150EC4D9B1 /* Headers */,
 			);
@@ -333,6 +335,15 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		19FF809A11A1E4F8F746AE6586D8E418 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E80DA08DEC0B777E77E3201A17C58A7 /* MLHybrid-dummy.m in Sources */,
+				07C4C8E53909D1F6DFC5E42D44C00888 /* MLHybrid.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5A7A392239AD7C3872C6FABCEDDF53F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -346,15 +357,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F56A863495055B31F6B84C6958CD2E3 /* Pods-MLHybrid_Tests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DEDDDB274DA728A8F22E12ABE2A6A897 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BE5AA299C9F28B1508A110BDD2663EEF /* MLHybrid-dummy.m in Sources */,
-				0D19E8961F39C9EE0018FAE8 /* MLHybrid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

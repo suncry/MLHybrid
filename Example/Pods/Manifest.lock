@@ -2,15 +2,15 @@ PODS:
   - MLHybrid (0.1.0)
 
 DEPENDENCIES:
-  - MLHybrid (from `../`)
+  - MLHybrid (from `../MLHybrid.podspec`)
 
 EXTERNAL SOURCES:
   MLHybrid:
-    :path: ../
+    :path: ../MLHybrid.podspec
 
 SPEC CHECKSUMS:
-  MLHybrid: 0b8268362fc2e6a5b815881b17a3094db0dd5642
+  MLHybrid: 7564ef8d2dfe115125fe5f7b1041f8c097097724
 
-PODFILE CHECKSUM: d0cf4618af91bf59d568f55997681169a15b4fbf
+PODFILE CHECKSUM: 5b9dae1cf885d327855b6ce9435757d5fb41f975
 
 COCOAPODS: 1.2.1
