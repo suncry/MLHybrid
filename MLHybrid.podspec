@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'MLHybrid/Classes/**/*'
+  s.source_files = 'Source/*'
   
   # s.resource_bundles = {
   #   'MLHybrid' => ['MLHybrid/Assets/*.png']
