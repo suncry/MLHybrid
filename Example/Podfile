@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'MLHybrid_Example' do
-  pod 'MLHybrid', :path => '../MLHybrid.podspec'
+  pod 'MLHybrid', :path => '/Users/yangcai/MLHybrid/Example/Podfile'
 
   target 'MLHybrid_Tests' do
     inherit! :search_paths

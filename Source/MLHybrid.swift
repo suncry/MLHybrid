@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class MLHybrid {
+    func say() {
+        print("say some thing")
+    }
+}

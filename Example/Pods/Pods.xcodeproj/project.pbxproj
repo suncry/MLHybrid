@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D9F7B901F3B4A7B00503F72 /* MLHybrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F7B8F1F3B4A7B00503F72 /* MLHybrid.swift */; };
 		112A90A41035A86CA1A954FC37AFB3E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		2F56A863495055B31F6B84C6958CD2E3 /* Pods-MLHybrid_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A022625CC4C26FD1B38002E3A8DFF6 /* Pods-MLHybrid_Tests-dummy.m */; };
 		3BBADBAEC199837C0B29278630C40365 /* Pods-MLHybrid_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E04B665DF78DE2E21C6A66AB8AFC2B /* Pods-MLHybrid_Example-dummy.m */; };
-		4E80DA08DEC0B777E77E3201A17C58A7 /* MLHybrid-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C8527D9F19931E0EFBAEC66E2A0D0B /* MLHybrid-dummy.m */; };
+		58DFB7F934D1AE0603D3614A8608FCCA /* MLHybrid-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C03DA76F668EFDE28E4C80AC906809FD /* MLHybrid-dummy.m */; };
 		84C22C658B4DD8BB6E8618F7916C5882 /* Pods-MLHybrid_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 86CA64CB47B5053B409DE91CBEC49970 /* Pods-MLHybrid_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		90266DC98985A7B4C49B040C1ED3A5E7 /* MLHybrid-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BF3C82D695BF7AA169298BE19BB7F37 /* MLHybrid-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D298638CED288E929706E89D726B91D /* MLHybrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A3802074E1B142D63B79677BAC0DD4 /* MLHybrid.swift */; };
+		90266DC98985A7B4C49B040C1ED3A5E7 /* MLHybrid-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C5F52553D80C1E69AF171D0504BFF9B2 /* MLHybrid-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3A3A48439116006CAECD048341E912D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		B799AD4F77DCA2613EAA45E76E532B68 /* Pods-MLHybrid_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 99FBF24ACDE4C2ED2A4F7F38A5287D67 /* Pods-MLHybrid_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D82ACCD762A367ED8F452DB88B2D8E39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
@@ -31,33 +31,33 @@
 
 /* Begin PBXFileReference section */
 		001F4E6FC6A403B3D90D0745949FCE7B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		07A717656C08E7DF7CE2B721986AF4F9 /* Pods-MLHybrid_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MLHybrid_Example.modulemap"; sourceTree = "<group>"; };
-		091ADEB917106D3C17E6D9A282D6BD39 /* MLHybrid-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MLHybrid-prefix.pch"; sourceTree = "<group>"; };
+		07A717656C08E7DF7CE2B721986AF4F9 /* Pods-MLHybrid_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MLHybrid_Example.modulemap"; sourceTree = "<group>"; };
 		0A2CA426CF09AF76C122B50E8FE52B00 /* Pods-MLHybrid_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLHybrid_Example.release.xcconfig"; sourceTree = "<group>"; };
 		0C6BC60AC49A4B7AD582AF31CBA22AB7 /* Pods-MLHybrid_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLHybrid_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		0D9F7B8F1F3B4A7B00503F72 /* MLHybrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybrid.swift; sourceTree = "<group>"; };
-		159753373F0E224AB8C2C2974DEF7670 /* MLHybrid.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MLHybrid.modulemap; sourceTree = "<group>"; };
-		2430D5971BE571CA82B50E1518A71372 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26274F19DFDD65D55D9ADE694A1E4791 /* MLHybrid-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MLHybrid-prefix.pch"; sourceTree = "<group>"; };
 		28E04B665DF78DE2E21C6A66AB8AFC2B /* Pods-MLHybrid_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MLHybrid_Example-dummy.m"; sourceTree = "<group>"; };
 		3F215F344031F3046F2D4715125BE32F /* Pods-MLHybrid_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MLHybrid_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4407E1CC417C020735BDB8033BC9BC10 /* Pods-MLHybrid_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MLHybrid_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4EFA30F934C9E035ED45D7FAF9F365E1 /* Pods-MLHybrid_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MLHybrid_Example-frameworks.sh"; sourceTree = "<group>"; };
 		50806C2B18D639EA1C6D441134A94AEB /* Pods-MLHybrid_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLHybrid_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		53A3802074E1B142D63B79677BAC0DD4 /* MLHybrid.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MLHybrid.swift; path = Source/MLHybrid.swift; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		74772F22E9C1F10518D48A96F0CED14D /* MLHybrid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MLHybrid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7804E26C5B06E55FDB4E31BCB281023A /* Pods_MLHybrid_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLHybrid_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		78BB41505E5418BBC6CE3A6A90EF8F32 /* Pods-MLHybrid_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MLHybrid_Tests.modulemap"; sourceTree = "<group>"; };
+		74772F22E9C1F10518D48A96F0CED14D /* MLHybrid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MLHybrid.framework; path = MLHybrid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7804E26C5B06E55FDB4E31BCB281023A /* Pods_MLHybrid_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MLHybrid_Tests.framework; path = "Pods-MLHybrid_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78BB41505E5418BBC6CE3A6A90EF8F32 /* Pods-MLHybrid_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MLHybrid_Tests.modulemap"; sourceTree = "<group>"; };
+		7C1F6C64B5B322C9A14749866351EDFA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CB0FE83289923C61A10475790B193A7 /* Pods-MLHybrid_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MLHybrid_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		851475142084E1EC007EA860C4C392F7 /* MLHybrid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MLHybrid.xcconfig; sourceTree = "<group>"; };
 		86CA64CB47B5053B409DE91CBEC49970 /* Pods-MLHybrid_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MLHybrid_Tests-umbrella.h"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		953B6B60603993D5831A8A627E15388E /* Pods_MLHybrid_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLHybrid_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E7D83AB5BA52499BC7C4B9FC918E16E /* MLHybrid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MLHybrid.xcconfig; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		953B6B60603993D5831A8A627E15388E /* Pods_MLHybrid_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MLHybrid_Example.framework; path = "Pods-MLHybrid_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		992DC3F2EC386F285D81DE52E06935FE /* MLHybrid.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MLHybrid.modulemap; sourceTree = "<group>"; };
 		99FBF24ACDE4C2ED2A4F7F38A5287D67 /* Pods-MLHybrid_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MLHybrid_Example-umbrella.h"; sourceTree = "<group>"; };
-		9BF3C82D695BF7AA169298BE19BB7F37 /* MLHybrid-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MLHybrid-umbrella.h"; sourceTree = "<group>"; };
-		A1C8527D9F19931E0EFBAEC66E2A0D0B /* MLHybrid-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MLHybrid-dummy.m"; sourceTree = "<group>"; };
 		A7C71D6D04B17BBF05EEADB5DCC873AD /* Pods-MLHybrid_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MLHybrid_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		A836E21CF887E8B54C116FE6389F9D08 /* Pods-MLHybrid_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MLHybrid_Tests-resources.sh"; sourceTree = "<group>"; };
 		AEEB842CFF0865AD476B664BA6CF676F /* Pods-MLHybrid_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLHybrid_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		C03DA76F668EFDE28E4C80AC906809FD /* MLHybrid-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MLHybrid-dummy.m"; sourceTree = "<group>"; };
+		C5F52553D80C1E69AF171D0504BFF9B2 /* MLHybrid-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MLHybrid-umbrella.h"; sourceTree = "<group>"; };
 		CEE34942390B31653EB709381AE15EA4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D579641968BBE54E0BFA2BAA02659A7E /* Pods-MLHybrid_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MLHybrid_Example-resources.sh"; sourceTree = "<group>"; };
 		E5A022625CC4C26FD1B38002E3A8DFF6 /* Pods-MLHybrid_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MLHybrid_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		16EF0241D68598838D459079B76F4402 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				413F8C45840CD8E59B65A43CACBA4020 /* MLHybrid */,
+				48934E4858711F885B87AB9488DEDC39 /* MLHybrid */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -118,19 +118,11 @@
 			path = "Target Support Files/Pods-MLHybrid_Tests";
 			sourceTree = "<group>";
 		};
-		39C68A94EBEF21D67F7700C3C29492B1 /* MLHybrid */ = {
+		48934E4858711F885B87AB9488DEDC39 /* MLHybrid */ = {
 			isa = PBXGroup;
 			children = (
-				FDE2EA4CF1F137D263A75D486284B44D /* Classes */,
-			);
-			path = MLHybrid;
-			sourceTree = "<group>";
-		};
-		413F8C45840CD8E59B65A43CACBA4020 /* MLHybrid */ = {
-			isa = PBXGroup;
-			children = (
-				39C68A94EBEF21D67F7700C3C29492B1 /* MLHybrid */,
-				E079608DD0D78A60120C0367531CCBA8 /* Support Files */,
+				53A3802074E1B142D63B79677BAC0DD4 /* MLHybrid.swift */,
+				FB9940F7AA45036A32114CF02FB51FB1 /* Support Files */,
 			);
 			name = MLHybrid;
 			path = ../..;
@@ -161,20 +153,6 @@
 				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		E079608DD0D78A60120C0367531CCBA8 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				2430D5971BE571CA82B50E1518A71372 /* Info.plist */,
-				159753373F0E224AB8C2C2974DEF7670 /* MLHybrid.modulemap */,
-				851475142084E1EC007EA860C4C392F7 /* MLHybrid.xcconfig */,
-				A1C8527D9F19931E0EFBAEC66E2A0D0B /* MLHybrid-dummy.m */,
-				091ADEB917106D3C17E6D9A282D6BD39 /* MLHybrid-prefix.pch */,
-				9BF3C82D695BF7AA169298BE19BB7F37 /* MLHybrid-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/MLHybrid";
 			sourceTree = "<group>";
 		};
 		E5E48E1C4A5CFBC0490EEAEB20D5569B /* Targets Support Files */ = {
@@ -214,12 +192,18 @@
 			path = "Target Support Files/Pods-MLHybrid_Example";
 			sourceTree = "<group>";
 		};
-		FDE2EA4CF1F137D263A75D486284B44D /* Classes */ = {
+		FB9940F7AA45036A32114CF02FB51FB1 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				0D9F7B8F1F3B4A7B00503F72 /* MLHybrid.swift */,
+				7C1F6C64B5B322C9A14749866351EDFA /* Info.plist */,
+				992DC3F2EC386F285D81DE52E06935FE /* MLHybrid.modulemap */,
+				8E7D83AB5BA52499BC7C4B9FC918E16E /* MLHybrid.xcconfig */,
+				C03DA76F668EFDE28E4C80AC906809FD /* MLHybrid-dummy.m */,
+				26274F19DFDD65D55D9ADE694A1E4791 /* MLHybrid-prefix.pch */,
+				C5F52553D80C1E69AF171D0504BFF9B2 /* MLHybrid-umbrella.h */,
 			);
-			path = Classes;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/MLHybrid";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +240,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE3755A0122A8220D57D5597C0FF85BA /* Build configuration list for PBXNativeTarget "MLHybrid" */;
 			buildPhases = (
-				19FF809A11A1E4F8F746AE6586D8E418 /* Sources */,
+				7F3D3965F53C3F43038273D09A4A6370 /* Sources */,
 				2BFF0A873960713515BAD643201A49CC /* Frameworks */,
 				3E749E6B18072D84668171150EC4D9B1 /* Headers */,
 			);
@@ -312,11 +296,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					463CD83E762F4B878C8179FFDC9BCE71 = {
-						LastSwiftMigration = 0830;
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -338,20 +317,20 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		19FF809A11A1E4F8F746AE6586D8E418 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0D9F7B901F3B4A7B00503F72 /* MLHybrid.swift in Sources */,
-				4E80DA08DEC0B777E77E3201A17C58A7 /* MLHybrid-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5A7A392239AD7C3872C6FABCEDDF53F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3BBADBAEC199837C0B29278630C40365 /* Pods-MLHybrid_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F3D3965F53C3F43038273D09A4A6370 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58DFB7F934D1AE0603D3614A8608FCCA /* MLHybrid-dummy.m in Sources */,
+				8D298638CED288E929706E89D726B91D /* MLHybrid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,89 +354,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0E9DDF73AD38E234D4F72C835E3E8B8E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 851475142084E1EC007EA860C4C392F7 /* MLHybrid.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MLHybrid/MLHybrid-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MLHybrid/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MLHybrid/MLHybrid.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = MLHybrid;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		345CC476DF4A7516DBD2220CF5035FF3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = NO;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_DEBUG=1",
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Debug;
-		};
 		565EE114AAAD2DCB07D2AA67EE4E7E71 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 50806C2B18D639EA1C6D441134A94AEB /* Pods-MLHybrid_Tests.debug.xcconfig */;
@@ -493,6 +389,41 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		5693A7C3B9C674C4019EC0DCBFAC0A68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E7D83AB5BA52499BC7C4B9FC918E16E /* MLHybrid.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MLHybrid/MLHybrid-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MLHybrid/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MLHybrid/MLHybrid.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MLHybrid;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		665E6A2FEC075BE54C72DA0B4FCFEF71 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -613,11 +544,59 @@
 			};
 			name = Release;
 		};
-		A0C78F8D20926A1C13D62AC8A916ED50 /* Debug */ = {
+		A6A03C9B1314C05BD3C2FBD3F65EDF83 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 851475142084E1EC007EA860C4C392F7 /* MLHybrid.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		D8010CD9FA69087B01EC30CEC1E0E689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E7D83AB5BA52499BC7C4B9FC918E16E /* MLHybrid.xcconfig */;
+			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -640,7 +619,7 @@
 				PRODUCT_NAME = MLHybrid;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -693,7 +672,7 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				345CC476DF4A7516DBD2220CF5035FF3 /* Debug */,
+				A6A03C9B1314C05BD3C2FBD3F65EDF83 /* Debug */,
 				717E77604BFBB04BEAF56608A1CB2EDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -711,8 +690,8 @@
 		DE3755A0122A8220D57D5597C0FF85BA /* Build configuration list for PBXNativeTarget "MLHybrid" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A0C78F8D20926A1C13D62AC8A916ED50 /* Debug */,
-				0E9DDF73AD38E234D4F72C835E3E8B8E /* Release */,
+				D8010CD9FA69087B01EC30CEC1E0E689 /* Debug */,
+				5693A7C3B9C674C4019EC0DCBFAC0A68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
