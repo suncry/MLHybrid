@@ -17,40 +17,6 @@ let NaviImageHeader = "hybrid_navi_"
 
 class MLHybridTools: NSObject {
     
-    //MARK: 事件类型
-
-    enum FunctionType: String {
-        case UpdateHeader = "updateheader"
-        case Back = "back"
-        case Forward = "forward"
-        case Get = "get"
-        case Post = "post"
-        case Gallery = "gallery"
-        case ShowHeader = "showheader"
-        case CheckVersion = "checkver"
-        case OldPay = "oldpay"
-        case OnWebViewShow = "onwebviewshow"
-        case OnWebViewHide = "onwebviewhide"
-        case SwitchCache = "switchcache"
-        case CurrentPosition = "getcurlocpos"
-        //支付相关
-        case PayByAlipay = "paybyalipay"
-        case PayByWXpay = "paybywxpay"
-        case iOSBuy = "iosbuy"
-        case PayCallBack = "paycallback"
-        //5.0新增
-        case CopyLink = "copyLink"
-        case GetLocation = "getLocation"
-        case OpenMap = "openMap"
-        case Pop = "pop"
-        case Openlink = "openLink"
-        //5.1
-        case Addtoclipboard = "addtoclipboard"
-        //CRM
-        case  login = "login"
-        case UploadImage = "uploadImage"
-
-    }
     
     //MARK: 资源路径相关
     fileprivate let checkVersionQAURL = "http://h5.qa.medlinker.com/app/version/latestList?app=medlinker&sys_p=i&cli_v="
@@ -115,7 +81,7 @@ class MLHybridTools: NSObject {
         print("args       === \(args)")
         print("callbackID === \(callbackID)")
         print("****************************************\n")
-        if let funType = FunctionType.init(rawValue: funType) {
+        if let funType = FunctionType(rawValue: funType) {
             switch funType {
                 case .UpdateHeader   : self.updateHeader(args, webView: webView)
                 case .Back           : self.back(args, webView: webView)
@@ -139,8 +105,6 @@ class MLHybridTools: NSObject {
                 case .Pop            : self.pop(args)
                 case .Openlink       : self.openlink(args: args)
                 case .Addtoclipboard : self.copy(args: args)
-                case .login          : self.logout()
-                case .UploadImage     : self.uploadImage(args, callbackID: callbackID, webView: webView)
                 case .Gallery         : self.gallery(args: args)
             }
         }

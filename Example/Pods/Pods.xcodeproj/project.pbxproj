@@ -39,6 +39,7 @@
 		0D9F825D1F419A0300503F72 /* MLHybridTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82181F419A0300503F72 /* MLHybridTextField.swift */; };
 		0D9F825E1F419A0300503F72 /* MLHybridTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82191F419A0300503F72 /* MLHybridTextView.swift */; };
 		0D9F825F1F419A0300503F72 /* MLRefreshDIYHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F821A1F419A0300503F72 /* MLRefreshDIYHeader.swift */; };
+		0DF858301F41DA17006DC7C0 /* MLHybridMethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF8582F1F41DA17006DC7C0 /* MLHybridMethodType.swift */; };
 		112A90A41035A86CA1A954FC37AFB3E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		2F56A863495055B31F6B84C6958CD2E3 /* Pods-MLHybrid_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A022625CC4C26FD1B38002E3A8DFF6 /* Pods-MLHybrid_Tests-dummy.m */; };
 		3BBADBAEC199837C0B29278630C40365 /* Pods-MLHybrid_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E04B665DF78DE2E21C6A66AB8AFC2B /* Pods-MLHybrid_Example-dummy.m */; };
@@ -99,6 +100,7 @@
 		0D9F82181F419A0300503F72 /* MLHybridTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridTextField.swift; sourceTree = "<group>"; };
 		0D9F82191F419A0300503F72 /* MLHybridTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridTextView.swift; sourceTree = "<group>"; };
 		0D9F821A1F419A0300503F72 /* MLRefreshDIYHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLRefreshDIYHeader.swift; sourceTree = "<group>"; };
+		0DF8582F1F41DA17006DC7C0 /* MLHybridMethodType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridMethodType.swift; sourceTree = "<group>"; };
 		26274F19DFDD65D55D9ADE694A1E4791 /* MLHybrid-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MLHybrid-prefix.pch"; sourceTree = "<group>"; };
 		28E04B665DF78DE2E21C6A66AB8AFC2B /* Pods-MLHybrid_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MLHybrid_Example-dummy.m"; sourceTree = "<group>"; };
 		3F215F344031F3046F2D4715125BE32F /* Pods-MLHybrid_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MLHybrid_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		0D9F81C81F419A0300503F72 /* DogHybrid */ = {
 			isa = PBXGroup;
 			children = (
+				0DF8582F1F41DA17006DC7C0 /* MLHybridMethodType.swift */,
 				0D9F81CA1F419A0300503F72 /* MLHybridContentView.swift */,
 				0D9F81CC1F419A0300503F72 /* MLHybridTools.swift */,
 				0D9F81CD1F419A0300503F72 /* MLHybridViewController.swift */,
@@ -532,6 +535,7 @@
 				0D9F825C1F419A0300503F72 /* MLHybridMapViewController.swift in Sources */,
 				0D9F825B1F419A0300503F72 /* MLHybridInputView.swift in Sources */,
 				0D9F82591F419A0300503F72 /* HybridNaviTitleView.swift in Sources */,
+				0DF858301F41DA17006DC7C0 /* MLHybridMethodType.swift in Sources */,
 				0D9F82211F419A0300503F72 /* Hybrid_naviButtonModel.swift in Sources */,
 				0D9F822B1F419A0300503F72 /* MLHybridExtension.swift in Sources */,
 			);
