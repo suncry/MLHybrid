@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MLHybrid'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'Hybrid take U fly'
   s.description      = <<-DESC
 this is description
@@ -13,7 +13,7 @@ this is description
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Source'
+  s.source_files = 'Source/**/*'
   
   s.frameworks = 'WebKit'
   s.dependency 'RTRootNavigationController'
