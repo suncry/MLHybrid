@@ -12,57 +12,19 @@ open class MLHybridViewController: UIViewController {
 
     var locationModel = MLHybridLocation()
     var naviBarHidden = false
-    var statusBarStyle: UIStatusBarStyle = .default
-    override open var preferredStatusBarStyle : UIStatusBarStyle {
-        return statusBarStyle
-    }
-    var URLPath: String?
-    var Cookie: String?
+
+    var URLPath: URL?
     var htmlString: String?
 
     var onShowCallBack: String?
     var onHideCallBack: String?
     
-    fileprivate var percentDrivenTransition: UIPercentDrivenInteractiveTransition?
     
     weak var contentView: MLHybridContentView!
     
     //MARK: - init
-    class func load(urlString: String) -> MLHybridViewController? {
-        if let url = URL(string: urlString.hybridUrlPathAllowedString()) {
-            let webViewController = MLHybridViewController()
-            /*
-            if let sess = LoginUserViewModel.shared.loginUser.value?.session {
-                webViewController.Cookie = sess
-            }*/
-            webViewController.hidesBottomBarWhenPushed = true
-            if url.scheme == MLHYBRID_SCHEMES {
-                let contentResolver = MLHybridTools().contentResolver(urlString: urlString)
-                if let topageURL = contentResolver.args["topage"] as? String {
-                    webViewController.URLPath = topageURL
-                    return webViewController
-                }
-            } else if url.host != nil {
-                webViewController.URLPath = url.absoluteString
-                return webViewController
-            } else {
-//                MLPageUrlParseManager(currentVC: MLHybridTools().currentVC()).handlePageJumpWithUrl(urlString)
-            }
-        }
-        return nil
-    }
-    
-    class func clearCookie (urlString: String) {
-        if let url = URL(string: urlString) {
-            guard let cookies = HTTPCookieStorage.shared.cookies(for: url) else { return }
-            for cookie in cookies {
-                HTTPCookieStorage.shared.deleteCookie(cookie)
-            }
-        }
-    }
-    
     deinit {
-//        Log.debug("===================\n\(String(describing: self.title))   释放\n===================")
+        locationModel.stopUpdateLocation()
         if contentView != nil {
             contentView.load(URLRequest(url: URL(string: "about:blank")!))
             contentView.stopLoading()
@@ -70,16 +32,6 @@ open class MLHybridViewController: UIViewController {
             contentView.navigationDelegate = nil
             contentView.removeFromSuperview()
             contentView = nil
-        }
-        locationModel.stopUpdateLocation()
-        
-        if let subviews = self.navigationController?.navigationBar.subviews {
-            for view in subviews {
-                if view is UIButton {
-                    //移除旧的按钮
-                    view.removeFromSuperview()
-                }
-            }
         }
     }
     
@@ -131,17 +83,11 @@ open class MLHybridViewController: UIViewController {
         if let htmlString = self.htmlString {
             self.contentView.htmlString = htmlString
         }
-        if let path = self.URLPath {
-            if let request = self.getRequest(urlString: path) {
-                self.contentView.load(request)
-            }
-        }
-    }
-    
-    func getRequest(urlString: String) -> URLRequest? {
-        guard let urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) else {return nil}
-        guard let url = URL(string: urlString) else {return nil}
-        return URLRequest(url:url)
+        
+        guard URLPath != nil else {return}
+        self.contentView.load(URLRequest(url: URLPath!))
+
+        
     }
     
 }

@@ -59,10 +59,10 @@ class MLHybridMapViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func openInfoUrl(_ sender: Any) {
         if self.infoUrl.characters.count > 0 {
-            if let tempVC = MLHybridViewController.load(urlString: self.infoUrl) {
-                tempVC.navigationController?.isNavigationBarHidden = false
-                self.navigationController?.pushViewController(tempVC, animated: true)
-            }
+//            if let tempVC = MLHybridViewController.load(urlString: self.infoUrl) {
+//                tempVC.navigationController?.isNavigationBarHidden = false
+//                self.navigationController?.pushViewController(tempVC, animated: true)
+//            }
         }
     }
 

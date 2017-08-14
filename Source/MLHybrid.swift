@@ -13,44 +13,31 @@ open class MLHybrid {
     open static let shared = MLHybrid()
     private init() {}
     
-    var sess: String = "nil"
-    var platform: String = "nil"
-    var userAgent: String = "nil"
+    var sess: String = "unregistered"
+    var platform: String = "unregistered"
+    var userAgent: String = "unregistered"
+    var scheme: String = "unregistered"
 
-
-    //初始化
-    open class func register(sess: String, platform: String, userAgent: String) {
+    //注册信息
+    //应用启动、登陆、注销 都需要调用
+    open class func register(sess: String,
+                             platform: String,
+                             userAgent: String,
+                             scheme: String) {
         shared.sess = sess
         shared.platform = platform
         shared.userAgent = userAgent
-        
-        
+        shared.scheme = scheme
 
     }
 
     //加载页面
     open class func load(urlString: String) -> MLHybridViewController? {
-        if let url = URL(string: urlString.hybridUrlPathAllowedString()) {
-            let webViewController = MLHybridViewController()
-            /*
-             if let sess = LoginUserViewModel.shared.loginUser.value?.session {
-             webViewController.Cookie = sess
-             }*/
-            webViewController.hidesBottomBarWhenPushed = true
-            if url.scheme == MLHYBRID_SCHEMES {
-                let contentResolver = MLHybridTools().contentResolver(urlString: urlString)
-                if let topageURL = contentResolver.args["topage"] as? String {
-                    webViewController.URLPath = topageURL
-                    return webViewController
-                }
-            } else if url.host != nil {
-                webViewController.URLPath = url.absoluteString
-                return webViewController
-            } else {
-                //                MLPageUrlParseManager(currentVC: MLHybridTools().currentVC()).handlePageJumpWithUrl(urlString)
-            }
-        }
-        return nil
+        
+        guard let url = URL(string: urlString.hybridUrlPathAllowedString()) else {return nil}
+        let webViewController = MLHybridViewController()
+        webViewController.URLPath = url
+        return webViewController        
     }
 
     

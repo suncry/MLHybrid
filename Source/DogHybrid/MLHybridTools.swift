@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import WebKit
 
-let MLHYBRID_SCHEMES = "medmedlinkerhybrid"
+//let MLHYBRID_SCHEMES = "medmedlinkerhybrid"
 
 let HybridEvent = "Hybrid.callback"
 let NaviImageHeader = "hybrid_navi_"
@@ -82,7 +82,7 @@ class MLHybridTools: NSObject {
     /// - Returns: 执行方法名、参数、回调ID
     open func contentResolver(urlString: String, appendParams: [String: String] = [:]) -> (function: String, args: [String: AnyObject], callbackId: String) {
         if let url = URL(string: urlString) {
-            if url.scheme == MLHYBRID_SCHEMES {
+            if url.scheme == MLHybrid.shared.scheme {
                 let functionName = url.host ?? ""
                 let paramDic = url.hybridURLParamsDic()
                 var args = (paramDic["param"] ?? "").hybridDecodeURLString().hybridDecodeJsonStr()
@@ -375,17 +375,9 @@ class MLHybridTools: NSObject {
     func forward(_ args: [String: AnyObject]) {
         if  args["type"] as? String == "h5" {
             if let url = args["topage"] as? String {
-                if let webViewController = MLHybridViewController.load(urlString: url) {
-                    webViewController.Cookie = args["Cookie"] as? String
-                    if let animate = args["animate"] as? String , animate == "present" {
-                        let navi = UINavigationController(rootViewController: webViewController)
-                        self.currentVC()?.present(navi, animated: true, completion: nil)
-                    }
-                    else {
-                        if let navi =  self.currentNavi() {
-                            navi.pushViewController(webViewController, animated: true)
-                        }
-                    }
+                guard let webViewController = MLHybrid.load(urlString: url) else {return}
+                if let navi =  self.currentNavi() {
+                    navi.pushViewController(webViewController, animated: true)
                 }
             }
         } else {
