@@ -383,14 +383,6 @@ class MLHybridTools: NSObject {
                     }
                     else {
                         if let navi =  self.currentNavi() {
-                            if let vc  = navi.viewControllers.last as? MLHybridViewController {
-                                if let animate = args["animate"] as? String , animate == "pop" {
-                                    vc.animateType = .pop
-                                }
-                                else {
-                                    vc.animateType = .normal
-                                }
-                            }
                             navi.pushViewController(webViewController, animated: true)
                         }
                     }

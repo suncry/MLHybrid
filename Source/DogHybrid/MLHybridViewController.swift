@@ -8,18 +8,12 @@
 
 import UIKit
 
-enum AnimateType {
-    case normal
-    case push
-    case pop
-}
-
-class MLHybridViewController: UIViewController {
+open class MLHybridViewController: UIViewController {
 
     var locationModel = MLHybridLocation()
     var naviBarHidden = false
     var statusBarStyle: UIStatusBarStyle = .default
-    override var preferredStatusBarStyle : UIStatusBarStyle {
+    override open var preferredStatusBarStyle : UIStatusBarStyle {
         return statusBarStyle
     }
     var URLPath: String?
@@ -33,8 +27,6 @@ class MLHybridViewController: UIViewController {
     
     weak var contentView: MLHybridContentView!
     
-    var animateType: AnimateType = .normal
-
     //MARK: - init
     class func load(urlString: String) -> MLHybridViewController? {
         if let url = URL(string: urlString.hybridUrlPathAllowedString()) {
@@ -92,13 +84,13 @@ class MLHybridViewController: UIViewController {
     }
     
     //MARK: - life cycle
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         self.initUI()
         self.initContentView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let callback = self.onShowCallBack {
             MLHybridTools().callBack(data: "", err_no: 0, msg: "onwebviewshow", callback: callback, webView: self.contentView, completion: {js in
@@ -106,7 +98,7 @@ class MLHybridViewController: UIViewController {
         }
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
+    override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if let callback = self.onHideCallBack {
             let _ =  MLHybridTools().callBack(data: "", err_no: 0, msg: "onwebviewshow", callback: callback, webView: self.contentView, completion: {js in
@@ -147,44 +139,9 @@ class MLHybridViewController: UIViewController {
     }
     
     func getRequest(urlString: String) -> URLRequest? {
-        if let urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) {
-            if let url = URL(string: urlString) {
-                let urlRequest = NSURLRequest(url:url)
-                let mutableRequest = urlRequest.mutableCopy() as? NSMutableURLRequest
-                if let userCookies =  MLHybridCookies.shared.dataSource?.userCookiesValue!() {
-                    let cookieValue = String(format:"platform=%@; sess=%@",userCookies.platform, userCookies.sess)
-                    mutableRequest?.addValue(cookieValue, forHTTPHeaderField: "Cookie")
-                }
-                return  (mutableRequest! as URLRequest)
-            }
-        }
-        return nil
+        guard let urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) else {return nil}
+        guard let url = URL(string: urlString) else {return nil}
+        return URLRequest(url:url)
     }
     
-}
-
-//MARK: - UINavigationControllerDelegate
-extension MLHybridViewController: UINavigationControllerDelegate {
-
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if operation == UINavigationControllerOperation.push {
-            if self.animateType == .pop {
-                return HybridTransionPush()
-            }
-            else {
-                return nil
-            }
-        } else {
-            return nil
-        }
-    }
-    
-    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        if animationController is HybridTransionPush {
-            return self.percentDrivenTransition
-        } else {
-            return nil
-        }
-    }
-
 }

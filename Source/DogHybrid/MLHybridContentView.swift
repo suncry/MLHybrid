@@ -19,10 +19,10 @@ class MLHybridContentView: WKWebView {
     
     var tool: MLHybridTools = MLHybridTools()
 
-    let USER_AGENT_HEADER = "med_hybrid_mecrm_"
+//    let USER_AGENT_HEADER = "med_hybrid_mecrm_"
     var htmlString: String?
     
-    convenience init(frame: CGRect) {
+    public convenience init(frame: CGRect) {
         let configuration = WKWebViewConfiguration()
         configuration.preferences = MLHybridContentView.sharedKPreferences
         configuration.preferences.minimumFontSize = 10;
@@ -33,17 +33,20 @@ class MLHybridContentView: WKWebView {
         configuration.processPool = MLHybridContentView.sharedProcessPool
 
         let  userContentController = WKUserContentController()
-        if let user =  MLHybridCookies.shared.dataSource?.userCookiesValue!() {
-            let cookieValue = String(format:"document.cookie ='platform=%@;path=/;domain=medlinker.com;expires=Sat, 02 May 2019 23:38:25 GMT；';document.cookie = 'sess=%@;path=/;domain=medlinker.com;expires=Sat, 02 May 2019 23:38:25 GMT；';",user.platform,user.sess)
-            let  cookieScript = WKUserScript(source: cookieValue, injectionTime: .atDocumentStart , forMainFrameOnly: false)
-            userContentController.addUserScript(cookieScript)
-        }
+//        if let user =  MLHybridCookies.shared.dataSource?.userCookiesValue!() {
+//            let cookieValue = String(format:"document.cookie ='platform=%@;path=/;domain=medlinker.com;expires=Sat, 02 May 2019 23:38:25 GMT；';document.cookie = 'sess=%@;path=/;domain=medlinker.com;expires=Sat, 02 May 2019 23:38:25 GMT；';",user.platform,user.sess)
+//            let  cookieScript = WKUserScript(source: cookieValue, injectionTime: .atDocumentStart , forMainFrameOnly: false)
+//            userContentController.addUserScript(cookieScript)
+//        }
+        let cookieValue = String(format:"document.cookie ='platform=%@;path=/;domain=medlinker.com;expires=Sat, 02 May 2019 23:38:25 GMT；';document.cookie = 'sess=%@;path=/;domain=medlinker.com;expires=Sat, 02 May 2019 23:38:25 GMT；';", MLHybrid.shared.platform, MLHybrid.shared.sess)
+        let  cookieScript = WKUserScript(source: cookieValue, injectionTime: .atDocumentStart , forMainFrameOnly: false)
+        userContentController.addUserScript(cookieScript)
+
         configuration.userContentController = userContentController
         self.init(frame: frame, configuration: configuration)
-
     }
     
-    override init(frame: CGRect, configuration: WKWebViewConfiguration) {
+    private override init(frame: CGRect, configuration: WKWebViewConfiguration) {
         super.init(frame:frame,configuration:configuration)
         self.configUserAgent()
         self.initUI()
@@ -67,9 +70,9 @@ class MLHybridContentView: WKWebView {
     //设置userAgent
     func configUserAgent () {
         var userAgentStr: String = UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent") ?? ""
-        if (userAgentStr.range(of: USER_AGENT_HEADER) == nil) {
-            let versionStr = Bundle.main.infoDictionary!["CFBundleShortVersionString"]
-            userAgentStr.append(" \(USER_AGENT_HEADER)\(versionStr!) ")
+        if (userAgentStr.range(of: MLHybrid.shared.userAgent) == nil) {
+            guard let versionStr = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else {return}
+            userAgentStr.append(" \(MLHybrid.shared.userAgent)\(versionStr) ")
             UserDefaults.standard.register(defaults: ["UserAgent" : userAgentStr])
         }
     }
