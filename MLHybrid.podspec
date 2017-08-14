@@ -13,7 +13,7 @@ this is description
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Source/*'
+  s.source_files = 'Source'
   
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
