@@ -72,6 +72,14 @@ class MLHybridContentView: WKWebView {
 
 extension MLHybridContentView: WKUIDelegate,WKNavigationDelegate {
     
+    func vcOfView(view: UIView) -> MLHybridViewController {
+        var nextResponder = view.next
+        while !(nextResponder is MLHybridViewController) {
+            nextResponder = nextResponder?.next ?? UIViewController()
+        }
+        return nextResponder as? MLHybridViewController ?? MLHybridViewController()
+    }
+
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!){
         /*
@@ -82,7 +90,7 @@ extension MLHybridContentView: WKUIDelegate,WKNavigationDelegate {
         /* if let title = webView.stringByEvaluatingJavaScript(from: "document.title"), title.characters.count > 0 {
          self.tool.viewControllerOf(webView).title = self.title
          }*/
-            self.tool.commandFromVC().title = webView.title
+        self.vcOfView(view: webView).title = webView.title
         
         
         if let htmlString = self.htmlString {

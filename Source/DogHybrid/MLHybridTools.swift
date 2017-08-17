@@ -132,6 +132,7 @@ class MLHybridTools: NSObject {
     }
     
     func commandFromVC() -> MLHybridViewController {
+        guard let command = command else {return MLHybridViewController()}
         var nextResponder = command.webView.next
         while !(nextResponder is MLHybridViewController) {
             nextResponder = nextResponder?.next ?? UIViewController()

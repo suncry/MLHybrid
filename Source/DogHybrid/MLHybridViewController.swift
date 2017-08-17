@@ -20,7 +20,7 @@ open class MLHybridViewController: UIViewController {
     var onHideCallBack: String?
     
     
-    weak var contentView: MLHybridContentView!
+    var contentView: MLHybridContentView!
     
     //MARK: - init
     deinit {
