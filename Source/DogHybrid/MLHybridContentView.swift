@@ -95,7 +95,7 @@ extension MLHybridContentView: WKUIDelegate,WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         var policy =  WKNavigationActionPolicy.allow
         if navigationAction.request.url?.scheme == MLHybrid.shared.scheme {
-            self.tool.analysis(urlString: navigationAction.request.url?.absoluteString, webView: webView)
+            self.tool.analysis(urlString: (navigationAction.request.url?.absoluteString)!, webView: webView)
             policy =  WKNavigationActionPolicy.cancel
         }
         decisionHandler(policy)

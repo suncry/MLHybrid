@@ -10,13 +10,14 @@ import UIKit
 import CoreLocation
 import WebKit
 
-//let MLHYBRID_SCHEMES = "medmedlinkerhybrid"
-
 let HybridEvent = "Hybrid.callback"
 let NaviImageHeader = "hybrid_navi_"
 
 class MLHybridTools: NSObject {
     
+    
+    typealias Command = (function: String, args: MLCommandArgs, callbackId: String, webView: WKWebView)
+    var command: Command!
     
     //MARK: 资源路径相关
     fileprivate let checkVersionQAURL = "http://h5.qa.medlinker.com/app/version/latestList?app=medlinker&sys_p=i&cli_v="
@@ -30,14 +31,10 @@ class MLHybridTools: NSObject {
     ///   - urlString: 原始指令串
     ///   - webView: 触发指令的容器
     ///   - appendParams: 附加到指令串中topage地址的参数 一般情况下不需要
-    open func analysis(urlString: String?, webView: WKWebView = WKWebView(), appendParams: [String: String] = [:]) {
-        if let urlString = urlString {
-            let contentResolver = self.contentResolver(urlString: urlString, appendParams: appendParams)
-            self.handleEvent(funType: contentResolver.function,
-                                args: contentResolver.args,
-                          callbackID: contentResolver.callbackId,
-                             webView: webView)
-        }
+    func analysis(urlString: String, webView: WKWebView = WKWebView(), appendParams: [String: String] = [:]) {
+        let result = contentResolver(urlString: urlString, appendParams: appendParams)
+        command = (result.function, result.args, result.callbackId, webView)
+        execute()
     }
     
     /// 解析hybrid指令
@@ -46,7 +43,8 @@ class MLHybridTools: NSObject {
     ///   - urlString: 原始指令串
     ///   - appendParams: 附加到指令串中topage地址的参数 一般情况下不需要
     /// - Returns: 执行方法名、参数、回调ID
-    open func contentResolver(urlString: String, appendParams: [String: String] = [:]) -> (function: String, args: [String: AnyObject], callbackId: String) {
+    func contentResolver(urlString: String, appendParams: [String: String] = [:])
+        -> (function: String, args: MLCommandArgs, callbackId: String) {
         if let url = URL(string: urlString) {
             if url.scheme == MLHybrid.shared.scheme {
                 let functionName = url.host ?? ""
@@ -56,57 +54,55 @@ class MLHybridTools: NSObject {
                     args.updateValue(newTopageURL as AnyObject, forKey: "topage")
                 }
                 let callBackId = paramDic["callback"] ?? ""
-                return (functionName, args, callBackId)
+                
+                let commandArgs = MLCommandArgs.convert(args)
+
+                
+                return (functionName, commandArgs, callBackId)
             } else {
                 var args = ["topage": urlString as AnyObject, "type": "h5" as AnyObject]
                 if let newTopageURL = urlString.hybridURLString(appendParams: appendParams) {
                     args.updateValue(newTopageURL as AnyObject, forKey: "topage")
                 }
-                return (FunctionType.Forward.rawValue, args, "")
+                
+                let commandArgs = MLCommandArgs.convert(args)
+
+                return (FunctionType.Forward.rawValue, commandArgs, "")
             }
         }
-        return ("", [:], "")
+        return ("", MLCommandArgs(), "")
     }
     
     /// 根据指令执行对应的方法
-    ///
-    /// - Parameters:
-    ///   - funType: 方法名
-    ///   - args: 参数
-    ///   - callbackID: 回调Id
-    ///   - webView: 执行函数的容器
-    func handleEvent(funType: String, args: [String: AnyObject], callbackID: String = "", webView: WKWebView) {
-        print("\n****************************************")
-        print("funType    === \(funType)")
-        print("args       === \(args)")
-        print("callbackID === \(callbackID)")
-        print("****************************************\n")
-        if let funType = FunctionType(rawValue: funType) {
-            switch funType {
-                case .UpdateHeader   : self.updateHeader(args, webView: webView)
-                case .Back           : self.back(args, webView: webView)
-                case .Forward        : self.forward(args)
-                case .Get            : self.hybridGet(args, callbackID: callbackID, webView: webView)
-                case .Post           : self.hybridPost(args, callbackID: callbackID, webView: webView)
-                case .ShowHeader     : self.setNavigationBarHidden(args, callbackID: callbackID, webView: webView)
-                case .CheckVersion   : self.checkVersion()
-                case .OldPay         : self.oldPay(args, callbackID: callbackID, webView: webView)
-                case .OnWebViewShow  : self.onWebViewShow(args, callbackID: callbackID, webView: webView)
-                case .OnWebViewHide  : self.onWebViewHide(args, callbackID: callbackID, webView: webView)
-                case .SwitchCache    : self.switchCache(args, callbackID: callbackID, webView: webView)
-                case .CurrentPosition: self.handleGetCurrentPosition(callbackID, webView: webView)
-                case .PayByAlipay    : self.handleAlipay(args, callbackID: callbackID, webView: webView)
-                case .PayByWXpay     : self.handleWeChatPay(args, callbackID: callbackID, webView: webView)
-                case .iOSBuy         : self.iOSBuy(args, callbackID: callbackID, webView: webView)
-                case .PayCallBack    : self.handlePayCallBack(args, callbackID: callbackID, webView: webView)
-                case .CopyLink       : self.handleCopyLink(webView: webView)
-                case .GetLocation    : self.handleGetLocation(args, callbackID: callbackID, webView: webView)
-                case .OpenMap        : self.handleOpenMap(args, callbackID: callbackID, webView: webView)
-                case .Pop            : self.pop(args)
-                case .Openlink       : self.openlink(args: args)
-                case .Addtoclipboard : self.copy(args: args)
-                case .Gallery         : self.gallery(args: args)
-            }
+    
+    func execute() {
+        
+        guard let funType = FunctionType(rawValue: command.function) else {return}
+        
+        switch funType {
+        case .UpdateHeader   : updateHeader()
+        case .Back           : back()
+        case .Forward        : forward()
+//        case .Get            : hybridGet()
+//        case .Post           : hybridPost()
+        case .ShowHeader     : setNavigationBarHidden()
+        case .CheckVersion   : checkVersion()
+        case .OldPay         : oldPay()
+        case .OnWebViewShow  : onWebViewShow()
+        case .OnWebViewHide  : onWebViewHide()
+        case .SwitchCache    : switchCache()
+        case .CurrentPosition: handleGetCurrentPosition()
+        case .PayByAlipay    : handleAlipay()
+        case .PayByWXpay     : handleWeChatPay()
+        case .iOSBuy         : iOSBuy()
+        case .PayCallBack    : handlePayCallBack()
+        case .CopyLink       : handleCopyLink()
+        case .GetLocation    : handleGetLocation()
+//        case .OpenMap        : handleOpenMap()
+        case .Pop            : pop()
+        case .Openlink       : openlink()
+        case .Addtoclipboard : copyContent()
+        case .Gallery        : gallery()
         }
     }
     
@@ -187,7 +183,7 @@ class MLHybridTools: NSObject {
         return nextResponder as? UIViewController ?? UIViewController()
     }
     
-    func updateHeader(_ args: [String: AnyObject], webView: WKWebView) {
+    func updateHeader() {
         /*
         if let header = Hybrid_headerModel.yy_model(withJSON: args) {
             if let titleModel = header.title, let rightButtons = header.right, let leftButtons = header.left {
@@ -328,120 +324,112 @@ class MLHybridTools: NSObject {
     }
 
     
-    func back(_ args: [String: AnyObject], webView: WKWebView) {
-        if let navi = self.viewControllerOf(webView).navigationController {
+    func back() {
+        if let navi = self.viewControllerOf(command.webView).navigationController {
             navi.popViewController(animated: true)
         } else {
-            self.viewControllerOf(webView).dismiss(animated: true, completion: nil)
+            self.viewControllerOf(command.webView).dismiss(animated: true, completion: nil)
         }
     }
     
-    func forward(_ args: [String: AnyObject]) {
-        if  args["type"] as? String == "h5" {
-            if let url = args["topage"] as? String {
-                guard let webViewController = MLHybrid.load(urlString: url) else {return}
-                if let navi =  self.currentNavi() {
-                    navi.pushViewController(webViewController, animated: true)
-                }
-            }
+    func forward() {
+        if command.args.isH5 {
+            guard let webViewController = MLHybrid.load(urlString: command.args.topage) else {return}
+            guard let navi = self.currentNavi() else {return}
+            navi.pushViewController(webViewController, animated: true)
         } else {
-            if (args["topage"] as? String) != nil {
-                //这里指定跳转到本地某页面   需要一个判断映射的方法
-//                MLPageUrlParseManager(currentVC: self.currentVC()).handlePageJumpWithUrl(url)
-            }
+            //这里指定跳转到本地某页面   需要一个判断映射的方法
         }
     }
     
     
-    func setNavigationBarHidden(_ args: [String: AnyObject], callbackID: String, webView: WKWebView) {
-        let hidden: Bool = !(args["display"] as? Bool ?? true)
-        let animated: Bool = args["animate"] as? Bool ?? true
-        let vc = self.viewControllerOf(webView)
+    func setNavigationBarHidden() {
+        let vc = self.viewControllerOf(command.webView)
         if vc.navigationController?.viewControllers.last == vc {
-            vc.navigationController?.setNavigationBarHidden(hidden, animated: animated)
+            vc.navigationController?.setNavigationBarHidden(command.args.display, animated: command.args.animate)
         }
-        vc.navigationController?.isNavigationBarHidden = hidden
-        vc.view.setNeedsLayout()
+//        vc.navigationController?.isNavigationBarHidden = hidden
+//        vc.view.setNeedsLayout()
     }
     
-    func hybridGet(_ args: [String: AnyObject], callbackID: String, webView: WKWebView) {
-        var urlString  = args["url"] as? String ?? ""
-        //这里需要处理下 todo
-        var parameters = args["param"] as? [String: String] ?? ["": ""]
-        let paramArray = NSMutableArray()
-        for keyString in parameters.keys {
-            paramArray.add("\(keyString)=\(parameters[keyString]!)")
-        }
-        let paramString = paramArray.componentsJoined(by: "&")
-        if paramString.characters.count > 0 {
-            urlString = urlString + "?" + paramString
-        }
-        //创建NSURL对象
-        let url:URL! = URL(string: urlString)
-        //创建请求对象
-        let urlRequest:NSMutableURLRequest = NSMutableURLRequest(url: url)
-        urlRequest.httpMethod = "GET"
-        //响应对象
-        NSURLConnection.sendAsynchronousRequest(urlRequest as URLRequest, queue: OperationQueue.main, completionHandler: { (response, data, error) -> Void in
-            if let _ = data {
-                if let callbackString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) {
-                    _ = self.callBack(data: callbackString, err_no: 0, msg: "success", callback: callbackID, webView: webView, completion: {js in
-                    })
-                }
-                else {
-                    print("callbackString error")
-                }
-            }
-            else {
-                print("data null & error = \(String(describing: error))")
-            }
-        })
-    }
+//    func hybridGet() {
+//        var urlString  = args["url"] as? String ?? ""
+//        //这里需要处理下 todo
+//        var parameters = args["param"] as? [String: String] ?? ["": ""]
+//        let paramArray = NSMutableArray()
+//        for keyString in parameters.keys {
+//            paramArray.add("\(keyString)=\(parameters[keyString]!)")
+//        }
+//        let paramString = paramArray.componentsJoined(by: "&")
+//        if paramString.characters.count > 0 {
+//            urlString = urlString + "?" + paramString
+//        }
+//        //创建NSURL对象
+//        let url:URL! = URL(string: urlString)
+//        //创建请求对象
+//        let urlRequest:NSMutableURLRequest = NSMutableURLRequest(url: url)
+//        urlRequest.httpMethod = "GET"
+//        //响应对象
+//        NSURLConnection.sendAsynchronousRequest(urlRequest as URLRequest, queue: OperationQueue.main, completionHandler: { (response, data, error) -> Void in
+//            if let _ = data {
+//                if let callbackString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) {
+//                    _ = self.callBack(data: callbackString, err_no: 0, msg: "success", callback: callbackID, webView: webView, completion: {js in
+//                    })
+//                }
+//                else {
+//                    print("callbackString error")
+//                }
+//            }
+//            else {
+//                print("data null & error = \(String(describing: error))")
+//            }
+//        })
+//    }
 
-    func hybridPost(_ args: [String: AnyObject], callbackID: String, webView: WKWebView) {
-        //创建NSURL对象
-        let url:URL! = URL(string: args["url"] as? String ?? "")
-        //创建请求对象
-        let urlRequest:NSMutableURLRequest = NSMutableURLRequest(url: url)
-        urlRequest.httpMethod = "POST"
-        var parameters = args
-        parameters.removeValue(forKey: "url")
-        let paramArray = NSMutableArray()
-        for keyString in parameters.keys {
-            paramArray.add("\(keyString)=\(String(describing: parameters[keyString]))")
-        }
-        urlRequest.httpBody = paramArray.componentsJoined(by: "&").data(using: String.Encoding.utf8)
-        
-        //响应对象
-        NSURLConnection.sendAsynchronousRequest(urlRequest as URLRequest, queue: OperationQueue.main, completionHandler: { (response, data, error) -> Void in
-            if let _ = data {
-                if let callbackString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) {
-                    _ = self.callBack(data: callbackString, err_no: 0, msg: "success", callback: callbackID, webView: webView, completion: {js in
-                    })
-                }
-                else {
-                    print("callbackString error")
-                }
-            }
-            else {
-                print("data null & error = \(String(describing: error))")
-            }
-        })
-    }
+//    func hybridPost() {
+//        //创建NSURL对象
+//        let url:URL! = URL(string: args["url"] as? String ?? "")
+//        //创建请求对象
+//        let urlRequest:NSMutableURLRequest = NSMutableURLRequest(url: url)
+//        urlRequest.httpMethod = "POST"
+//        var parameters = args
+//        parameters.removeValue(forKey: "url")
+//        let paramArray = NSMutableArray()
+//        for keyString in parameters.keys {
+//            paramArray.add("\(keyString)=\(String(describing: parameters[keyString]))")
+//        }
+//        urlRequest.httpBody = paramArray.componentsJoined(by: "&").data(using: String.Encoding.utf8)
+//        
+//        //响应对象
+//        NSURLConnection.sendAsynchronousRequest(urlRequest as URLRequest, queue: OperationQueue.main, completionHandler: { (response, data, error) -> Void in
+//            if let _ = data {
+//                if let callbackString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) {
+//                    _ = self.callBack(data: callbackString, err_no: 0, msg: "success", callback: callbackID, webView: webView, completion: {js in
+//                    })
+//                }
+//                else {
+//                    print("callbackString error")
+//                }
+//            }
+//            else {
+//                print("data null & error = \(String(describing: error))")
+//            }
+//        })
+//    }
     
     /**
      * 获取设备位置
      */
-    func handleGetCurrentPosition(_ callBackId: String, webView: WKWebView) {
+    func handleGetCurrentPosition() {
         if let vc = self.currentVC() as? MLHybridViewController {
             vc.locationModel.getLocation { (success, errcode, resultData) in
-                _ = self.callBack(data: resultData as AnyObject? ?? "" as AnyObject, err_no: errcode, callback: callBackId, webView: webView, completion: {js in
+                _ = self.callBack(data: resultData as AnyObject? ?? "" as AnyObject, err_no: errcode, callback: self.command.callbackId, webView: self.command.webView, completion: {js in
                 })
             }
         }
     }
     
-    func oldPay(_ args: [String: AnyObject], callbackID: String, webView: WKWebView) {
+    func oldPay() {
 //        let payUrl = args["orderurl"] as? String ?? ""
 //        MLPay.wallet(payUrl, currentController: self.currentVC() ?? UIViewController()) { (success, errorMsg, resultCode) in
 //            webView.reload()
@@ -449,22 +437,20 @@ class MLHybridTools: NSObject {
 //        }
     }
 
-    func onWebViewShow(_ args: [String: AnyObject], callbackID: String, webView: WKWebView) {
-        if let vc = self.viewControllerOf(webView) as? MLHybridViewController {
-            vc.onShowCallBack = callbackID
+    func onWebViewShow() {
+        if let vc = self.viewControllerOf(command.webView) as? MLHybridViewController {
+            vc.onShowCallBack = self.command.callbackId
         }
     }
     
-    func onWebViewHide(_ args: [String: AnyObject], callbackID: String, webView: WKWebView) {
-        if let vc = self.viewControllerOf(webView) as? MLHybridViewController {
-            vc.onHideCallBack = callbackID
+    func onWebViewHide() {
+        if let vc = self.viewControllerOf(command.webView) as? MLHybridViewController {
+            vc.onHideCallBack = self.command.callbackId
         }
     }
 
-    func switchCache(_ args: [String: AnyObject], callbackID: String, webView: WKWebView) {
-        if let open = args["open"] as? Bool {
-            UserDefaults.standard.set(!open, forKey: "HybridSwitchCacheClose")
-        }
+    func switchCache() {
+        UserDefaults.standard.set(!command.args.open, forKey: "HybridSwitchCacheClose")
     }
     
 }
@@ -476,7 +462,7 @@ extension MLHybridTools {
     /**
      * 支付宝支付
      */
-    func handleAlipay(_ args: [String: AnyObject], callbackID: String, webView: WKWebView) {
+    func handleAlipay() {
 //        let orderString  = args["payInfo"] as? String ?? ""
 //        MLPay.sharedInstance.alipay(orderString) { (success, errorMsg, resultCode) in
 //            let payResult = ["code":resultCode,
@@ -492,7 +478,7 @@ extension MLHybridTools {
     /**
      * 微信支付
      */
-    func handleWeChatPay(_ args: [String: AnyObject], callbackID: String, webView: WKWebView) {
+    func handleWeChatPay() {
 //        let orderString = args["payInfo"] as? String ?? ""
 //        let data = orderString.data(using: String.Encoding.utf8)
 //        let orderDic = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)
@@ -509,9 +495,9 @@ extension MLHybridTools {
     /**
      * H5钱包支付回调
      */
-    func handlePayCallBack(_ args: [String: AnyObject], callbackID: String, webView: WKWebView) {
+    func handlePayCallBack() {
         print("handlePayCallBack")
-        print("args == \(args)")
+//        print("args == \(args)")
         
 //        if let finishBlock = MLPay.sharedInstance.finishBlock, let vc = self.currentVC() {
 //            let status = args["status"] as? Int ?? 0
@@ -541,7 +527,7 @@ extension MLHybridTools {
 //        }
     }
 
-    func iOSBuy(_ args: [String: AnyObject], callbackID: String, webView: WKWebView) {
+    func iOSBuy() {
 //        if MLIAPHelper.isIAPPurching {
 //            return
 //        }
@@ -563,8 +549,8 @@ extension MLHybridTools {
     /**
      * 复制网页链接
      */
-    func handleCopyLink(webView: WKWebView) {
-        if let urlString = webView.url?.absoluteString {
+    func handleCopyLink() {
+        if let urlString = command.webView.url?.absoluteString {
             let pasteboard = UIPasteboard.general
             pasteboard.string = urlString
         }
@@ -575,10 +561,10 @@ extension MLHybridTools {
     /**
      * 获取位置
      */
-    func handleGetLocation(_ args: [String: AnyObject], callbackID: String, webView: WKWebView) {
+    func handleGetLocation() {
         if let vc = self.currentVC() as? MLHybridViewController {
             vc.locationModel.getLocation { (success, errcode, resultData) in
-                _ = self.callBack(data: resultData as AnyObject? ?? "" as AnyObject, err_no: errcode, callback: callbackID, webView: webView, completion: {js in })
+                _ = self.callBack(data: resultData as AnyObject? ?? "" as AnyObject, err_no: errcode, callback: self.command.callbackId, webView: self.command.webView, completion: {js in })
             }
         }
     }
@@ -586,27 +572,27 @@ extension MLHybridTools {
     /**
      * 打开地图并定位
      */
-    func handleOpenMap(_ args: [String: AnyObject], callbackID: String, webView: WKWebView) {
-        let latitude = Double(args["latitude"] as? String ?? "") ?? 0
-        let longitude = Double(args["longitude"] as? String ?? "") ?? 0
-        let name = args["name"] as? String ?? "未知"
-        let address = args["address"] as? String ?? "未知"
-        let infoUrl = args["infoUrl"] as? String ?? ""
-
-        
-        let vc = MLHybridMapViewController()
-        vc.latitude = latitude
-        vc.longitude = longitude
-        vc.name = name
-        vc.address = address
-        vc.infoUrl = infoUrl
-        self.currentNavi()?.pushViewController(vc, animated: true)
-    }
+//    func handleOpenMap() {
+//        let latitude = Double(args["latitude"] as? String ?? "") ?? 0
+//        let longitude = Double(args["longitude"] as? String ?? "") ?? 0
+//        let name = args["name"] as? String ?? "未知"
+//        let address = args["address"] as? String ?? "未知"
+//        let infoUrl = args["infoUrl"] as? String ?? ""
+//
+//        
+//        let vc = MLHybridMapViewController()
+//        vc.latitude = latitude
+//        vc.longitude = longitude
+//        vc.name = name
+//        vc.address = address
+//        vc.infoUrl = infoUrl
+//        self.currentNavi()?.pushViewController(vc, animated: true)
+//    }
 
     /**
      * pop 返回num个页面
      */
-    func pop(_ args: [String: AnyObject]) {
+    func pop() {
 //        let num = args["num"] as? Int ?? 0
 //        //推出所有hybrid页面
 //        if num == 999 {
@@ -632,14 +618,12 @@ extension MLHybridTools {
 //        }
     }
 
-    func openlink(args: [String: AnyObject]) {
-        let url = args["url"] as? String ?? ""
-        self.jumpToThirdParty(url: url)
+    func openlink() {
+        self.jumpToThirdParty(url: command.args.url)
     }
     
-    func copy(args: [String: AnyObject]) {
-        let content = args["content"] as? String ?? ""
-        UIPasteboard.general.string = content
+    func copyContent() {
+        UIPasteboard.general.string = command.args.content
 //        MLToast.message("已复制")
     }
     
@@ -657,7 +641,7 @@ extension MLHybridTools {
 //        }
     }
     
-    func uploadImage(_ args: [String: AnyObject], callbackID: String, webView: WKWebView) {
+    func uploadImage() {
 //        let maxCount = args["maxCount"] as? Int ?? 1
 //        let imageUploader = ImageUploader()
 //        let currentVC = self.viewControllerOf(webView)
@@ -675,7 +659,7 @@ extension MLHybridTools {
 //            })
 //        }
     }
-    func gallery(args: [String: AnyObject]) {
+    func gallery() {
 //        if let index = args["index"] as? Int, let imgs = args["imgs"] as? [String] {
 //            guard imgs.count > 0 else {
 //                CyAlertView.message("图片信息错误")
