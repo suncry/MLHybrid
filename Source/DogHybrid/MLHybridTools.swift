@@ -43,7 +43,7 @@ class MLHybridTools: NSObject {
     ///   - urlString: 原始指令串
     ///   - appendParams: 附加到指令串中topage地址的参数 一般情况下不需要
     /// - Returns: 执行方法名、参数、回调ID
-    func contentResolver(urlString: String, appendParams: [String: String] = [:])
+    private func contentResolver(urlString: String, appendParams: [String: String] = [:])
         -> (function: String, args: MLCommandArgs, callbackId: String) {
         if let url = URL(string: urlString) {
             if url.scheme == MLHybrid.shared.scheme {
@@ -75,10 +75,8 @@ class MLHybridTools: NSObject {
     
     /// 根据指令执行对应的方法
     
-    func execute() {
-        
+    private func execute() {
         guard let funType = FunctionType(rawValue: command.function) else {return}
-        
         switch funType {
         case .UpdateHeader   : updateHeader()
         case .Back           : back()
@@ -121,8 +119,6 @@ class MLHybridTools: NSObject {
                     "msg": msg,
                     "callback": callback] as [String : Any]
         let dataString = data.hybridJSONString()
-        //        return webView.stringByEvaluatingJavaScript(from: HybridEvent + "(\(dataString));") ?? ""
-        
         webView.evaluateJavaScript(HybridEvent + "(\(dataString));") { (result, error) in
             if let resultStr = result as? String {
                 completion(resultStr)
@@ -135,52 +131,52 @@ class MLHybridTools: NSObject {
         }
     }
 
-    func currentNavi() -> UINavigationController? {
-        if let vc = self.currentVC() {
-            if vc is UINavigationController {
-                return vc as? UINavigationController
-            }
-            else if vc is UITabBarController{
-                let currentVC = vc as! UITabBarController
-                let tabVC = currentVC.viewControllers![currentVC.selectedIndex]
-                if tabVC is UINavigationController {
-                    return tabVC as? UINavigationController
-                }
-                else {
-                    return tabVC.navigationController ?? nil
-                }
-            }
-            else {
-                return vc.navigationController ?? nil
-            }
-        }
-        return nil
-    }
+//    func currentNavi() -> UINavigationController? {
+//        if let vc = self.currentVC() {
+//            if vc is UINavigationController {
+//                return vc as? UINavigationController
+//            }
+//            else if vc is UITabBarController{
+//                let currentVC = vc as! UITabBarController
+//                let tabVC = currentVC.viewControllers![currentVC.selectedIndex]
+//                if tabVC is UINavigationController {
+//                    return tabVC as? UINavigationController
+//                }
+//                else {
+//                    return tabVC.navigationController ?? nil
+//                }
+//            }
+//            else {
+//                return vc.navigationController ?? nil
+//            }
+//        }
+//        return nil
+//    }
+//    
+//    func currentVC() -> UIViewController? {
+//        let vc = UIApplication.shared.keyWindow?.rootViewController ?? nil
+//        if vc is UITabBarController{
+//            let currentVC = vc as! UITabBarController
+//            let tabVC = currentVC.viewControllers![currentVC.selectedIndex]
+//            if tabVC is UINavigationController {
+//                let naviVC = tabVC as! UINavigationController
+//                return naviVC.viewControllers.last
+//            }
+//            return tabVC
+//        } else if vc is UINavigationController {
+//            let naviVC = vc as! UINavigationController
+//            return naviVC.viewControllers.last
+//        } else {
+//            return vc
+//        }
+//    }
     
-    func currentVC() -> UIViewController? {
-        let vc = UIApplication.shared.keyWindow?.rootViewController ?? nil
-        if vc is UITabBarController{
-            let currentVC = vc as! UITabBarController
-            let tabVC = currentVC.viewControllers![currentVC.selectedIndex]
-            if tabVC is UINavigationController {
-                let naviVC = tabVC as! UINavigationController
-                return naviVC.viewControllers.last
-            }
-            return tabVC
-        } else if vc is UINavigationController {
-            let naviVC = vc as! UINavigationController
-            return naviVC.viewControllers.last
-        } else {
-            return vc
-        }
-    }
-    
-    func viewControllerOf(_ view: UIView) -> UIViewController {
-        var nextResponder = view.next
-        while !(nextResponder is UIViewController) {
+    func commandFromVC() -> MLHybridViewController {
+        var nextResponder = command.webView.next
+        while !(nextResponder is MLHybridViewController) {
             nextResponder = nextResponder?.next ?? UIViewController()
         }
-        return nextResponder as? UIViewController ?? UIViewController()
+        return nextResponder as? MLHybridViewController ?? MLHybridViewController()
     }
     
     func updateHeader() {
@@ -222,32 +218,28 @@ class MLHybridTools: NSObject {
     
     func setLeftButtons(_ leftButtons:[Hybrid_naviButtonModel], navigationItem: UINavigationItem, webView: WKWebView) {
         if (leftButtons.count == 1 && leftButtons.first?.tagname == "back") || leftButtons.count == 0 {
-            if let vc = self.viewControllerOf(webView) as? MLHybridViewController {
-                print(vc)
-                /*
-                vc.setCustomBackBarButtonItem(handler: { (button) in
-                    if let callback = leftButtons.first?.callback, callback.characters.count > 0 {
-                        let _ = self.callBack(data: "" as AnyObject, err_no: 0, msg: "success", callback: callback,webView: webView, completion: {js in
-                        })
-                    } else {
-                        let _ = self.viewControllerOf(webView).navigationController?.popViewController(animated: true)
-                    }
-                })
-                */
-            } else {
-                let _ = self.currentVC()?.navigationController?.popViewController(animated: true)
-            }
+            /*
+             vc.setCustomBackBarButtonItem(handler: { (button) in
+             if let callback = leftButtons.first?.callback, callback.characters.count > 0 {
+             let _ = self.callBack(data: "" as AnyObject, err_no: 0, msg: "success", callback: callback,webView: webView, completion: {js in
+             })
+             } else {
+             let _ = self.viewControllerOf(webView).navigationController?.popViewController(animated: true)
+             }
+             })
+             */
+
         } else {
-            self.viewControllerOf(webView).navigationItem.setLeftBarButton(nil, animated: true)
+            self.commandFromVC().navigationItem.setLeftBarButton(nil, animated: true)
             for v in self.setUpButtons(leftButtons, webView: webView) {
-                self.viewControllerOf(webView).navigationController?.navigationBar.addSubview(v)
+                self.commandFromVC().navigationController?.navigationBar.addSubview(v)
             }
         }
     }
     
     func setRightButtons(_ rightButtons:[Hybrid_naviButtonModel], navigationItem: UINavigationItem, webView: WKWebView) {
         for v in self.setUpButtons(rightButtons, webView: webView, isRight: true) {
-            self.viewControllerOf(webView).navigationController?.navigationBar.addSubview(v)
+            self.commandFromVC().navigationController?.navigationBar.addSubview(v)
         }
     }
 
@@ -325,17 +317,17 @@ class MLHybridTools: NSObject {
 
     
     func back() {
-        if let navi = self.viewControllerOf(command.webView).navigationController {
+        if let navi = self.commandFromVC().navigationController {
             navi.popViewController(animated: true)
         } else {
-            self.viewControllerOf(command.webView).dismiss(animated: true, completion: nil)
+            self.commandFromVC().dismiss(animated: true, completion: nil)
         }
     }
     
     func forward() {
         if command.args.isH5 {
             guard let webViewController = MLHybrid.load(urlString: command.args.topage) else {return}
-            guard let navi = self.currentNavi() else {return}
+            guard let navi = self.commandFromVC().navigationController else {return}
             navi.pushViewController(webViewController, animated: true)
         } else {
             //这里指定跳转到本地某页面   需要一个判断映射的方法
@@ -344,7 +336,7 @@ class MLHybridTools: NSObject {
     
     
     func setNavigationBarHidden() {
-        let vc = self.viewControllerOf(command.webView)
+        let vc = self.commandFromVC()
         if vc.navigationController?.viewControllers.last == vc {
             vc.navigationController?.setNavigationBarHidden(command.args.display, animated: command.args.animate)
         }
@@ -421,11 +413,9 @@ class MLHybridTools: NSObject {
      * 获取设备位置
      */
     func handleGetCurrentPosition() {
-        if let vc = self.currentVC() as? MLHybridViewController {
-            vc.locationModel.getLocation { (success, errcode, resultData) in
-                _ = self.callBack(data: resultData as AnyObject? ?? "" as AnyObject, err_no: errcode, callback: self.command.callbackId, webView: self.command.webView, completion: {js in
-                })
-            }
+        self.commandFromVC().locationModel.getLocation { (success, errcode, resultData) in
+            _ = self.callBack(data: resultData as AnyObject? ?? "" as AnyObject, err_no: errcode, callback: self.command.callbackId, webView: self.command.webView, completion: {js in
+            })
         }
     }
     
@@ -438,15 +428,11 @@ class MLHybridTools: NSObject {
     }
 
     func onWebViewShow() {
-        if let vc = self.viewControllerOf(command.webView) as? MLHybridViewController {
-            vc.onShowCallBack = self.command.callbackId
-        }
+        self.commandFromVC().onShowCallBack = self.command.callbackId
     }
     
     func onWebViewHide() {
-        if let vc = self.viewControllerOf(command.webView) as? MLHybridViewController {
-            vc.onHideCallBack = self.command.callbackId
-        }
+        self.commandFromVC().onHideCallBack = self.command.callbackId
     }
 
     func switchCache() {
@@ -562,10 +548,8 @@ extension MLHybridTools {
      * 获取位置
      */
     func handleGetLocation() {
-        if let vc = self.currentVC() as? MLHybridViewController {
-            vc.locationModel.getLocation { (success, errcode, resultData) in
-                _ = self.callBack(data: resultData as AnyObject? ?? "" as AnyObject, err_no: errcode, callback: self.command.callbackId, webView: self.command.webView, completion: {js in })
-            }
+        self.commandFromVC().locationModel.getLocation { (success, errcode, resultData) in
+            _ = self.callBack(data: resultData as AnyObject? ?? "" as AnyObject, err_no: errcode, callback: self.command.callbackId, webView: self.command.webView, completion: {js in })
         }
     }
     

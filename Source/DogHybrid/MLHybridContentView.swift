@@ -82,7 +82,7 @@ extension MLHybridContentView: WKUIDelegate,WKNavigationDelegate {
         /* if let title = webView.stringByEvaluatingJavaScript(from: "document.title"), title.characters.count > 0 {
          self.tool.viewControllerOf(webView).title = self.title
          }*/
-            self.tool.viewControllerOf(webView).title = webView.title
+            self.tool.commandFromVC().title = webView.title
         
         
         if let htmlString = self.htmlString {
