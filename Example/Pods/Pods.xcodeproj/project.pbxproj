@@ -25,11 +25,6 @@
 		0D9F824F1F419A0300503F72 /* UIControl+YYAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9F82071F419A0300503F72 /* UIControl+YYAdd.h */; };
 		0D9F82501F419A0300503F72 /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82081F419A0300503F72 /* UIControl+YYAdd.m */; };
 		0D9F82511F419A0300503F72 /* YYKitMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9F82091F419A0300503F72 /* YYKitMacro.h */; };
-		0D9F82521F419A0300503F72 /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9F820B1F419A0300503F72 /* NSObject+YYModel.h */; };
-		0D9F82531F419A0300503F72 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F820C1F419A0300503F72 /* NSObject+YYModel.m */; };
-		0D9F82541F419A0300503F72 /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9F820D1F419A0300503F72 /* YYClassInfo.h */; };
-		0D9F82551F419A0300503F72 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F820E1F419A0300503F72 /* YYClassInfo.m */; };
-		0D9F82561F419A0300503F72 /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9F820F1F419A0300503F72 /* YYModel.h */; };
 		0D9F82571F419A0300503F72 /* ZYHWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82101F419A0300503F72 /* ZYHWebImage.swift */; };
 		0D9F82581F419A0300503F72 /* ZYHWebImageChcheCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82111F419A0300503F72 /* ZYHWebImageChcheCenter.swift */; };
 		0D9F82591F419A0300503F72 /* HybridNaviTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82131F419A0300503F72 /* HybridNaviTitleView.swift */; };
@@ -86,11 +81,6 @@
 		0D9F82071F419A0300503F72 /* UIControl+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+YYAdd.h"; sourceTree = "<group>"; };
 		0D9F82081F419A0300503F72 /* UIControl+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+YYAdd.m"; sourceTree = "<group>"; };
 		0D9F82091F419A0300503F72 /* YYKitMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKitMacro.h; sourceTree = "<group>"; };
-		0D9F820B1F419A0300503F72 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
-		0D9F820C1F419A0300503F72 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
-		0D9F820D1F419A0300503F72 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
-		0D9F820E1F419A0300503F72 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
-		0D9F820F1F419A0300503F72 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
 		0D9F82101F419A0300503F72 /* ZYHWebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYHWebImage.swift; sourceTree = "<group>"; };
 		0D9F82111F419A0300503F72 /* ZYHWebImageChcheCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYHWebImageChcheCenter.swift; sourceTree = "<group>"; };
 		0D9F82131F419A0300503F72 /* HybridNaviTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HybridNaviTitleView.swift; sourceTree = "<group>"; };
@@ -236,21 +226,8 @@
 				0D9F82071F419A0300503F72 /* UIControl+YYAdd.h */,
 				0D9F82081F419A0300503F72 /* UIControl+YYAdd.m */,
 				0D9F82091F419A0300503F72 /* YYKitMacro.h */,
-				0D9F820A1F419A0300503F72 /* YYModel */,
 			);
 			path = YYkit;
-			sourceTree = "<group>";
-		};
-		0D9F820A1F419A0300503F72 /* YYModel */ = {
-			isa = PBXGroup;
-			children = (
-				0D9F820B1F419A0300503F72 /* NSObject+YYModel.h */,
-				0D9F820C1F419A0300503F72 /* NSObject+YYModel.m */,
-				0D9F820D1F419A0300503F72 /* YYClassInfo.h */,
-				0D9F820E1F419A0300503F72 /* YYClassInfo.m */,
-				0D9F820F1F419A0300503F72 /* YYModel.h */,
-			);
-			path = YYModel;
 			sourceTree = "<group>";
 		};
 		0D9F82121F419A0300503F72 /* View */ = {
@@ -398,12 +375,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D9F82521F419A0300503F72 /* NSObject+YYModel.h in Headers */,
 				0D9F82251F419A0300503F72 /* NJKWebViewProgressView.h in Headers */,
 				0D9F824F1F419A0300503F72 /* UIControl+YYAdd.h in Headers */,
-				0D9F82561F419A0300503F72 /* YYModel.h in Headers */,
 				90266DC98985A7B4C49B040C1ED3A5E7 /* MLHybrid-umbrella.h in Headers */,
-				0D9F82541F419A0300503F72 /* YYClassInfo.h in Headers */,
 				0D9F82231F419A0300503F72 /* NJKWebViewProgress.h in Headers */,
 				0D9F82511F419A0300503F72 /* YYKitMacro.h in Headers */,
 			);
@@ -520,14 +494,12 @@
 				0D9F822A1F419A0300503F72 /* UIViewController+ML.swift in Sources */,
 				0D9F82241F419A0300503F72 /* NJKWebViewProgress.m in Sources */,
 				0D9F82501F419A0300503F72 /* UIControl+YYAdd.m in Sources */,
-				0D9F82551F419A0300503F72 /* YYClassInfo.m in Sources */,
 				8D298638CED288E929706E89D726B91D /* MLHybrid.swift in Sources */,
 				0D9F82571F419A0300503F72 /* ZYHWebImage.swift in Sources */,
 				0D9F825D1F419A0300503F72 /* MLHybridTextField.swift in Sources */,
 				0D9F821E1F419A0300503F72 /* MLHybridTools.swift in Sources */,
 				0D9F82261F419A0300503F72 /* NJKWebViewProgressView.m in Sources */,
 				0D9F82221F419A0300503F72 /* Hybrid_titleModel.swift in Sources */,
-				0D9F82531F419A0300503F72 /* NSObject+YYModel.m in Sources */,
 				0D9F825E1F419A0300503F72 /* MLHybridTextView.swift in Sources */,
 				0D9F822C1F419A0300503F72 /* MLHybridLocation.swift in Sources */,
 				0D9F82201F419A0300503F72 /* Hybrid_headerModel.swift in Sources */,
