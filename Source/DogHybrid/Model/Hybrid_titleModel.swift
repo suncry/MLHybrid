@@ -9,19 +9,27 @@
 import UIKit
 
 class Hybrid_titleModel: NSObject {
+    
     var title: String = ""
     var subtitle: String = ""
     var tagname: String = ""
     var lefticon: String = ""
     var righticon: String = ""
     var placeholder: String = ""
-    var focus: Bool = true
     var callback: String = ""
+    var focus: Bool = false
     
-    func isCustom() -> Bool {
-        if self.subtitle.characters.count == 0 && self.lefticon.characters.count == 0 && self.righticon.characters.count == 0 {
-            return false
-        }
-        return true
+    class func convert(_ dic: [String: AnyObject]) -> Hybrid_titleModel {
+        let titleModel = Hybrid_titleModel()
+        titleModel.title = dic["title"] as? String ?? ""
+        titleModel.subtitle = dic["subtitle"] as? String ?? ""
+        titleModel.tagname = dic["tagname"] as? String ?? ""
+        titleModel.lefticon = dic["lefticon"] as? String ?? ""
+        titleModel.righticon = dic["righticon"] as? String ?? ""
+        titleModel.placeholder = dic["placeholder"] as? String ?? ""
+        titleModel.callback = dic["callback"] as? String ?? ""
+        titleModel.focus = dic["focus"] as? Bool ?? false
+        return titleModel
     }
+
 }

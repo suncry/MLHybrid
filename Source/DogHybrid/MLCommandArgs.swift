@@ -12,7 +12,6 @@ class MLCommandArgs: NSObject {
     
     var type: String = "h5" //页面类型
     var isH5: Bool = true //页面类型是否为H5
-
     var topage: String = "" //跳转页面地址
     var display: Bool = true //显示/隐藏导航栏
     var animate: Bool = true //显示/隐藏导航栏动画
@@ -22,6 +21,12 @@ class MLCommandArgs: NSObject {
     var pid: String = "" //productID
     var content: String = "" //复制的内容
     var url: String = "" //第三方地址
+    var num: Int = 0 //回退页面数
+    
+    var header: Hybrid_headerModel = Hybrid_headerModel() //导航栏设置数据模型
+    
+    
+    
     
     class func convert(_ dic: [String: AnyObject]) -> MLCommandArgs {
         let args = MLCommandArgs()
@@ -32,7 +37,6 @@ class MLCommandArgs: NSObject {
         } else {
             args.isH5 = false
         }
-        
         args.topage = dic["topage"] as? String ?? ""
         args.display = dic["display"] as? Bool ?? true
         args.animate = dic["animate"] as? Bool ?? true
@@ -42,6 +46,8 @@ class MLCommandArgs: NSObject {
         args.pid = dic["pid"] as? String ?? ""
         args.content = dic["content"] as? String ?? ""
         args.url = dic["url"] as? String ?? ""
+        args.num = dic["num"] as? Int ?? 0
+        args.header = Hybrid_headerModel.convert(dic)
         return args
     }
     

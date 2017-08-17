@@ -102,7 +102,7 @@
 		0D9F82191F419A0300503F72 /* MLHybridTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridTextView.swift; sourceTree = "<group>"; };
 		0D9F821A1F419A0300503F72 /* MLRefreshDIYHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLRefreshDIYHeader.swift; sourceTree = "<group>"; };
 		0DF8582F1F41DA17006DC7C0 /* MLHybridMethodType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridMethodType.swift; sourceTree = "<group>"; };
-		0DF858311F4577B9006DC7C0 /* MLCommandArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLCommandArgs.swift; sourceTree = "<group>"; };
+		0DF858311F4577B9006DC7C0 /* MLCommandArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MLCommandArgs.swift; path = ../MLCommandArgs.swift; sourceTree = "<group>"; };
 		26274F19DFDD65D55D9ADE694A1E4791 /* MLHybrid-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MLHybrid-prefix.pch"; sourceTree = "<group>"; };
 		28E04B665DF78DE2E21C6A66AB8AFC2B /* Pods-MLHybrid_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MLHybrid_Example-dummy.m"; sourceTree = "<group>"; };
 		3F215F344031F3046F2D4715125BE32F /* Pods-MLHybrid_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MLHybrid_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -164,7 +164,6 @@
 		0D9F81C81F419A0300503F72 /* DogHybrid */ = {
 			isa = PBXGroup;
 			children = (
-				0DF858311F4577B9006DC7C0 /* MLCommandArgs.swift */,
 				0DF8582F1F41DA17006DC7C0 /* MLHybridMethodType.swift */,
 				0D9F81CA1F419A0300503F72 /* MLHybridContentView.swift */,
 				0D9F81CC1F419A0300503F72 /* MLHybridTools.swift */,
@@ -181,6 +180,7 @@
 		0D9F81CE1F419A0300503F72 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0DF858311F4577B9006DC7C0 /* MLCommandArgs.swift */,
 				0D9F81CF1F419A0300503F72 /* Hybrid_headerModel.swift */,
 				0D9F81D01F419A0300503F72 /* Hybrid_naviButtonModel.swift */,
 				0D9F81D11F419A0300503F72 /* Hybrid_titleModel.swift */,
