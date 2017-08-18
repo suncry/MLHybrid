@@ -39,7 +39,6 @@ class MLHybridContentView: WKWebView {
     
     private override init(frame: CGRect, configuration: WKWebViewConfiguration) {
         super.init(frame:frame,configuration:configuration)
-        self.configUserAgent()
         self.initUI()
         self.uiDelegate = self
         self.navigationDelegate = self
@@ -56,16 +55,6 @@ class MLHybridContentView: WKWebView {
         self.navigationDelegate = self
         self.scrollView.bounces = false
         self.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    //设置userAgent
-    func configUserAgent () {
-        var userAgentStr: String = UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent") ?? ""
-        if (userAgentStr.range(of: MLHybrid.shared.userAgent) == nil) {
-            guard let versionStr = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else {return}
-            userAgentStr.append(" \(MLHybrid.shared.userAgent)\(versionStr) ")
-            UserDefaults.standard.register(defaults: ["UserAgent" : userAgentStr])
-        }
     }
 
 }

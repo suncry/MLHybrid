@@ -22,13 +22,18 @@ open class MLHybrid {
     //应用启动、登陆、注销 都需要调用
     open class func register(sess: String,
                              platform: String,
-                             userAgent: String,
-                             scheme: String) {
+                             appName: String) {
         shared.sess = sess
         shared.platform = platform
-        shared.userAgent = userAgent
-        shared.scheme = scheme
-
+        shared.userAgent = "med_hybrid_" + appName + "_"
+        //设置userAgent
+        var userAgentStr: String = UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent") ?? ""
+        if (userAgentStr.range(of: MLHybrid.shared.userAgent) == nil) {
+            guard let versionStr = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else {return}
+            userAgentStr.append(" \(MLHybrid.shared.userAgent)\(versionStr) ")
+            UserDefaults.standard.register(defaults: ["UserAgent" : userAgentStr])
+        }
+        shared.scheme = "med" + appName + "medlinker"
     }
 
     //加载页面
