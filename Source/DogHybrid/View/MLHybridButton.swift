@@ -48,7 +48,7 @@ class MLHybridButton: UIButton {
                 button.setTitle(model.value, for: .normal)
             }
 
-            button.addTarget(self, action: #selector(MLHybridButton.click), for: .touchUpInside)
+            button.addTarget(button, action: #selector(MLHybridButton.click), for: .touchUpInside)
             items.append(UIBarButtonItem(customView: button))
         }
         return items
