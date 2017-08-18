@@ -216,7 +216,7 @@ class MLHybridTools: NSObject {
     func setNavigationBarHidden() {
         let vc = self.commandFromVC()
         if vc.navigationController?.viewControllers.last == vc {
-            vc.navigationController?.setNavigationBarHidden(command.args.display, animated: command.args.animate)
+            vc.navigationController?.setNavigationBarHidden(!command.args.display, animated: command.args.animate)
         }
     }
     

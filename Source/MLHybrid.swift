@@ -33,7 +33,7 @@ open class MLHybrid {
             userAgentStr.append(" \(MLHybrid.shared.userAgent)\(versionStr) ")
             UserDefaults.standard.register(defaults: ["UserAgent" : userAgentStr])
         }
-        shared.scheme = "med" + appName + "medlinker"
+        shared.scheme = "med" + appName + "hybrid"
     }
 
     //加载页面
