@@ -172,13 +172,13 @@ class MLHybridTools: NSObject {
              */
 
         } else {
-            let barButtons = self.setUpButtons(leftButtons, webView: command.webView)
+            let barButtons = self.setUpButtons(leftButtons)
             self.commandFromVC().navigationItem.setLeftBarButtonItems(barButtons, animated: true)
         }
     }
     
     func setRightButtons(_ rightButtons:[Hybrid_naviButtonModel], navigationItem: UINavigationItem) {
-        let barButtons = self.setUpButtons(rightButtons, webView: command.webView)
+        let barButtons = self.setUpButtons(rightButtons)
         self.commandFromVC().navigationItem.setRightBarButtonItems(barButtons, animated: true)
     }
 
@@ -191,69 +191,9 @@ class MLHybridTools: NSObject {
     }
     
     
-    func setUpButtons(_ buttonModels:[Hybrid_naviButtonModel], webView: WKWebView, isRight: Bool = false) -> [UIBarButtonItem] {
-        let buttonModels = buttonModels.reversed()
-        var buttons = [UIBarButtonItem]()
-        var buttonX: CGFloat = 0
-        var lastButtonX: CGFloat = 0
-        var lastButtonWidth: CGFloat = 0
-        if isRight {
-            lastButtonX = UIScreen.main.bounds.size.width
-        }
-        let margin: CGFloat = 13
-        for buttonModel in buttonModels {
-            let button = UIButton()
-            let titleWidth = buttonModel.value.hybridStringWidthWith(15, height: 20) + 2*margin
-//            let titleWidth = buttonModel.value.hybridStringWidthWith(15, height: 20)
-
-            let buttonWidth = titleWidth > 42 ? titleWidth : 42
-            if isRight {
-                buttonX = UIScreen.main.bounds.size.width - buttonWidth - (UIScreen.main.bounds.size.width - lastButtonX)
-            } else {
-                buttonX = lastButtonX + lastButtonWidth
-                lastButtonWidth = buttonWidth
-            }
-            lastButtonX = buttonX
-            button.frame = CGRect(x: buttonX, y: 0, width: buttonWidth, height: 44)
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-            //button.setTitleColor(UIColor(hexString: "#007AFF"), for: .normal)
-            if buttonModel.icon.characters.count > 0 {
-                button.setZYHWebImage(buttonModel.icon as NSString?, defaultImage: "", isCache: true)
-            }
-            else if buttonModel.tagname.characters.count > 0 {
-                print("加载图片 \(NaviImageHeader + buttonModel.tagname)")
-                print(UIImage(named: NaviImageHeader + buttonModel.tagname) ?? "未找到对应图片资源")
-                button.setImage(UIImage(named: NaviImageHeader + buttonModel.tagname), for: .normal)
-                button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -13, bottom: 0, right: 0)
-            }
-            if let _ = UIImage(named: NaviImageHeader + buttonModel.tagname) {
-            } else {
-                if buttonModel.value.characters.count > 0 {
-                    button.setTitle(buttonModel.value, for: .normal)
-                }
-            }
-            /*
-            button.addBlock(for: .touchUpInside, block: { (sender) in
-                let _ = self.callBack(data: "" as AnyObject, err_no: 0, msg: "success", callback: buttonModel.callback,webView: webView, completion: {js in
-                })
-                if buttonModel.tagname == "back" && buttonModel.callback == "" {
-                    //假死 则执行本地的普通返回事件
-                    if webView.canGoBack {
-                        webView.goBack()
-                    } else {
-                        self.back(["":"" as AnyObject], webView: webView)
-                    }
-                } else if buttonModel.tagname == "close" {
-                    self.back(["":"" as AnyObject], webView: webView)
-                }
-            })
-            */
-//            buttons.append(UIBarButtonItem(customView: button))
-            buttons.append(UIBarButtonItem(customView: button))
-        }
-        return buttons
+    func setUpButtons(_ buttonModels:[Hybrid_naviButtonModel]) -> [UIBarButtonItem] {
+        return  MLHybridButton.setUp(models: buttonModels, webView: command.webView)
     }
-
     
     func back() {
         if let navi = self.commandFromVC().navigationController {
