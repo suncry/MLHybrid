@@ -81,8 +81,6 @@ class MLHybridTools: NSObject {
         case .UpdateHeader   : updateHeader()
         case .Back           : back()
         case .Forward        : forward()
-//        case .Get            : hybridGet()
-//        case .Post           : hybridPost()
         case .ShowHeader     : setNavigationBarHidden()
         case .CheckVersion   : checkVersion()
         case .OldPay         : oldPay()
@@ -96,7 +94,6 @@ class MLHybridTools: NSObject {
         case .PayCallBack    : handlePayCallBack()
         case .CopyLink       : handleCopyLink()
         case .GetLocation    : handleGetLocation()
-//        case .OpenMap        : handleOpenMap()
         case .Pop            : pop()
         case .Openlink       : openlink()
         case .Addtoclipboard : copyContent()
@@ -178,7 +175,10 @@ class MLHybridTools: NSObject {
     }
     
     func setRightButtons(_ rightButtons:[Hybrid_naviButtonModel], navigationItem: UINavigationItem) {
-        let barButtons = self.setUpButtons(rightButtons)
+        var barButtons = self.setUpButtons(rightButtons)
+        let spaceBar = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        spaceBar.width = -15
+        barButtons.insert(spaceBar, at: 0)
         self.commandFromVC().navigationItem.setRightBarButtonItems(barButtons, animated: true)
     }
 

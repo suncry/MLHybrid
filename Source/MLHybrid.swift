@@ -13,10 +13,12 @@ open class MLHybrid {
     open static let shared = MLHybrid()
     private init() {}
     
-    var sess: String = "unregistered"
-    var platform: String = "unregistered"
-    var userAgent: String = "unregistered"
-    var scheme: String = "unregistered"
+    static let unregistered = "unregistered"
+    
+    var sess: String = unregistered
+    var platform: String = unregistered
+    var userAgent: String = unregistered
+    var scheme: String = unregistered
 
     //注册信息
     //应用启动、登陆、注销 都需要调用

@@ -13,15 +13,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //MLHybrid.say()
-    
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func click(_ sender: Any) {
+        let dddd = MLHybrid.load(urlString: "http://web.medlinker.com/h5/hospital/z_index.html?serviceType=4&type=z")
+        let navi = UINavigationController(rootViewController: dddd!)
+        navi.navigationBar.isTranslucent = false
+        self.present(navi, animated: true, completion: nil)
     }
 
 }
