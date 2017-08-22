@@ -19,12 +19,14 @@ open class MLHybrid {
     var platform: String = unregistered
     var userAgent: String = unregistered
     var scheme: String = unregistered
+    var backIndicator: String = unregistered
 
     //注册信息
     //应用启动、登陆、注销 都需要调用
     open class func register(sess: String,
                              platform: String,
-                             appName: String) {
+                             appName: String,
+                             backIndicator: String) {
         shared.sess = sess
         shared.platform = platform
         shared.userAgent = "med_hybrid_" + appName + "_"
@@ -36,6 +38,7 @@ open class MLHybrid {
             UserDefaults.standard.register(defaults: ["UserAgent" : userAgentStr])
         }
         shared.scheme = "med" + appName + "hybrid"
+        shared.backIndicator = backIndicator
     }
 
     //加载页面

@@ -156,29 +156,31 @@ class MLHybridTools: NSObject {
     }
     
     func setLeftButtons(_ leftButtons:[Hybrid_naviButtonModel], navigationItem: UINavigationItem) {
-        if (leftButtons.count == 1 && leftButtons.first?.tagname == "back") || leftButtons.count == 0 {
-            /*
-             vc.setCustomBackBarButtonItem(handler: { (button) in
-             if let callback = leftButtons.first?.callback, callback.characters.count > 0 {
-             let _ = self.callBack(data: "" as AnyObject, err_no: 0, msg: "success", callback: callback,webView: webView, completion: {js in
-             })
-             } else {
-             let _ = self.viewControllerOf(webView).navigationController?.popViewController(animated: true)
-             }
-             })
-             */
-
-        } else {
+//        if (leftButtons.count == 1 && leftButtons.first?.tagname == "back") || leftButtons.count == 0 {
+//            /*
+//             vc.setCustomBackBarButtonItem(handler: { (button) in
+//             if let callback = leftButtons.first?.callback, callback.characters.count > 0 {
+//             let _ = self.callBack(data: "" as AnyObject, err_no: 0, msg: "success", callback: callback,webView: webView, completion: {js in
+//             })
+//             } else {
+//             let _ = self.viewControllerOf(webView).navigationController?.popViewController(animated: true)
+//             }
+//             })
+//             */
+//
+//        } else {
+//            let barButtons = self.setUpButtons(leftButtons)
+//            self.commandFromVC().navigationItem.setLeftBarButtonItems(barButtons, animated: true)
+//        }
+        if leftButtons.count > 0 {
             let barButtons = self.setUpButtons(leftButtons)
             self.commandFromVC().navigationItem.setLeftBarButtonItems(barButtons, animated: true)
         }
+
     }
     
     func setRightButtons(_ rightButtons:[Hybrid_naviButtonModel], navigationItem: UINavigationItem) {
-        var barButtons = self.setUpButtons(rightButtons)
-        let spaceBar = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        spaceBar.width = -15
-        barButtons.insert(spaceBar, at: 0)
+        let barButtons = self.setUpButtons(rightButtons)
         self.commandFromVC().navigationItem.setRightBarButtonItems(barButtons, animated: true)
     }
 
@@ -192,7 +194,11 @@ class MLHybridTools: NSObject {
     
     
     func setUpButtons(_ buttonModels:[Hybrid_naviButtonModel]) -> [UIBarButtonItem] {
-        return  MLHybridButton.setUp(models: buttonModels, webView: command.webView)
+        var barButtons = MLHybridButton.setUp(models: buttonModels, webView: command.webView)
+        let spaceBar = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        spaceBar.width = -15
+        barButtons.insert(spaceBar, at: 0)
+        return barButtons
     }
     
     func back() {

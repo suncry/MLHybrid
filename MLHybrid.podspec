@@ -14,9 +14,7 @@ this is description
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'Source/**/*'
-  
+
   s.frameworks = 'WebKit'
-  s.dependency 'RTRootNavigationController'
-  s.dependency 'MJRefresh'
 
 end

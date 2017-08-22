@@ -29,9 +29,9 @@ class MLHybridButton: UIButton {
             button.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: 44)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
             button.setTitleColor(.black, for: .normal)
-            if model.icon.characters.count > 0 {
-//                button.setZYHWebImage(buttonModel.icon as NSString?, defaultImage: "", isCache: true)
-            }
+//            if model.icon.characters.count > 0 {
+////                button.setZYHWebImage(buttonModel.icon as NSString?, defaultImage: "", isCache: true)
+//            }
 //            else if buttonModel.tagname.characters.count > 0 {
 //                print("加载图片 \(NaviImageHeader + buttonModel.tagname)")
 //                print(UIImage(named: NaviImageHeader + buttonModel.tagname) ?? "未找到对应图片资源")
@@ -44,6 +44,13 @@ class MLHybridButton: UIButton {
 //                    button.setTitle(buttonModel.value, for: .normal)
 //                }
 //            }
+
+            if model.tagname == "back" {
+                let image = UIImage(named: MLHybrid.shared.backIndicator)
+                button.setImage(image, for: .normal)
+                button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -15, bottom: 0, right: 0)
+            }
+            
             if model.value.characters.count > 0 {
                 button.setTitle(model.value, for: .normal)
             }
