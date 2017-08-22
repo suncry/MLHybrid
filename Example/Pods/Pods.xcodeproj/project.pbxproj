@@ -22,9 +22,6 @@
 		0D9F822A1F419A0300503F72 /* UIViewController+ML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F81DE1F419A0300503F72 /* UIViewController+ML.swift */; };
 		0D9F822B1F419A0300503F72 /* MLHybridExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F81DF1F419A0300503F72 /* MLHybridExtension.swift */; };
 		0D9F822C1F419A0300503F72 /* MLHybridLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F81E01F419A0300503F72 /* MLHybridLocation.swift */; };
-		0D9F824F1F419A0300503F72 /* UIControl+YYAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9F82071F419A0300503F72 /* UIControl+YYAdd.h */; };
-		0D9F82501F419A0300503F72 /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82081F419A0300503F72 /* UIControl+YYAdd.m */; };
-		0D9F82511F419A0300503F72 /* YYKitMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9F82091F419A0300503F72 /* YYKitMacro.h */; };
 		0D9F82571F419A0300503F72 /* ZYHWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82101F419A0300503F72 /* ZYHWebImage.swift */; };
 		0D9F82581F419A0300503F72 /* ZYHWebImageChcheCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82111F419A0300503F72 /* ZYHWebImageChcheCenter.swift */; };
 		0D9F82591F419A0300503F72 /* HybridNaviTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82131F419A0300503F72 /* HybridNaviTitleView.swift */; };
@@ -79,9 +76,6 @@
 		0D9F81DE1F419A0300503F72 /* UIViewController+ML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ML.swift"; sourceTree = "<group>"; };
 		0D9F81DF1F419A0300503F72 /* MLHybridExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridExtension.swift; sourceTree = "<group>"; };
 		0D9F81E01F419A0300503F72 /* MLHybridLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridLocation.swift; sourceTree = "<group>"; };
-		0D9F82071F419A0300503F72 /* UIControl+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+YYAdd.h"; sourceTree = "<group>"; };
-		0D9F82081F419A0300503F72 /* UIControl+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+YYAdd.m"; sourceTree = "<group>"; };
-		0D9F82091F419A0300503F72 /* YYKitMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKitMacro.h; sourceTree = "<group>"; };
 		0D9F82101F419A0300503F72 /* ZYHWebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYHWebImage.swift; sourceTree = "<group>"; };
 		0D9F82111F419A0300503F72 /* ZYHWebImageChcheCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZYHWebImageChcheCenter.swift; sourceTree = "<group>"; };
 		0D9F82131F419A0300503F72 /* HybridNaviTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HybridNaviTitleView.swift; sourceTree = "<group>"; };
@@ -198,7 +192,6 @@
 				0D9F81DC1F419A0300503F72 /* Loading */,
 				0D9F81DF1F419A0300503F72 /* MLHybridExtension.swift */,
 				0D9F81E01F419A0300503F72 /* MLHybridLocation.swift */,
-				0D9F82061F419A0300503F72 /* YYkit */,
 				0D9F82101F419A0300503F72 /* ZYHWebImage.swift */,
 				0D9F82111F419A0300503F72 /* ZYHWebImageChcheCenter.swift */,
 			);
@@ -220,16 +213,6 @@
 				0D9F81DE1F419A0300503F72 /* UIViewController+ML.swift */,
 			);
 			path = Loading;
-			sourceTree = "<group>";
-		};
-		0D9F82061F419A0300503F72 /* YYkit */ = {
-			isa = PBXGroup;
-			children = (
-				0D9F82071F419A0300503F72 /* UIControl+YYAdd.h */,
-				0D9F82081F419A0300503F72 /* UIControl+YYAdd.m */,
-				0D9F82091F419A0300503F72 /* YYKitMacro.h */,
-			);
-			path = YYkit;
 			sourceTree = "<group>";
 		};
 		0D9F82121F419A0300503F72 /* View */ = {
@@ -379,10 +362,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D9F82251F419A0300503F72 /* NJKWebViewProgressView.h in Headers */,
-				0D9F824F1F419A0300503F72 /* UIControl+YYAdd.h in Headers */,
 				90266DC98985A7B4C49B040C1ED3A5E7 /* MLHybrid-umbrella.h in Headers */,
 				0D9F82231F419A0300503F72 /* NJKWebViewProgress.h in Headers */,
-				0D9F82511F419A0300503F72 /* YYKitMacro.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,7 +478,6 @@
 				0D9F822A1F419A0300503F72 /* UIViewController+ML.swift in Sources */,
 				0D9F82241F419A0300503F72 /* NJKWebViewProgress.m in Sources */,
 				0DF858351F4695EF006DC7C0 /* MLHybridButton.swift in Sources */,
-				0D9F82501F419A0300503F72 /* UIControl+YYAdd.m in Sources */,
 				8D298638CED288E929706E89D726B91D /* MLHybrid.swift in Sources */,
 				0D9F82571F419A0300503F72 /* ZYHWebImage.swift in Sources */,
 				0D9F825D1F419A0300503F72 /* MLHybridTextField.swift in Sources */,
