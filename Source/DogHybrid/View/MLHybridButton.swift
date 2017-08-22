@@ -63,19 +63,19 @@ class MLHybridButton: UIButton {
     
     
     func click(sender: MLHybridButton) {
-        let _ = MLHybridTools().callBack(callback: sender.model.callback, webView: sender.webView) { (str) in
-            
-        }
-        if sender.model.tagname == "back" && sender.model.callback == "" {
-            //假死 则执行本地的普通返回事件
-            if sender.webView.canGoBack {
-                sender.webView.goBack()
-            } else {
-//                self.back(["":"" as AnyObject], webView: webView)
+        if sender.model.callback.characters.count == 0 {
+            var nextResponder = sender.webView.next
+            while !(nextResponder is MLHybridViewController) {
+                nextResponder = nextResponder?.next ?? MLHybridViewController()
             }
-        } else if sender.model.tagname == "close" {
-//            self.back(["":"" as AnyObject], webView: webView)
+            let vc = nextResponder as? MLHybridViewController
+            if let _ = vc?.presentingViewController {
+                vc?.dismiss(animated: true, completion: nil)
+            } else {
+                vc?.navigationController?.popViewController(animated: true)
+            }
         }
+        let _ = MLHybridTools().callBack(callback: sender.model.callback, webView: sender.webView) { (str) in }
     }
 
 }
