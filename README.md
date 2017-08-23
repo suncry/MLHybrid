@@ -1,6 +1,6 @@
 # MLHybrid
 
-[![CI Status](http://img.shields.io/travis/yang cai/MLHybrid.svg?style=flat)](https://travis-ci.org/yang cai/MLHybrid)
+[![CI Status](http://img.shields.io/travis/yang%20cai/MLHybrid.svg?style=flat)](https://travis-ci.org/yang%20cai/MLHybrid)
 [![Version](https://img.shields.io/cocoapods/v/MLHybrid.svg?style=flat)](http://cocoapods.org/pods/MLHybrid)
 [![License](https://img.shields.io/cocoapods/l/MLHybrid.svg?style=flat)](http://cocoapods.org/pods/MLHybrid)
 [![Platform](https://img.shields.io/cocoapods/p/MLHybrid.svg?style=flat)](http://cocoapods.org/pods/MLHybrid)
@@ -21,7 +21,8 @@ pod "MLHybrid"
 ```
 
 ## How To Use
-1.first,you must register MLHybrid in Appdelegate,like this:
+You should register MLHybrid in AppDelegate.
+If you wanna extension hybrid method.You can make a class (e.g. MethodExtension) implement MLHybridMethodProtocol,like this:
 ```ruby
 MLHybrid.register(sess: "GuU7KeV154f8juslkNWRONyVE3m8Sq9h5nJFpcARiCFIvrMsp6boxDzcYabBwAoM",
                   platform: "i",
@@ -31,10 +32,9 @@ MLHybrid.register(sess: "GuU7KeV154f8juslkNWRONyVE3m8Sq9h5nJFpcARiCFIvrMsp6boxDz
                   delegate: MethodExtension())
 ```
 
-
 ## Author
 
-yang cai, caiyang@medlinker.com
+yang cai, 774164@qq.com
 
 ## License
 
