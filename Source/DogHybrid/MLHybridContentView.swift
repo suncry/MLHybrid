@@ -83,8 +83,7 @@ extension MLHybridContentView: WKUIDelegate,WKNavigationDelegate {
         
         
         if let htmlString = self.htmlString {
-            webView.evaluateJavaScript("document.body.innerHTML = document.body.innerHTML + '\(htmlString)'", completionHandler: { (any, error) in
-            })
+            webView.evaluateJavaScript("document.body.innerHTML = document.body.innerHTML + '\(htmlString)'", completionHandler: { (any, error) in })
             self.htmlString = nil
         }
     }
@@ -104,7 +103,3 @@ extension MLHybridContentView: WKUIDelegate,WKNavigationDelegate {
     }
     
 }
-
-
-
-
