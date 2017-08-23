@@ -20,6 +20,18 @@ it, simply add the following line to your Podfile:
 pod "MLHybrid"
 ```
 
+## How To Use
+1.first,you must register MLHybrid in Appdelegate,like this:
+```ruby
+MLHybrid.register(sess: "GuU7KeV154f8juslkNWRONyVE3m8Sq9h5nJFpcARiCFIvrMsp6boxDzcYabBwAoM",
+                  platform: "i",
+                  appName: "medlinker",
+                  domain: "medlinker.com",
+                  backIndicator: "hybridBack",
+                  delegate: MethodExtension())
+```
+
+
 ## Author
 
 yang cai, caiyang@medlinker.com
