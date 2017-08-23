@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MLCommandArgs: NSObject {
+open class MLCommandArgs: NSObject {
     
     var type: String = "h5" //页面类型
     var isH5: Bool = true //页面类型是否为H5

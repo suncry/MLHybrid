@@ -10,7 +10,7 @@ import Foundation
 
 //MARK: 事件类型
 
-enum FunctionType: String {
+enum MLHybridMethodType: String {
     case UpdateHeader = "updateheader"
     case Back = "back"
     case Forward = "forward"

@@ -30,7 +30,7 @@ class MLHybridContentView: WKWebView {
         configuration.preferences.javaScriptCanOpenWindowsAutomatically = false;
         configuration.processPool = MLHybridContentView.sharedProcessPool
         let  userContentController = WKUserContentController()
-        let cookieValue = String(format:"document.cookie ='platform=%@;path=/;domain=medlinker.com;expires=Sat, 02 May 2019 23:38:25 GMT；';document.cookie = 'sess=%@;path=/;domain=medlinker.com;expires=Sat, 02 May 2019 23:38:25 GMT；';", MLHybrid.shared.platform, MLHybrid.shared.sess)
+        let cookieValue = "document.cookie ='platform=\(MLHybrid.shared.platform);path=/;domain=\(MLHybrid.shared.domain);expires=Sat, 02 May 2019 23:38:25 GMT；';document.cookie = 'sess=\(MLHybrid.shared.sess);path=/;domain=\(MLHybrid.shared.domain);expires=Sat, 02 May 2019 23:38:25 GMT；';"
         let  cookieScript = WKUserScript(source: cookieValue, injectionTime: .atDocumentStart , forMainFrameOnly: false)
         userContentController.addUserScript(cookieScript)
         configuration.userContentController = userContentController

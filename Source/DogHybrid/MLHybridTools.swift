@@ -12,12 +12,12 @@ import WebKit
 
 let HybridEvent = "Hybrid.callback"
 let NaviImageHeader = "hybrid_navi_"
+public typealias MLHybirdCommand = (name: String, args: MLCommandArgs, callbackId: String, webView: WKWebView)
 
 class MLHybridTools: NSObject {
     
     
-    typealias Command = (function: String, args: MLCommandArgs, callbackId: String, webView: WKWebView)
-    var command: Command!
+    var command: MLHybirdCommand!
     
     //MARK: 资源路径相关
     fileprivate let checkVersionQAURL = "http://h5.qa.medlinker.com/app/version/latestList?app=medlinker&sys_p=i&cli_v="
@@ -67,7 +67,7 @@ class MLHybridTools: NSObject {
                 
                 let commandArgs = MLCommandArgs.convert(args)
 
-                return (FunctionType.Forward.rawValue, commandArgs, "")
+                return (MLHybridMethodType.Forward.rawValue, commandArgs, "")
             }
         }
         return ("", MLCommandArgs(), "")
@@ -76,7 +76,10 @@ class MLHybridTools: NSObject {
     /// 根据指令执行对应的方法
     
     private func execute() {
-        guard let funType = FunctionType(rawValue: command.function) else {return}
+        guard let funType = MLHybridMethodType(rawValue: command.name) else {
+            MLHybrid.shared.delegate?.methodExtension(command: command)
+            return
+        }
         switch funType {
         case .UpdateHeader   : updateHeader()
         case .Back           : back()

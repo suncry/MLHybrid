@@ -9,26 +9,39 @@
 import Foundation
 import WebKit
 
+public protocol MLHybridMethodProtocol {
+    
+    func methodExtension(command: MLHybirdCommand)
+}
+
 open class MLHybrid {
     open static let shared = MLHybrid()
     private init() {}
     
+    var delegate: MLHybridMethodProtocol?
+
     static let unregistered = "unregistered"
     
     var sess: String = unregistered
     var platform: String = unregistered
     var userAgent: String = unregistered
     var scheme: String = unregistered
+    var domain: String = unregistered
     var backIndicator: String = unregistered
 
+    
+    
     //注册信息
     //应用启动、登陆、注销 都需要调用
     open class func register(sess: String,
                              platform: String,
                              appName: String,
-                             backIndicator: String) {
+                             domain: String,
+                             backIndicator: String,
+                             delegate: MLHybridMethodProtocol) {
         shared.sess = sess
         shared.platform = platform
+        shared.domain = domain
         shared.userAgent = "med_hybrid_" + appName + "_"
         //设置userAgent
         var userAgentStr: String = UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent") ?? ""
@@ -39,6 +52,7 @@ open class MLHybrid {
         }
         shared.scheme = "med" + appName + "hybrid"
         shared.backIndicator = backIndicator
+        shared.delegate = delegate
     }
 
     //加载页面

@@ -18,7 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MLHybrid.register(sess: "GuU7KeV154f8juslkNWRONyVE3m8Sq9h5nJFpcARiCFIvrMsp6boxDzcYabBwAoM",
                           platform: "i",
                           appName: "medlinker",
-                          backIndicator: "hybridBack")
+                          domain: "medlinker.com",
+                          backIndicator: "hybridBack",
+                          delegate: MethodExtension())
         return true
     }
 

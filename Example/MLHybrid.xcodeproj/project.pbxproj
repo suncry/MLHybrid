@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D9F82611F419D5F00503F72 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9F82601F419D5F00503F72 /* WebKit.framework */; };
+		0DCE2CAB1F4D72EB00362112 /* MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE2CAA1F4D72EB00362112 /* MethodExtension.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		08C6B323AE1F417AC831469C /* MLHybrid.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MLHybrid.podspec; path = ../MLHybrid.podspec; sourceTree = "<group>"; };
 		0D9F82601F419D5F00503F72 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		0DCE2CAA1F4D72EB00362112 /* MethodExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodExtension.swift; sourceTree = "<group>"; };
 		1AA4EBF17360084BFFE5F5CD /* Pods-MLHybrid_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLHybrid_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MLHybrid_Tests/Pods-MLHybrid_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5CB9762C414B794E95027E9D /* Pods-MLHybrid_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLHybrid_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MLHybrid_Example/Pods-MLHybrid_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* MLHybrid_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLHybrid_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				0DCE2CAA1F4D72EB00362112 /* MethodExtension.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -374,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DCE2CAB1F4D72EB00362112 /* MethodExtension.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
