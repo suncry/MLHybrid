@@ -19,17 +19,13 @@ open class MLHybrid {
     private init() {}
     
     var delegate: MLHybridMethodProtocol?
-
     static let unregistered = "unregistered"
-    
     var sess: String = unregistered
     var platform: String = unregistered
     var userAgent: String = unregistered
     var scheme: String = unregistered
     var domain: String = unregistered
     var backIndicator: String = unregistered
-
-    
     
     //注册信息
     //应用启动、登陆、注销 都需要调用
@@ -64,7 +60,6 @@ open class MLHybrid {
         return webViewController        
     }
 
-    
     //清理Cookie
     open func clearCookie (urlString: String) {
         if #available(iOS 9.0, *) {
@@ -75,5 +70,7 @@ open class MLHybrid {
             }
         }
     }
+    
+
     
 }

@@ -12,14 +12,10 @@ open class MLHybridViewController: UIViewController {
 
     var locationModel = MLHybridLocation()
     var naviBarHidden = false
-
     var URLPath: URL?
     var htmlString: String?
-
     var onShowCallBack: String?
     var onHideCallBack: String?
-    
-    
     var contentView: MLHybridContentView!
     
     //MARK: - init
@@ -84,11 +80,8 @@ open class MLHybridViewController: UIViewController {
         if let htmlString = self.htmlString {
             self.contentView.htmlString = htmlString
         }
-        
         guard URLPath != nil else {return}
         self.contentView.load(URLRequest(url: URLPath!))
-
-        
     }
     
 }

@@ -12,12 +12,11 @@ import WebKit
 
 let HybridEvent = "Hybrid.callback"
 let NaviImageHeader = "hybrid_navi_"
-public typealias MLHybirdCommand = (name: String, args: MLCommandArgs, callbackId: String, webView: WKWebView)
 
 class MLHybridTools: NSObject {
     
     
-    var command: MLHybirdCommand!
+    var command: MLHybirdCommand = MLHybirdCommand()
     
     //MARK: 资源路径相关
     fileprivate let checkVersionQAURL = "http://h5.qa.medlinker.com/app/version/latestList?app=medlinker&sys_p=i&cli_v="
@@ -33,7 +32,10 @@ class MLHybridTools: NSObject {
     ///   - appendParams: 附加到指令串中topage地址的参数 一般情况下不需要
     func analysis(urlString: String, webView: WKWebView = WKWebView(), appendParams: [String: String] = [:]) {
         let result = contentResolver(urlString: urlString, appendParams: appendParams)
-        command = (result.function, result.args, result.callbackId, webView)
+        command.name = result.function
+        command.args = result.args
+        command.callbackId = result.callbackId
+        command.webView = webView
         execute()
     }
     
@@ -131,18 +133,17 @@ class MLHybridTools: NSObject {
         }
     }
     
-    func commandFromVC() -> MLHybridViewController {
-        guard let command = command else {return MLHybridViewController()}
-        var nextResponder = command.webView.next
-        while !(nextResponder is MLHybridViewController) {
-            nextResponder = nextResponder?.next ?? MLHybridViewController()
-        }
-        return nextResponder as? MLHybridViewController ?? MLHybridViewController()
-    }
+//    func commandFromVC() -> MLHybridViewController {
+//        var nextResponder = command.webView.next
+//        while !(nextResponder is MLHybridViewController) {
+//            nextResponder = nextResponder?.next ?? MLHybridViewController()
+//        }
+//        return nextResponder as? MLHybridViewController ?? MLHybridViewController()
+//    }
     
     func updateHeader() {
         let header = command.args.header
-        let navigationItem = self.commandFromVC().navigationItem
+        let navigationItem = command.viewController.navigationItem
         if header.title.tagname == "searchbox" {
             navigationItem.leftBarButtonItem = nil
             let naviTitleView = HybridNaviTitleView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 16, height: 44))
@@ -160,12 +161,12 @@ class MLHybridTools: NSObject {
     
     func setLeftButtons(_ leftButtons:[Hybrid_naviButtonModel], navigationItem: UINavigationItem) {
         let barButtons = self.setUpButtons(leftButtons)
-        self.commandFromVC().navigationItem.setLeftBarButtonItems(barButtons, animated: true)
+        self.command.viewController.navigationItem.setLeftBarButtonItems(barButtons, animated: true)
     }
     
     func setRightButtons(_ rightButtons:[Hybrid_naviButtonModel], navigationItem: UINavigationItem) {
         let barButtons = self.setUpButtons(rightButtons)
-        self.commandFromVC().navigationItem.setRightBarButtonItems(barButtons, animated: true)
+        self.command.viewController.navigationItem.setRightBarButtonItems(barButtons, animated: true)
     }
 
     func setUpNaviTitleView(_ titleModel:Hybrid_titleModel) -> HybridNaviTitleView {
@@ -186,17 +187,17 @@ class MLHybridTools: NSObject {
     }
     
     func back() {
-        if let navi = self.commandFromVC().navigationController {
+        if let navi = self.command.viewController.navigationController {
             navi.popViewController(animated: true)
         } else {
-            self.commandFromVC().dismiss(animated: true, completion: nil)
+            self.command.viewController.dismiss(animated: true, completion: nil)
         }
     }
     
     func forward() {
         if command.args.isH5 {
             guard let webViewController = MLHybrid.load(urlString: command.args.topage) else {return}
-            guard let navi = self.commandFromVC().navigationController else {return}
+            guard let navi = self.command.viewController.navigationController else {return}
             navi.pushViewController(webViewController, animated: true)
         } else {
             //这里指定跳转到本地某页面   需要一个判断映射的方法
@@ -204,9 +205,9 @@ class MLHybridTools: NSObject {
     }
     
     func setNavigationBarHidden() {
-        let vc = self.commandFromVC()
-        if vc.navigationController?.viewControllers.last == vc {
-            vc.navigationController?.setNavigationBarHidden(!command.args.display, animated: command.args.animate)
+        let vc = self.command.viewController
+        if vc?.navigationController?.viewControllers.last == vc {
+            vc?.navigationController?.setNavigationBarHidden(!command.args.display, animated: command.args.animate)
         }
     }
     
@@ -214,7 +215,7 @@ class MLHybridTools: NSObject {
      * 获取设备位置
      */
     func handleGetCurrentPosition() {
-        self.commandFromVC().locationModel.getLocation { (success, errcode, resultData) in
+        self.command.viewController.locationModel.getLocation { (success, errcode, resultData) in
             _ = self.callBack(data: resultData as AnyObject? ?? "" as AnyObject, err_no: errcode, callback: self.command.callbackId, webView: self.command.webView, completion: {js in
             })
         }
@@ -229,11 +230,11 @@ class MLHybridTools: NSObject {
     }
 
     func onWebViewShow() {
-        self.commandFromVC().onShowCallBack = self.command.callbackId
+        self.command.viewController.onShowCallBack = self.command.callbackId
     }
     
     func onWebViewHide() {
-        self.commandFromVC().onHideCallBack = self.command.callbackId
+        self.command.viewController.onHideCallBack = self.command.callbackId
     }
 
     func switchCache() {
@@ -349,7 +350,7 @@ extension MLHybridTools {
      * 获取位置
      */
     func handleGetLocation() {
-        self.commandFromVC().locationModel.getLocation { (success, errcode, resultData) in
+        self.command.viewController.locationModel.getLocation { (success, errcode, resultData) in
             _ = self.callBack(data: resultData as AnyObject? ?? "" as AnyObject, err_no: errcode, callback: self.command.callbackId, webView: self.command.webView, completion: {js in })
         }
     }
@@ -380,7 +381,7 @@ extension MLHybridTools {
     func pop() {
         //推出所有hybrid页面
         if command.args.num == 999 {
-            guard let vcs = self.commandFromVC().navigationController?.viewControllers else {return}
+            guard let vcs = self.command.viewController.navigationController?.viewControllers else {return}
             var toVC = vcs.first
             var i = 0
             while i < vcs.count {
@@ -390,14 +391,14 @@ extension MLHybridTools {
                 i = i + 1
             }
             if let toVC = toVC {
-                let _ = self.commandFromVC().navigationController?.popToViewController(toVC, animated: true)
+                let _ = self.command.viewController.navigationController?.popToViewController(toVC, animated: true)
             }
         }
         //返回指定步骤
-        if let vcs = self.commandFromVC().navigationController?.viewControllers {
+        if let vcs = self.command.viewController.navigationController?.viewControllers {
             if vcs.count > command.args.num {
                 let vc = vcs[vcs.count - command.args.num - 1]
-                let _ = self.commandFromVC().navigationController?.popToViewController(vc, animated: true)
+                let _ = self.command.viewController.navigationController?.popToViewController(vc, animated: true)
             }
         }
     }

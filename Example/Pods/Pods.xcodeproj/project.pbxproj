@@ -31,6 +31,7 @@
 		0D9F825D1F419A0300503F72 /* MLHybridTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82181F419A0300503F72 /* MLHybridTextField.swift */; };
 		0D9F825E1F419A0300503F72 /* MLHybridTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82191F419A0300503F72 /* MLHybridTextView.swift */; };
 		0D9F825F1F419A0300503F72 /* MLRefreshDIYHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F821A1F419A0300503F72 /* MLRefreshDIYHeader.swift */; };
+		0DCE2CAD1F4D82A500362112 /* MLHybirdCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE2CAC1F4D82A500362112 /* MLHybirdCommand.swift */; };
 		0DF858301F41DA17006DC7C0 /* MLHybridMethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF8582F1F41DA17006DC7C0 /* MLHybridMethodType.swift */; };
 		0DF858321F4577B9006DC7C0 /* MLCommandArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF858311F4577B9006DC7C0 /* MLCommandArgs.swift */; };
 		0DF858351F4695EF006DC7C0 /* MLHybridButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF858341F4695EF006DC7C0 /* MLHybridButton.swift */; };
@@ -86,6 +87,7 @@
 		0D9F82181F419A0300503F72 /* MLHybridTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridTextField.swift; sourceTree = "<group>"; };
 		0D9F82191F419A0300503F72 /* MLHybridTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridTextView.swift; sourceTree = "<group>"; };
 		0D9F821A1F419A0300503F72 /* MLRefreshDIYHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLRefreshDIYHeader.swift; sourceTree = "<group>"; };
+		0DCE2CAC1F4D82A500362112 /* MLHybirdCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybirdCommand.swift; sourceTree = "<group>"; };
 		0DF8582F1F41DA17006DC7C0 /* MLHybridMethodType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridMethodType.swift; sourceTree = "<group>"; };
 		0DF858311F4577B9006DC7C0 /* MLCommandArgs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MLCommandArgs.swift; path = ../MLCommandArgs.swift; sourceTree = "<group>"; };
 		0DF858341F4695EF006DC7C0 /* MLHybridButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridButton.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		0D9F81C81F419A0300503F72 /* DogHybrid */ = {
 			isa = PBXGroup;
 			children = (
+				0DCE2CAC1F4D82A500362112 /* MLHybirdCommand.swift */,
 				0DF8582F1F41DA17006DC7C0 /* MLHybridMethodType.swift */,
 				0D9F81CA1F419A0300503F72 /* MLHybridContentView.swift */,
 				0D9F81CC1F419A0300503F72 /* MLHybridTools.swift */,
@@ -485,6 +488,7 @@
 				0D9F82261F419A0300503F72 /* NJKWebViewProgressView.m in Sources */,
 				0D9F82221F419A0300503F72 /* Hybrid_titleModel.swift in Sources */,
 				0D9F825E1F419A0300503F72 /* MLHybridTextView.swift in Sources */,
+				0DCE2CAD1F4D82A500362112 /* MLHybirdCommand.swift in Sources */,
 				0D9F822C1F419A0300503F72 /* MLHybridLocation.swift in Sources */,
 				0D9F82201F419A0300503F72 /* Hybrid_headerModel.swift in Sources */,
 				0D9F825F1F419A0300503F72 /* MLRefreshDIYHeader.swift in Sources */,
