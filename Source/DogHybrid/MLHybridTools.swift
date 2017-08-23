@@ -356,26 +356,6 @@ extension MLHybridTools {
     }
     
     /**
-     * 打开地图并定位
-     */
-//    func handleOpenMap() {
-//        let latitude = Double(args["latitude"] as? String ?? "") ?? 0
-//        let longitude = Double(args["longitude"] as? String ?? "") ?? 0
-//        let name = args["name"] as? String ?? "未知"
-//        let address = args["address"] as? String ?? "未知"
-//        let infoUrl = args["infoUrl"] as? String ?? ""
-//
-//        
-//        let vc = MLHybridMapViewController()
-//        vc.latitude = latitude
-//        vc.longitude = longitude
-//        vc.name = name
-//        vc.address = address
-//        vc.infoUrl = infoUrl
-//        self.currentNavi()?.pushViewController(vc, animated: true)
-//    }
-
-    /**
      * pop 返回num个页面
      */
     func pop() {

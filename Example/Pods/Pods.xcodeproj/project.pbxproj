@@ -27,7 +27,6 @@
 		0D9F82591F419A0300503F72 /* HybridNaviTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82131F419A0300503F72 /* HybridNaviTitleView.swift */; };
 		0D9F825A1F419A0300503F72 /* HybridSearchBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82141F419A0300503F72 /* HybridSearchBox.swift */; };
 		0D9F825B1F419A0300503F72 /* MLHybridInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82151F419A0300503F72 /* MLHybridInputView.swift */; };
-		0D9F825C1F419A0300503F72 /* MLHybridMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82161F419A0300503F72 /* MLHybridMapViewController.swift */; };
 		0D9F825D1F419A0300503F72 /* MLHybridTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82181F419A0300503F72 /* MLHybridTextField.swift */; };
 		0D9F825E1F419A0300503F72 /* MLHybridTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F82191F419A0300503F72 /* MLHybridTextView.swift */; };
 		0D9F825F1F419A0300503F72 /* MLRefreshDIYHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9F821A1F419A0300503F72 /* MLRefreshDIYHeader.swift */; };
@@ -82,8 +81,6 @@
 		0D9F82131F419A0300503F72 /* HybridNaviTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HybridNaviTitleView.swift; sourceTree = "<group>"; };
 		0D9F82141F419A0300503F72 /* HybridSearchBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HybridSearchBox.swift; sourceTree = "<group>"; };
 		0D9F82151F419A0300503F72 /* MLHybridInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridInputView.swift; sourceTree = "<group>"; };
-		0D9F82161F419A0300503F72 /* MLHybridMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridMapViewController.swift; sourceTree = "<group>"; };
-		0D9F82171F419A0300503F72 /* MLHybridMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLHybridMapViewController.xib; sourceTree = "<group>"; };
 		0D9F82181F419A0300503F72 /* MLHybridTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridTextField.swift; sourceTree = "<group>"; };
 		0D9F82191F419A0300503F72 /* MLHybridTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLHybridTextView.swift; sourceTree = "<group>"; };
 		0D9F821A1F419A0300503F72 /* MLRefreshDIYHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLRefreshDIYHeader.swift; sourceTree = "<group>"; };
@@ -224,8 +221,6 @@
 				0D9F82131F419A0300503F72 /* HybridNaviTitleView.swift */,
 				0D9F82141F419A0300503F72 /* HybridSearchBox.swift */,
 				0D9F82151F419A0300503F72 /* MLHybridInputView.swift */,
-				0D9F82161F419A0300503F72 /* MLHybridMapViewController.swift */,
-				0D9F82171F419A0300503F72 /* MLHybridMapViewController.xib */,
 				0D9F82181F419A0300503F72 /* MLHybridTextField.swift */,
 				0D9F82191F419A0300503F72 /* MLHybridTextView.swift */,
 				0D9F821A1F419A0300503F72 /* MLRefreshDIYHeader.swift */,
@@ -495,7 +490,6 @@
 				0D9F825A1F419A0300503F72 /* HybridSearchBox.swift in Sources */,
 				0D9F82291F419A0300503F72 /* UIView+ML.swift in Sources */,
 				0D9F82271F419A0300503F72 /* DogHybirdURLProtocol.swift in Sources */,
-				0D9F825C1F419A0300503F72 /* MLHybridMapViewController.swift in Sources */,
 				0D9F825B1F419A0300503F72 /* MLHybridInputView.swift in Sources */,
 				0D9F82591F419A0300503F72 /* HybridNaviTitleView.swift in Sources */,
 				0DF858321F4577B9006DC7C0 /* MLCommandArgs.swift in Sources */,

@@ -23,6 +23,8 @@ open class MLCommandArgs: NSObject {
     var url: String = "" //第三方地址
     var num: Int = 0 //回退页面数
     
+    var dic: [String: AnyObject] = [:] //储存原始数据
+    
     var header: Hybrid_headerModel = Hybrid_headerModel() //导航栏设置数据模型
     
     
@@ -30,6 +32,7 @@ open class MLCommandArgs: NSObject {
     
     class func convert(_ dic: [String: AnyObject]) -> MLCommandArgs {
         let args = MLCommandArgs()
+        args.dic = dic
         args.type = dic["type"] as? String ?? ""
         
         if args.type == "h5" {
