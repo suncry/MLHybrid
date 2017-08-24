@@ -58,28 +58,28 @@ extension String{
     }
 
     
-    func hybridURLString(appendParams: [String: String]) -> String? {
-        if let topageURL = URL(string: self) {
-            var paramsDic = topageURL.hybridURLParamsDic()
-            for key in appendParams.keys {
-                if let value = appendParams[key] {
-                    paramsDic.updateValue(value, forKey: key)
-                }
-            }
-            var paramsArray = [String]()
-            for key in paramsDic.keys {
-                if let value = appendParams[key] {
-                    paramsArray.append("\(key)=\(value)")
-                }
-            }
-            let paramsString = paramsArray.joined(separator: "&")
-            if let host = topageURL.host, let scheme = topageURL.scheme, paramsString.characters.count > 0 {
-                let newTopageURL = "\(scheme + "://" + host + topageURL.path)?\(paramsString)"
-                return newTopageURL
-            }
-        }
-        return nil
-    }
+//    func hybridURLString(appendParams: [String: String]) -> String? {
+//        if let topageURL = URL(string: self) {
+//            var paramsDic = topageURL.hybridURLParamsDic()
+//            for key in appendParams.keys {
+//                if let value = appendParams[key] {
+//                    paramsDic.updateValue(value, forKey: key)
+//                }
+//            }
+//            var paramsArray = [String]()
+//            for key in paramsDic.keys {
+//                if let value = appendParams[key] {
+//                    paramsArray.append("\(key)=\(value)")
+//                }
+//            }
+//            let paramsString = paramsArray.joined(separator: "&")
+//            if let host = topageURL.host, let scheme = topageURL.scheme, paramsString.characters.count > 0 {
+//                let newTopageURL = "\(scheme + "://" + host + topageURL.path)?\(paramsString)"
+//                return newTopageURL
+//            }
+//        }
+//        return nil
+//    }
 }
 
 extension URL {

@@ -53,7 +53,6 @@ open class MLHybrid {
 
     //加载页面
     open class func load(urlString: String) -> MLHybridViewController? {
-        
         guard let url = URL(string: urlString.hybridUrlPathAllowedString()) else {return nil}
         let webViewController = MLHybridViewController()
         webViewController.URLPath = url

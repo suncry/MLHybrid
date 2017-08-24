@@ -16,7 +16,7 @@ class MLHybridContentView: WKWebView {
     static var sharedKPreferences = WKPreferences()
     static var sharedProcessPool = WKProcessPool()
     
-    var tool: MLHybridTools = MLHybridTools()
+    let tool: MLHybridTools = MLHybridTools()
 
     var htmlString: String?
     
@@ -89,13 +89,11 @@ extension MLHybridContentView: WKUIDelegate,WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        var policy =  WKNavigationActionPolicy.allow
-        guard let url = navigationAction.request.url else {return}
-        if url.scheme == MLHybrid.shared.scheme {
-            self.tool.analysis(urlString: url.absoluteString, webView: webView)
-            policy =  WKNavigationActionPolicy.cancel
+        if self.tool.performCommand(request: navigationAction.request, webView: webView) {
+            decisionHandler(.cancel)
+        } else {
+            decisionHandler(.allow)
         }
-        decisionHandler(policy)
     }
     
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView){

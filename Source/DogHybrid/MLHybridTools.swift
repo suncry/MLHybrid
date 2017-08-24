@@ -23,60 +23,17 @@ class MLHybridTools: NSObject {
     fileprivate let checkVersionURL = "http://h5.medlinker.com/app/version/latestList?app=medlinker&sys_p=i&cli_v="
     
     //MARK: Method
-    
-    /// 解析并执行hybrid指令
-    ///
-    /// - Parameters:
-    ///   - urlString: 原始指令串
-    ///   - webView: 触发指令的容器
-    ///   - appendParams: 附加到指令串中topage地址的参数 一般情况下不需要
-    func analysis(urlString: String, webView: WKWebView = WKWebView(), appendParams: [String: String] = [:]) {
-        let result = contentResolver(urlString: urlString, appendParams: appendParams)
-        command.name = result.function
-        command.args = result.args
-        command.callbackId = result.callbackId
-        command.webView = webView
-        execute()
-    }
-    
-    /// 解析hybrid指令
-    ///
-    /// - Parameters:
-    ///   - urlString: 原始指令串
-    ///   - appendParams: 附加到指令串中topage地址的参数 一般情况下不需要
-    /// - Returns: 执行方法名、参数、回调ID
-    private func contentResolver(urlString: String, appendParams: [String: String] = [:])
-        -> (function: String, args: MLCommandArgs, callbackId: String) {
-        if let url = URL(string: urlString) {
-            if url.scheme == MLHybrid.shared.scheme {
-                let functionName = url.host ?? ""
-                let paramDic = url.hybridURLParamsDic()
-                var args = (paramDic["param"] ?? "").hybridDecodeURLString().hybridDecodeJsonStr()
-                if let newTopageURL = (args["topage"] as? String ?? "").hybridURLString(appendParams: appendParams) {
-                    args.updateValue(newTopageURL as AnyObject, forKey: "topage")
-                }
-                let callBackId = paramDic["callback"] ?? ""
-                
-                let commandArgs = MLCommandArgs.convert(args)
-
-                
-                return (functionName, commandArgs, callBackId)
-            } else {
-                var args = ["topage": urlString as AnyObject, "type": "h5" as AnyObject]
-                if let newTopageURL = urlString.hybridURLString(appendParams: appendParams) {
-                    args.updateValue(newTopageURL as AnyObject, forKey: "topage")
-                }
-                
-                let commandArgs = MLCommandArgs.convert(args)
-
-                return (MLHybridMethodType.Forward.rawValue, commandArgs, "")
-            }
+    func performCommand(request: URLRequest, webView: WKWebView) -> Bool {
+        if let hybridCommand = MLHybirdCommand.analysis(request: request, webView: webView) {
+            command = hybridCommand
+            execute()
+            return true
+        } else {
+            return false
         }
-        return ("", MLCommandArgs(), "")
     }
     
     /// 根据指令执行对应的方法
-    
     private func execute() {
         guard let funType = MLHybridMethodType(rawValue: command.name) else {
             MLHybrid.shared.delegate?.methodExtension(command: command)
@@ -133,14 +90,6 @@ class MLHybridTools: NSObject {
         }
     }
     
-//    func commandFromVC() -> MLHybridViewController {
-//        var nextResponder = command.webView.next
-//        while !(nextResponder is MLHybridViewController) {
-//            nextResponder = nextResponder?.next ?? MLHybridViewController()
-//        }
-//        return nextResponder as? MLHybridViewController ?? MLHybridViewController()
-//    }
-    
     func updateHeader() {
         let header = command.args.header
         let navigationItem = command.viewController.navigationItem
@@ -176,7 +125,6 @@ class MLHybridTools: NSObject {
         naviTitleView.loadTitleView(titleModel.title, subtitle: titleModel.subtitle, lefticonUrl: leftUrl as URL, righticonUrl: rightUrl as URL, callback: titleModel.callback, currentWebView: command.webView)
         return naviTitleView
     }
-    
     
     func setUpButtons(_ buttonModels:[Hybrid_naviButtonModel]) -> [UIBarButtonItem] {
         var barButtons = MLHybridButton.setUp(models: buttonModels, webView: command.webView)
@@ -343,8 +291,6 @@ extension MLHybridTools {
             pasteboard.string = urlString
         }
     }
-
-    
     
     /**
      * 获取位置

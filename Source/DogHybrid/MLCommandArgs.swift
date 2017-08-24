@@ -33,7 +33,7 @@ open class MLCommandArgs: NSObject {
     class func convert(_ dic: [String: AnyObject]) -> MLCommandArgs {
         let args = MLCommandArgs()
         args.dic = dic
-        args.type = dic["type"] as? String ?? ""
+        args.type = dic["type"] as? String ?? "h5"
         
         if args.type == "h5" {
             args.isH5 = true
