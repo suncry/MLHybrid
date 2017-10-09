@@ -23,7 +23,7 @@ class MLHybridTools: NSObject {
     fileprivate let checkVersionURL = "http://h5.medlinker.com/app/version/latestList?app=medlinker&sys_p=i&cli_v="
     
     //MARK: Method
-    func performCommand(request: URLRequest, webView: WKWebView) -> Bool {
+    func performCommand(request: URLRequest, webView: UIWebView) -> Bool {
         if let hybridCommand = MLHybirdCommand.analysis(request: request, webView: webView) {
             command = hybridCommand
             execute()
@@ -72,21 +72,17 @@ class MLHybridTools: NSObject {
     ///   - callback: 回调方法
     ///   - webView: 执行回调的容器
     /// - Returns: 回调执行结果
-    func callBack(data:Any = "", err_no: Int = 0, msg: String = "succuess", callback: String, webView: WKWebView , completion: @escaping ((String) ->Void))  {
+    func callBack(data:Any = "", err_no: Int = 0, msg: String = "succuess", callback: String, webView: UIWebView , completion: @escaping ((String) ->Void))  {
         let data = ["data": data,
                     "errno": err_no,
                     "msg": msg,
                     "callback": callback] as [String : Any]
         let dataString = data.hybridJSONString()
-        webView.evaluateJavaScript(HybridEvent + "(\(dataString));") { (result, error) in
-            if let resultStr = result as? String {
-                completion(resultStr)
-            }else  if  let error = error{
-                completion(error.localizedDescription)
-            }
-            else {
-                completion("")
-            }
+        
+        if let resultStr = webView.stringByEvaluatingJavaScript(from: HybridEvent + "(\(dataString));") {
+            completion(resultStr)
+        } else {
+            completion("")
         }
     }
     
@@ -286,7 +282,7 @@ extension MLHybridTools {
      * 复制网页链接
      */
     func handleCopyLink() {
-        if let urlString = command.webView.url?.absoluteString {
+        if let urlString = command.webView.request?.url?.absoluteString {
             let pasteboard = UIPasteboard.general
             pasteboard.string = urlString
         }

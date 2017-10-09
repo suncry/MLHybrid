@@ -22,10 +22,8 @@ open class MLHybridViewController: UIViewController {
     deinit {
         locationModel.stopUpdateLocation()
         if contentView != nil {
-            contentView.load(URLRequest(url: URL(string: "about:blank")!))
+            contentView.loadRequest(URLRequest(url: URL(string: "about:blank")!))
             contentView.stopLoading()
-            contentView.uiDelegate = nil
-            contentView.navigationDelegate = nil
             contentView.removeFromSuperview()
             contentView = nil
         }
@@ -81,7 +79,7 @@ open class MLHybridViewController: UIViewController {
             self.contentView.htmlString = htmlString
         }
         guard URLPath != nil else {return}
-        self.contentView.load(URLRequest(url: URLPath!))
+        self.contentView.loadRequest(URLRequest(url: URLPath!))
     }
     
 }

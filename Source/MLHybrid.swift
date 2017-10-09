@@ -39,13 +39,6 @@ open class MLHybrid {
         shared.platform = platform
         shared.domain = domain
         shared.userAgent = "med_hybrid_" + appName + "_"
-        //设置userAgent
-        var userAgentStr: String = UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent") ?? ""
-        if (userAgentStr.range(of: MLHybrid.shared.userAgent) == nil) {
-            guard let versionStr = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else {return}
-            userAgentStr.append(" \(MLHybrid.shared.userAgent)\(versionStr) ")
-            UserDefaults.standard.register(defaults: ["UserAgent" : userAgentStr])
-        }
         shared.scheme = "med" + appName + "hybrid"
         shared.backIndicator = backIndicator
         shared.delegate = delegate
@@ -61,15 +54,12 @@ open class MLHybrid {
 
     //清理Cookie
     open func clearCookie (urlString: String) {
-        if #available(iOS 9.0, *) {
-            WKWebsiteDataStore.default().removeData(ofTypes: [WKWebsiteDataTypeDiskCache,WKWebsiteDataTypeMemoryCache], modifiedSince: Date(timeIntervalSince1970:0), completionHandler: {})
-        } else {
-            if let libraryPath = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first{
-                try? FileManager.default.removeItem(atPath: libraryPath)
+        if let url = URL(string: urlString) {
+            guard let cookies = HTTPCookieStorage.shared.cookies(for: url) else { return }
+            for cookie in cookies {
+                HTTPCookieStorage.shared.deleteCookie(cookie)
             }
         }
     }
-    
 
-    
 }

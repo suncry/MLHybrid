@@ -7,11 +7,10 @@
 //
 
 import UIKit
-import  WebKit
 
 class HybridSearchBox: UIView {
     
-    func initSearchBox(_ navigationItem: UINavigationItem, titleModel: Hybrid_titleModel, currentWebView: WKWebView, right: [Hybrid_naviButtonModel]) {
+    func initSearchBox(_ navigationItem: UINavigationItem, titleModel: Hybrid_titleModel, currentWebView: UIWebView, right: [Hybrid_naviButtonModel]) {
         navigationItem.setHidesBackButton(true, animated: false)
         navigationItem.rightBarButtonItem?.customView?.isHidden = true
 

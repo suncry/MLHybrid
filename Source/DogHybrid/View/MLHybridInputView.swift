@@ -8,7 +8,6 @@
 
 import UIKit
 import AssetsLibrary
-import WebKit
 
 fileprivate let _pickerTag = 19900914
 fileprivate let _textFieldTag = 40699
@@ -26,7 +25,7 @@ class MLHybridInputView: UIView {
     fileprivate var _count: Int = 3
 
     fileprivate var _callbackID: String = ""
-    fileprivate weak var _webView: WKWebView?
+    fileprivate weak var _webView: UIWebView?
 
     fileprivate var _blackView: UIView!
     fileprivate var _inputView: UIView!
@@ -40,7 +39,7 @@ class MLHybridInputView: UIView {
 
     
     
-    class func show(args: [String: AnyObject], callbackID: String, webView: WKWebView) {
+    class func show(args: [String: AnyObject], callbackID: String, webView: UIWebView) {
 //        MLVerify.shared.check { (bool, reason) in
 //            if bool {
 //                if let v = UIApplication.shared.keyWindow?.viewWithTag(_pickerTag) as? MLHybridInputView, v._webView == webView, v._callbackID == callbackID {
@@ -92,7 +91,7 @@ class MLHybridInputView: UIView {
         super.init(coder: aDecoder)
     }
     
-    func hideInputView() {
+    @objc func hideInputView() {
         let inputTextField = UIApplication.shared.keyWindow?.viewWithTag(_textFieldTag)
         inputTextField?.resignFirstResponder()
     }

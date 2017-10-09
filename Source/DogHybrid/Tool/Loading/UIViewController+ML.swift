@@ -153,5 +153,5 @@ extension UIViewController {
         }
     }
     
-    public func cilicBackgroud() { }
+    @objc public func cilicBackgroud() { }
 }

@@ -7,14 +7,13 @@
 //
 
 import Foundation
-import WebKit
 
 class MLHybridButton: UIButton {
     let margin: CGFloat = 13
     var model: Hybrid_naviButtonModel = Hybrid_naviButtonModel()
-    var webView: WKWebView = WKWebView()
+    var webView: UIWebView = UIWebView()
     
-    class func setUp(models: [Hybrid_naviButtonModel], webView: WKWebView) -> [UIBarButtonItem] {
+    class func setUp(models: [Hybrid_naviButtonModel], webView: UIWebView) -> [UIBarButtonItem] {
         let models = models.reversed()
 
         var items: [UIBarButtonItem] = []
@@ -62,7 +61,7 @@ class MLHybridButton: UIButton {
     }
     
     
-    func click(sender: MLHybridButton) {
+    @objc func click(sender: MLHybridButton) {
         if sender.model.callback.characters.count == 0 {
             var nextResponder = sender.webView.next
             while !(nextResponder is MLHybridViewController) {

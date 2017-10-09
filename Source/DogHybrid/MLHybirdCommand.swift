@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import WebKit
 
 open class MLHybirdCommand {
     
@@ -20,7 +19,7 @@ open class MLHybirdCommand {
     //发出指令的控制器
     public var viewController: MLHybridViewController!
     var callbackId: String = ""
-    var webView: WKWebView = WKWebView() {
+    var webView: UIWebView = UIWebView() {
         didSet {
             viewController = self.commandFromVC()
         }
@@ -40,15 +39,10 @@ open class MLHybirdCommand {
                     "msg": msg,
                     "callback": self.callbackId] as [String : Any]
         let dataString = data.hybridJSONString()
-        self.webView.evaluateJavaScript(HybridEvent + "(\(dataString));") { (result, error) in
-            if let resultStr = result as? String {
-                completion(resultStr)
-            }else  if  let error = error{
-                completion(error.localizedDescription)
-            }
-            else {
-                completion("")
-            }
+        if let resultStr = self.webView.stringByEvaluatingJavaScript(from: HybridEvent + "(\(dataString));") {
+            completion(resultStr)
+        } else {
+            completion("")
         }
     }
     
@@ -67,7 +61,7 @@ open class MLHybirdCommand {
     ///   - urlString: 原始指令串
     ///   - webView: 触发指令的容器
     ///   - appendParams: 附加到指令串中topage地址的参数 一般情况下不需要
-    class func analysis(request: URLRequest, webView: WKWebView) -> MLHybirdCommand? {
+    class func analysis(request: URLRequest, webView: UIWebView) -> MLHybirdCommand? {
         guard let url = request.url else  { return nil }
         if url.scheme != MLHybrid.shared.scheme { return nil }
         let command = MLHybirdCommand()

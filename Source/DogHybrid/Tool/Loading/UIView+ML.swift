@@ -126,6 +126,6 @@ extension UIView {
         return UIView()
     }
     
-    func cilicBackgroud() {
+    @objc func cilicBackgroud() {
     }
 }
