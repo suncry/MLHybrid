@@ -14,13 +14,13 @@ class MethodExtension: MLHybridMethodProtocol {
     func methodExtension(command: MLHybirdCommand) {
         print("不属于默认方法 ===> \(command.name)")
         
-        command.callback { (str) in
-            
-        }
-        
-        command.callback(data: "", err_no: 0, msg: "") { (str) in
-            
-        }
+//        command.callback { (str) in
+//
+//        }
+//
+//        command.callback(data: "", err_no: 0, msg: "") { (str) in
+//
+//        }
     }
 
 }

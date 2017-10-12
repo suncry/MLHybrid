@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        MLHybrid.register(sess: "GuU7KeV154f8juslkNWRONyVE3m8Sq9h5nJFpcARiCFIvrMsp6boxDzcYabBwAoM",
+        MLHybrid.register(sess: "pkSwIuKT8Jh4toBE2Vzg6Ni87wyWfyA0DFbVXAzXlfuHCoMKYqRmm31GnZbUgZdc",
                           platform: "i",
                           appName: "medlinker",
                           domain: "medlinker.com",

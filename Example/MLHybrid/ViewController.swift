@@ -17,7 +17,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func click(_ sender: Any) {
-        let dddd = MLHybrid.load(urlString: "http://web.medlinker.com/h5/hospital/z_index.html?serviceType=4&type=z")
+//        let dddd = MLHybrid.load(urlString: "http://web.qa.medlinker.com/h5/hospital/z_index.html?serviceType=1&type=d")
+        let dddd = MLHybrid.load(urlString: "http://web.qa.medlinker.com/h5/hospital/z_home.html")
+
         let navi = UINavigationController(rootViewController: dddd!)
         navi.navigationBar.isTranslucent = false
         self.present(navi, animated: true, completion: nil)

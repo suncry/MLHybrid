@@ -33,6 +33,8 @@ class MLHybridContentView: UIWebView {
         self.backgroundColor = UIColor.white
         self.scrollView.bounces = false
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.delegate = self
+        self.backgroundColor = .red
     }
 
     //设置userAgent
@@ -62,6 +64,7 @@ class MLHybridContentView: UIWebView {
         let cookie = HTTPCookie(properties: properties )
         HTTPCookieStorage.shared.setCookie(cookie!)
     }
+    
 }
 
 extension MLHybridContentView: UIWebViewDelegate {
@@ -74,7 +77,6 @@ extension MLHybridContentView: UIWebViewDelegate {
         return nextResponder as? MLHybridViewController ?? MLHybridViewController()
     }
 
-    
     func webViewDidFinishLoad(_ webView: UIWebView) {
         /*
         if self.scrollView.mj_header != nil {
@@ -84,7 +86,6 @@ extension MLHybridContentView: UIWebViewDelegate {
         if let title = webView.stringByEvaluatingJavaScript(from: "document.title"), title.characters.count > 0 {
             self.vcOfView(view: webView).title = title
         }
-        
         if let htmlString = self.htmlString {
             webView.stringByEvaluatingJavaScript(from: "document.body.innerHTML = document.body.innerHTML + '\(htmlString)'")
             self.htmlString = nil

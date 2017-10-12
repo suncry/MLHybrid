@@ -63,7 +63,9 @@ open class MLHybirdCommand {
     ///   - appendParams: 附加到指令串中topage地址的参数 一般情况下不需要
     class func analysis(request: URLRequest, webView: UIWebView) -> MLHybirdCommand? {
         guard let url = request.url else  { return nil }
-        if url.scheme != MLHybrid.shared.scheme { return nil }
+        if url.scheme != MLHybrid.shared.scheme {
+            return nil
+        }
         let command = MLHybirdCommand()
         let result = command.contentResolver(url: url)
         command.name = result.function
