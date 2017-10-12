@@ -15,6 +15,4 @@ this is description
 
   s.source_files = 'Source/**/*'
 
-  s.frameworks = 'WebKit'
-
 end
