@@ -13,7 +13,6 @@ class MethodExtension: MLHybridMethodProtocol {
 
     func methodExtension(command: MLHybirdCommand) {
         print("不属于默认方法 ===> \(command.name)")
-        
 //        command.callback { (str) in
 //
 //        }

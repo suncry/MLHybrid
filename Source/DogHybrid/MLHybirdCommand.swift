@@ -13,7 +13,7 @@ open class MLHybirdCommand {
     //指令名
     public var name = ""
     //外部使用参数
-    public var params: [String: AnyObject] = [:]
+    var params: [String: AnyObject] = [:]
     //内部使用参数
     var args: MLCommandArgs = MLCommandArgs()
     //发出指令的控制器
@@ -44,6 +44,16 @@ open class MLHybirdCommand {
         } else {
             completion("")
         }
+    }
+    
+    /// 获取字符串参数
+    public func stringFor(key: String) -> String {
+        return self.params[key] as? String ?? ""
+    }
+
+    /// 获取整型参数
+    public func intFor(key: String) -> Int {
+        return self.params[key] as? Int ?? -99
     }
     
     //获取发出命令的控制器
