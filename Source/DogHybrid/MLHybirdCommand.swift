@@ -19,7 +19,7 @@ open class MLHybirdCommand {
     //发出指令的控制器
     public var viewController: MLHybridViewController!
     var callbackId: String = ""
-    var webView: UIWebView = UIWebView() {
+    public var webView: UIWebView = UIWebView() {
         didSet {
             viewController = self.commandFromVC()
         }
