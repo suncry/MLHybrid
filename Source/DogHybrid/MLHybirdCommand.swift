@@ -56,6 +56,15 @@ open class MLHybirdCommand {
         return self.params[key] as? Int ?? -99
     }
     
+    /// 获取BOOL参数
+    public func boolFor(key: String) -> Bool {
+        return self.params[key] as? Bool ?? false
+    }
+
+    public func anyFor(key: String) -> Any {
+        return self.params[key]
+    }
+    
     //获取发出命令的控制器
     private func commandFromVC() -> MLHybridViewController {
         var nextResponder = self.webView.next

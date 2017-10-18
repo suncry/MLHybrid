@@ -23,6 +23,9 @@ class MLHybridContentView: UIWebView {
         initUI()
         configUserAgent()
         customerCookie()
+        NotificationCenter.default.addObserver(forName: MLHybridNotification.updateCookie, object: nil, queue: nil) { [weak self] (notification) in
+            self?.customerCookie()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

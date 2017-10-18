@@ -10,8 +10,11 @@ import Foundation
 import WebKit
 
 public protocol MLHybridMethodProtocol {
-    
     func methodExtension(command: MLHybirdCommand)
+}
+
+struct MLHybridNotification {
+    static let updateCookie: Notification.Name = Notification.Name(rawValue: "MLHybridUpdateCookie")
 }
 
 open class MLHybrid {
@@ -50,6 +53,12 @@ open class MLHybrid {
         let webViewController = MLHybridViewController()
         webViewController.URLPath = url
         return webViewController        
+    }
+
+    //更新Cookie
+    open func updateCookie(_ cookie: String) {
+        MLHybrid.shared.sess = cookie
+        NotificationCenter.default.post(name: MLHybridNotification.updateCookie, object: nil)
     }
 
     //清理Cookie
