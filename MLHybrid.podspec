@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MLHybrid'
-  s.version          = '0.2.3'
+  s.version          = '0.2.4'
   s.summary          = 'Hybrid take U fly'
   s.description      = <<-DESC
 this is description
@@ -14,5 +14,7 @@ this is description
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'Source/**/*'
+
+  s.dependency 'SSZipArchive'
 
 end

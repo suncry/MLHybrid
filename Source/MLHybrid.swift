@@ -56,19 +56,24 @@ open class MLHybrid {
     }
 
     //更新Cookie
-    open func updateCookie(_ cookie: String) {
+    open class func updateCookie(_ cookie: String) {
         MLHybrid.shared.sess = cookie
         NotificationCenter.default.post(name: MLHybridNotification.updateCookie, object: nil)
     }
 
     //清理Cookie
-    open func clearCookie (urlString: String) {
+    open class func clearCookie (urlString: String) {
         if let url = URL(string: urlString) {
             guard let cookies = HTTPCookieStorage.shared.cookies(for: url) else { return }
             for cookie in cookies {
                 HTTPCookieStorage.shared.deleteCookie(cookie)
             }
         }
+    }
+
+    //版本检测并更新
+    open class func checkVersion() {
+        MLHybridTools().checkVersion()
     }
 
 }

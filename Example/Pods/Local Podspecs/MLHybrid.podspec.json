@@ -1,8 +1,8 @@
 {
   "name": "MLHybrid",
-  "version": "0.1.0",
+  "version": "0.2.3",
   "summary": "Hybrid take U fly",
-  "description": "TODO: Add long description of the pod here.",
+  "description": "this is description",
   "homepage": "https://github.com/suncry/MLHybrid",
   "license": {
     "type": "MIT",
@@ -13,10 +13,15 @@
   },
   "source": {
     "git": "https://github.com/suncry/MLHybrid.git",
-    "tag": "0.1.0"
+    "tag": "0.2.3"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "Source/*"
+  "source_files": "Source/**/*",
+  "dependencies": {
+    "SSZipArchive": [
+
+    ]
+  }
 }

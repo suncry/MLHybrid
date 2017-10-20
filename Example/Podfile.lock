@@ -1,5 +1,7 @@
 PODS:
-  - MLHybrid (0.1.0)
+  - MLHybrid (0.2.3):
+    - SSZipArchive
+  - SSZipArchive (2.1.1)
 
 DEPENDENCIES:
   - MLHybrid (from `../MLHybrid.podspec`)
@@ -9,8 +11,9 @@ EXTERNAL SOURCES:
     :path: ../MLHybrid.podspec
 
 SPEC CHECKSUMS:
-  MLHybrid: 231c838724222fa883e8b3e9d82085251c59067a
+  MLHybrid: fd49f2a93419835b516dfe87a388bbdaa0191499
+  SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
 
-PODFILE CHECKSUM: 5b9dae1cf885d327855b6ce9435757d5fb41f975
+PODFILE CHECKSUM: 778629d2207d295715987434bb610b062d287fa0
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0.beta.1

@@ -11,9 +11,9 @@ import UIKit
 open class MLHybridViewController: UIViewController {
 
     var locationModel = MLHybridLocation()
-    var naviBarHidden = false
+    public var naviBarHidden = false
     var URLPath: URL?
-    var htmlString: String?
+    public var htmlString: String?
     var onShowCallBack: String?
     var onHideCallBack: String?
     var contentView: MLHybridContentView!

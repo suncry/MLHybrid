@@ -294,10 +294,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MLHybrid_Example/Pods-MLHybrid_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MLHybrid/MLHybrid.framework",
+				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLHybrid.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

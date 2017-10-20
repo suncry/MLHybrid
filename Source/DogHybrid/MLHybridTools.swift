@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreLocation
-import WebKit
+import SSZipArchive
 
 let HybridEvent = "Hybrid.callback"
 let NaviImageHeader = "hybrid_navi_"
@@ -424,42 +424,42 @@ extension MLHybridTools {
     }
     
     private func loadZip(channel: String, version: String, urlString: String, completion: ((_ success: Bool, _ msg: String) -> Void)?) {
-//        if version == "forbidden" {
-//            let filePath = self.filePath(channel: channel)
-//            self.deleteAllFiles(path: filePath)
-//            return
-//        }
-//        if let url = URL(string: urlString) {
-//            let urlRequest:NSMutableURLRequest = NSMutableURLRequest(url: url)
-//            urlRequest.httpMethod = "GET"
-//            NSURLConnection.sendAsynchronousRequest(urlRequest as URLRequest, queue: OperationQueue.main, completionHandler: { (response, data, error) -> Void in
-//                if error != nil {
-//                    completion?(false, error!.localizedDescription)
-//                }
-//                if let responseData = data {
-//                    let filePath = self.filePath(channel: channel)
-//                    let zipPath = filePath + ".zip"
-//                    self.deleteAllFiles(path: filePath)
-//                    if (try? responseData.write(to: URL(fileURLWithPath: zipPath), options: [.atomic])) != nil {
-//                        if SSZipArchive.unzipFile(atPath: zipPath, toDestination: filePath) {
-//                            self.setLocalResourcesVersion(channel: channel, version: version)
-//                            self.deleteAllFiles(path: zipPath)
-//                            print("下载并解压了 \(channel)")
-//                            completion?(true, "")
-//                        }
-//                        else {
-//                            completion?(false, "解压失败 \(zipPath)")
-//                        }
-//                    }
-//                    else {
-//                        completion?(false, "写入失败 \(zipPath)")
-//                    }
-//                }
-//                else {
-//                    completion?(false, "更新包 为空")
-//                }
-//            })
-//        }
+        if version == "forbidden" {
+            let filePath = self.filePath(channel: channel)
+            self.deleteAllFiles(path: filePath)
+            return
+        }
+        if let url = URL(string: urlString) {
+            let urlRequest:NSMutableURLRequest = NSMutableURLRequest(url: url)
+            urlRequest.httpMethod = "GET"
+            NSURLConnection.sendAsynchronousRequest(urlRequest as URLRequest, queue: OperationQueue.main, completionHandler: { (response, data, error) -> Void in
+                if error != nil {
+                    completion?(false, error!.localizedDescription)
+                }
+                if let responseData = data {
+                    let filePath = self.filePath(channel: channel)
+                    let zipPath = filePath + ".zip"
+                    self.deleteAllFiles(path: filePath)
+                    if (try? responseData.write(to: URL(fileURLWithPath: zipPath), options: [.atomic])) != nil {
+                        if SSZipArchive.unzipFile(atPath: zipPath, toDestination: filePath) {
+                            self.setLocalResourcesVersion(channel: channel, version: version)
+                            self.deleteAllFiles(path: zipPath)
+                            print("下载并解压了 \(channel)")
+                            completion?(true, "")
+                        }
+                        else {
+                            completion?(false, "解压失败 \(zipPath)")
+                        }
+                    }
+                    else {
+                        completion?(false, "写入失败 \(zipPath)")
+                    }
+                }
+                else {
+                    completion?(false, "更新包 为空")
+                }
+            })
+        }
     }
     
     private func filePath(channel: String) -> String {

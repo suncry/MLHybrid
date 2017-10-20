@@ -3,11 +3,11 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'MLHybrid_Example' do
-  pod 'MLHybrid', :path => '/Users/yangcai/MLHybrid/Example/Podfile'
+    
+  pod 'MLHybrid', :path => '../MLHybrid.podspec'
 
   target 'MLHybrid_Tests' do
     inherit! :search_paths
-
-    
   end
+  
 end
