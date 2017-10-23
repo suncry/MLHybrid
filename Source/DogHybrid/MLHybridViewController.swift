@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NJKWebViewProgress
 
 open class MLHybridViewController: UIViewController {
 
@@ -17,6 +18,9 @@ open class MLHybridViewController: UIViewController {
     var onShowCallBack: String?
     var onHideCallBack: String?
     public var contentView: MLHybridContentView!
+
+    var _webViewProgressView = NJKWebViewProgressView()
+    let _webViewProgress = NJKWebViewProgress()
 
     //MARK: - init
     deinit {
@@ -80,6 +84,21 @@ open class MLHybridViewController: UIViewController {
         }
         guard URLPath != nil else {return}
         self.contentView.loadRequest(URLRequest(url: URLPath!))
+    }
+    
+}
+
+extension MLHybridViewController: NJKWebViewProgressDelegate {
+    public func webViewProgress(_ webViewProgress: NJKWebViewProgress!, updateProgress progress: Float) {
+        if progress > 0.7 {
+            _webViewProgressView.setProgress(progress, animated: true)
+        } else {
+            _webViewProgressView.setProgress(0.7, animated: true)
+        }
+    }
+    
+    open func setProgress(_ progress: Float) {
+        _webViewProgressView.setProgress(progress, animated: true)
     }
     
 }
