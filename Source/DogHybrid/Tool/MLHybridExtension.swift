@@ -10,7 +10,7 @@ import Foundation
 extension String{
     
     //MARK:获得string内容高度
-    func hybridStringHeightWith(_ fontSize:CGFloat,width:CGFloat)->CGFloat {
+    public func hybridStringHeightWith(_ fontSize:CGFloat,width:CGFloat)->CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize)
         let size = CGSize(width: width,height: CGFloat.greatestFiniteMagnitude)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -25,7 +25,7 @@ extension String{
     }
     
     //MARK:获得string内容宽度
-    func hybridStringWidthWith(_ fontSize:CGFloat,height:CGFloat)->CGFloat {
+    public func hybridStringWidthWith(_ fontSize:CGFloat,height:CGFloat)->CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize)
         let size = CGSize(width: CGFloat.greatestFiniteMagnitude,height: height)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -39,18 +39,18 @@ extension String{
         return CGFloat(width)
     }
 
-    func hybridDecodeURLString() -> String {
+    public func hybridDecodeURLString() -> String {
         let mutStr = NSMutableString(string: self)
         return mutStr.replacingPercentEscapes(using: String.Encoding.utf8.rawValue) ?? ""
     }
     
-    func hybridUrlPathAllowedString() -> String {
+    public func hybridUrlPathAllowedString() -> String {
         let mutStr = NSMutableString(string: self)
         let tempStr = mutStr.replacingPercentEscapes(using: String.Encoding.utf8.rawValue) ?? ""
         return tempStr.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed) ?? ""
     }
 
-    func hybridDecodeJsonStr() -> [String: AnyObject] {
+    public func hybridDecodeJsonStr() -> [String: AnyObject] {
         if let jsonData = self.data(using: String.Encoding.utf8) , self.characters.count > 0 {
             do {
                 return try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: AnyObject] ?? ["":"" as AnyObject]
@@ -91,7 +91,7 @@ extension URL {
     /// 获取URL参数字典
     ///
     /// - Returns: URL参数字典
-    func hybridURLParamsDic() -> [String: String] {
+    public func hybridURLParamsDic() -> [String: String] {
         let paramArray = self.query?.components(separatedBy: "&") ?? []
         var paramDic: Dictionary = ["": ""]
         for str in paramArray {
@@ -110,7 +110,7 @@ extension Dictionary {
     /// 字典转JSON字符串
     ///
     /// - Returns: JSON字符串
-    func hybridJSONString() -> String {
+    public func hybridJSONString() -> String {
         if let jsonData = try? JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions.prettyPrinted) {
             if let strJson = String(data: jsonData, encoding: .utf8) {
                 return strJson
