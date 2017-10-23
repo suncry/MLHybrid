@@ -82,21 +82,13 @@ class MLHybridTools: NSObject {
     }
     
     func updateHeader() {
+        //如果有父控制器则不设置header
+        if let _ = command.viewController.parent { return }
         let header = command.args.header
         let navigationItem = command.viewController.navigationItem
-        if header.title.tagname == "searchbox" {
-            navigationItem.leftBarButtonItem = nil
-            let naviTitleView = HybridNaviTitleView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 16, height: 44))
-            let searchBox = HybridSearchBox(frame: naviTitleView.bounds)
-            searchBox.initSearchBox(navigationItem, titleModel: header.title, currentWebView: command.webView, right: header.right)
-            naviTitleView.addSubview(searchBox)
-            navigationItem.titleView = naviTitleView
-        }
-        else {
-            navigationItem.titleView = self.setUpNaviTitleView(header.title)
-            self.setRightButtons(header.right, navigationItem: navigationItem)
-            self.setLeftButtons(header.left, navigationItem: navigationItem)
-        }
+        navigationItem.titleView = self.setUpNaviTitleView(header.title)
+        self.setRightButtons(header.right, navigationItem: navigationItem)
+        self.setLeftButtons(header.left, navigationItem: navigationItem)
     }
     
     func setLeftButtons(_ leftButtons:[Hybrid_naviButtonModel], navigationItem: UINavigationItem) {

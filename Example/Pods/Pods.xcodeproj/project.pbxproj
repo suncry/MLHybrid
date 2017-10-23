@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		00937BF5518F8471F3FF09B21E055889 /* MLOpenWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82FE78F65D4724046CA43DA16AF6B71 /* MLOpenWebViewController.swift */; };
 		00F433922833DACA9E6F8DCD47C475C7 /* ioapi_buf.c in Sources */ = {isa = PBXBuildFile; fileRef = D0DBE11FD7591C51AA68E2C594ABB0F5 /* ioapi_buf.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		039E12FD3FACA088C5B40B4CB4C304E2 /* MLHybridInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65A9830BDFB1973B90AF5779D530FAD /* MLHybridInputView.swift */; };
 		063855275DFC91FBC952512F7B2C0308 /* crypt.c in Sources */ = {isa = PBXBuildFile; fileRef = DE4A0438659B5605536EE7B0259540A1 /* crypt.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		0685B0A1FE1110FAC87E0E67B4DC5468 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 1D40AFBB606DE56DC26A9B57D6C6357A /* hmac.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		07432E8DEA8B25795C7C545AA67A0187 /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E48FD68CA806970841B3EA2869D827 /* ImageTransition.swift */; };
@@ -32,7 +31,6 @@
 		2F288ED3641B2B4775884C462AE377E6 /* Kingfisher-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 50768ABDBC9641C26FC02D881EF2DB6D /* Kingfisher-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2F56A863495055B31F6B84C6958CD2E3 /* Pods-MLHybrid_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A022625CC4C26FD1B38002E3A8DFF6 /* Pods-MLHybrid_Tests-dummy.m */; };
 		35808DA86B245A051852166A127A5F57 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD657DC28DDFC01B31CE3689A352459 /* SSZipArchive.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		3685AC09CC5F067329DE9037B5B2876C /* HybridSearchBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C1B9910950666115B5D02EE1D6B20C /* HybridSearchBox.swift */; };
 		383C9A8DB84B83233633C3A00A2C1608 /* KingfisherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AEA85A52956596930A05A4102BF30 /* KingfisherManager.swift */; };
 		386934C0B1CE6539D83F157F829F4B4A /* ioapi_buf.h in Headers */ = {isa = PBXBuildFile; fileRef = 00B8E2B734B418D917576E7226DE3C70 /* ioapi_buf.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		39DF564FCDD4DEC8F21FB960F26F6239 /* NJKWebViewProgress-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C917CBBBA6EC0C203FF3F4A3DD58A /* NJKWebViewProgress-dummy.m */; };
@@ -236,7 +234,6 @@
 		7E407FE63B967D2B3D4FEA83A79EBF38 /* String+MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Sources/String+MD5.swift"; sourceTree = "<group>"; };
 		7E7104202A867A920C5002592CD4B0D3 /* SSZipArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSZipArchive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F855EC5E6BA368DDE9000B810CE06D4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81C1B9910950666115B5D02EE1D6B20C /* HybridSearchBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HybridSearchBox.swift; sourceTree = "<group>"; };
 		832C37B2F0AEF2ADFE74417DD8C76114 /* RequestModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestModifier.swift; path = Sources/RequestModifier.swift; sourceTree = "<group>"; };
 		84C2E78C832A0220B37664AB6C66F963 /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Box.swift; sourceTree = "<group>"; };
 		851B52EF79E80C6F8A55B5F39F12F359 /* Kingfisher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kingfisher-dummy.m"; sourceTree = "<group>"; };
@@ -255,7 +252,6 @@
 		9F1306F46A788E6FDE7C8BE8BA15BFBE /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/ImageCache.swift; sourceTree = "<group>"; };
 		9F67FA2EBA6D87FCAD776579921170E9 /* ImagePrefetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePrefetcher.swift; path = Sources/ImagePrefetcher.swift; sourceTree = "<group>"; };
 		A186112D86C231C4CB4053C8D0E6E8A8 /* aes_ni.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = aes_ni.c; path = SSZipArchive/minizip/aes/aes_ni.c; sourceTree = "<group>"; };
-		A65A9830BDFB1973B90AF5779D530FAD /* MLHybridInputView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MLHybridInputView.swift; sourceTree = "<group>"; };
 		A7C71D6D04B17BBF05EEADB5DCC873AD /* Pods-MLHybrid_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MLHybrid_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		A7E48FD68CA806970841B3EA2869D827 /* ImageTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTransition.swift; path = Sources/ImageTransition.swift; sourceTree = "<group>"; };
 		A82FE78F65D4724046CA43DA16AF6B71 /* MLOpenWebViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MLOpenWebViewController.swift; sourceTree = "<group>"; };
@@ -518,9 +514,7 @@
 			isa = PBXGroup;
 			children = (
 				FBCC2793E704722E16574B7F7D5D2D99 /* HybridNaviTitleView.swift */,
-				81C1B9910950666115B5D02EE1D6B20C /* HybridSearchBox.swift */,
 				9B076882B11FAE4EFEE2FA82BA74E813 /* MLHybridButton.swift */,
-				A65A9830BDFB1973B90AF5779D530FAD /* MLHybridInputView.swift */,
 				4EF20B2E33CA8C16EE741989E4710286 /* MLHybridTextField.swift */,
 				D4C90D24499AB04DC7AD2074EFA53D66 /* MLHybridTextView.swift */,
 				0C50C0F6565926DDA94B7CF056DC8A1A /* MLRefreshDIYHeader.swift */,
@@ -608,12 +602,12 @@
 		ACDB34AA3E701F98F0FC409D388FED8C /* DogHybrid */ = {
 			isa = PBXGroup;
 			children = (
+				D97D00B77623F3E78E605A551D932313 /* MLHybridTools.swift */,
 				0D85162224324CE0867F76F0ECD1B1B8 /* DogHybirdURLProtocol */,
 				ADAAFEC6BB187BE1898706AD1DC32F24 /* MLCommandArgs.swift */,
 				025B551325CEB843AE8286EEAE70DBE7 /* MLHybirdCommand.swift */,
 				D95C827F3C690FB4E862A508A90D2BB9 /* MLHybridContentView.swift */,
 				508DC9CD9D65EE72549164B359D76114 /* MLHybridMethodType.swift */,
-				D97D00B77623F3E78E605A551D932313 /* MLHybridTools.swift */,
 				F2065ED838320CA558F008E1025BD6CD /* MLHybridViewController.swift */,
 				A82FE78F65D4724046CA43DA16AF6B71 /* MLOpenWebViewController.swift */,
 				AEEE4F25259ED743416D4B6E2227A726 /* Model */,
@@ -973,7 +967,6 @@
 				4E1B7490D09703C973AD2C95E5DA9ECD /* Hybrid_naviButtonModel.swift in Sources */,
 				25B5AADB431E588D7AC3B3CEA188092E /* Hybrid_titleModel.swift in Sources */,
 				B72E63DF4A36395370EF8C78DC264D1C /* HybridNaviTitleView.swift in Sources */,
-				3685AC09CC5F067329DE9037B5B2876C /* HybridSearchBox.swift in Sources */,
 				F1D753FF0F994F150F75BAE0FEBFA6E8 /* MLCommandArgs.swift in Sources */,
 				3CD9C60BCF229289BB4C72BA4CFF4DDC /* MLHybirdCommand.swift in Sources */,
 				243DB9D8B581CB9CBF893AD9837D622A /* MLHybrid-dummy.m in Sources */,
@@ -981,7 +974,6 @@
 				A0B4536A85E1C95CC09CBFC5A0506266 /* MLHybridButton.swift in Sources */,
 				2305FC1F1B20B84F917A461D1B4089FF /* MLHybridContentView.swift in Sources */,
 				B0D62544A79B6BB1DAFD4B41815E411E /* MLHybridExtension.swift in Sources */,
-				039E12FD3FACA088C5B40B4CB4C304E2 /* MLHybridInputView.swift in Sources */,
 				586FEA6018C4B5B54870CE3DDCCFABDF /* MLHybridLocation.swift in Sources */,
 				D5FF417FD79B3048C965BCC630511808 /* MLHybridMethodType.swift in Sources */,
 				695B6BA66B48AD99F4E1A151DE641825 /* MLHybridTextField.swift in Sources */,
