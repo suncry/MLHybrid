@@ -45,6 +45,7 @@ open class MLHybrid {
         shared.scheme = "med" + appName + "hybrid"
         shared.backIndicator = backIndicator
         shared.delegate = delegate
+        URLProtocol.registerClass(MLHybridURLProtocol.self)
     }
 
     //加载页面

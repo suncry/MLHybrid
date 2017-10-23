@@ -35,7 +35,7 @@
 		386934C0B1CE6539D83F157F829F4B4A /* ioapi_buf.h in Headers */ = {isa = PBXBuildFile; fileRef = 00B8E2B734B418D917576E7226DE3C70 /* ioapi_buf.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		39DF564FCDD4DEC8F21FB960F26F6239 /* NJKWebViewProgress-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C917CBBBA6EC0C203FF3F4A3DD58A /* NJKWebViewProgress-dummy.m */; };
 		3B4D9816DAB7D1502685483FB1199515 /* pwd2key.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B0AF88939F5E253375CCEEE2FE86E6B /* pwd2key.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		3CA8E2DFD03898ABC391DAB89CAF5F50 /* DogHybirdURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0664EFB2235D94F7EADC333BB4C0E /* DogHybirdURLProtocol.swift */; };
+		3CA8E2DFD03898ABC391DAB89CAF5F50 /* MLHybirdURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D0664EFB2235D94F7EADC333BB4C0E /* MLHybirdURLProtocol.swift */; };
 		3CD9C60BCF229289BB4C72BA4CFF4DDC /* MLHybirdCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025B551325CEB843AE8286EEAE70DBE7 /* MLHybirdCommand.swift */; };
 		40765AAA791D6DFC0022639E348F0E6A /* FormatIndicatedCacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059099864AF5385322FC3BBFEB61E8DA /* FormatIndicatedCacheSerializer.swift */; };
 		4084F40033C0822E4C2269B7B6432E8C /* minishared.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C17587C7D1BFDC739967009CCECE481 /* minishared.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -193,7 +193,7 @@
 		1D65679062A8F600708CC620C1E0A261 /* Hybrid_titleModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Hybrid_titleModel.swift; sourceTree = "<group>"; };
 		1FC45133E0F68DAD6E78F7D6CE371740 /* MLHybrid.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MLHybrid.xcconfig; sourceTree = "<group>"; };
 		2137332EAE985AF9E94A424974AF3427 /* Image.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Sources/Image.swift; sourceTree = "<group>"; };
-		21D0664EFB2235D94F7EADC333BB4C0E /* DogHybirdURLProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DogHybirdURLProtocol.swift; sourceTree = "<group>"; };
+		21D0664EFB2235D94F7EADC333BB4C0E /* MLHybirdURLProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MLHybirdURLProtocol.swift; sourceTree = "<group>"; };
 		2711695C10BA8438A9283E9C3810031B /* aesopt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aesopt.h; path = SSZipArchive/minizip/aes/aesopt.h; sourceTree = "<group>"; };
 		277DDB4CAD9ED8F4FD65D1070D1D3498 /* ioapi.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ioapi.c; path = SSZipArchive/minizip/ioapi.c; sourceTree = "<group>"; };
 		28E04B665DF78DE2E21C6A66AB8AFC2B /* Pods-MLHybrid_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MLHybrid_Example-dummy.m"; sourceTree = "<group>"; };
@@ -386,12 +386,12 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		0D85162224324CE0867F76F0ECD1B1B8 /* DogHybirdURLProtocol */ = {
+		0D85162224324CE0867F76F0ECD1B1B8 /* MLHybirdURLProtocol */ = {
 			isa = PBXGroup;
 			children = (
-				21D0664EFB2235D94F7EADC333BB4C0E /* DogHybirdURLProtocol.swift */,
+				21D0664EFB2235D94F7EADC333BB4C0E /* MLHybirdURLProtocol.swift */,
 			);
-			path = DogHybirdURLProtocol;
+			path = MLHybirdURLProtocol;
 			sourceTree = "<group>";
 		};
 		197F0CB20CE1225C4F1E82507F57FA84 /* Support Files */ = {
@@ -603,7 +603,7 @@
 			isa = PBXGroup;
 			children = (
 				D97D00B77623F3E78E605A551D932313 /* MLHybridTools.swift */,
-				0D85162224324CE0867F76F0ECD1B1B8 /* DogHybirdURLProtocol */,
+				0D85162224324CE0867F76F0ECD1B1B8 /* MLHybirdURLProtocol */,
 				ADAAFEC6BB187BE1898706AD1DC32F24 /* MLCommandArgs.swift */,
 				025B551325CEB843AE8286EEAE70DBE7 /* MLHybirdCommand.swift */,
 				D95C827F3C690FB4E862A508A90D2BB9 /* MLHybridContentView.swift */,
@@ -962,7 +962,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CA8E2DFD03898ABC391DAB89CAF5F50 /* DogHybirdURLProtocol.swift in Sources */,
+				3CA8E2DFD03898ABC391DAB89CAF5F50 /* MLHybirdURLProtocol.swift in Sources */,
 				C640304D6F3FC4B5C40B79FC522B8E4D /* Hybrid_headerModel.swift in Sources */,
 				4E1B7490D09703C973AD2C95E5DA9ECD /* Hybrid_naviButtonModel.swift in Sources */,
 				25B5AADB431E588D7AC3B3CEA188092E /* Hybrid_titleModel.swift in Sources */,

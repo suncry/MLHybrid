@@ -9,16 +9,13 @@
 import UIKit
 import Foundation
 
-//let webAppBaseUrl = URL(string: AppConfig.shared.h5Host)
-//let webAppBaseUrl = URL(string: kH5ServiceHost)
 let webAppBaseUrl = "web.qa.medlinker.com"
 
-
-let DogHybridURLProtocolHandled = "DogHybridURLProtocolHandled"
+let MLHybridURLProtocolHandled = "MLHybridURLProtocolHandled"
 let types = ["html","js","css","jpg","png"]
 let contentTpye = ["html": "text/html", "js": "application/javascript", "css": "text/css", "jpg": "image/jpeg", "png": "image/png"]
 
-open class DogHybridURLProtocol: URLProtocol {
+open class MLHybridURLProtocol: URLProtocol {
     
     //查找本地文件是否存在
     fileprivate class func findCache(_ request: URLRequest) -> String? {
@@ -46,7 +43,7 @@ open class DogHybridURLProtocol: URLProtocol {
 
     override open class func canInit(with request: URLRequest) -> Bool {
         //如果被标记为已处理 直接跳过
-        if let hasHandled = URLProtocol.property(forKey: DogHybridURLProtocolHandled, in: request) as? Bool , hasHandled == true {
+        if let hasHandled = URLProtocol.property(forKey: MLHybridURLProtocolHandled, in: request) as? Bool , hasHandled == true {
             return false
         }
         if let _ = self.findCache(request) {
@@ -62,9 +59,9 @@ open class DogHybridURLProtocol: URLProtocol {
     override open func startLoading() {
         //标记请求  防止重复处理
         let mutableReqeust: NSMutableURLRequest = (self.request as NSURLRequest).mutableCopy() as! NSMutableURLRequest
-        URLProtocol.setProperty(true, forKey: DogHybridURLProtocolHandled, in: mutableReqeust)
+        URLProtocol.setProperty(true, forKey: MLHybridURLProtocolHandled, in: mutableReqeust)
         if request.url?.host == webAppBaseUrl  {
-            if let cachePath = DogHybridURLProtocol.findCache(self.request), let client: URLProtocolClient = self.client {
+            if let cachePath = MLHybridURLProtocol.findCache(self.request), let client: URLProtocolClient = self.client {
                 let url = URL(fileURLWithPath: cachePath)
 //                log.debug("读取了本地的 == \(url.path)")
                 let type = url.pathExtension
