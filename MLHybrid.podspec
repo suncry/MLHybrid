@@ -17,6 +17,6 @@ this is description
 
   s.dependency 'SSZipArchive'
   s.dependency 'NJKWebViewProgress'
-  s.dependency 'Kingfisher', '~> 3.13.1'
+  s.dependency 'Kingfisher'
 
 end
