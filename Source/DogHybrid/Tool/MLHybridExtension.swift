@@ -10,7 +10,7 @@ import Foundation
 extension String{
     
     //MARK:获得string内容高度
-    func hybridStringHeightWith(_ fontSize:CGFloat,width:CGFloat)->CGFloat{
+    func hybridStringHeightWith(_ fontSize:CGFloat,width:CGFloat)->CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize)
         let size = CGSize(width: width,height: CGFloat.greatestFiniteMagnitude)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -25,7 +25,7 @@ extension String{
     }
     
     //MARK:获得string内容宽度
-    func hybridStringWidthWith(_ fontSize:CGFloat,height:CGFloat)->CGFloat{
+    func hybridStringWidthWith(_ fontSize:CGFloat,height:CGFloat)->CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize)
         let size = CGSize(width: CGFloat.greatestFiniteMagnitude,height: height)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -39,12 +39,12 @@ extension String{
         return CGFloat(width)
     }
 
-    func hybridDecodeURLString () -> String {
+    func hybridDecodeURLString() -> String {
         let mutStr = NSMutableString(string: self)
         return mutStr.replacingPercentEscapes(using: String.Encoding.utf8.rawValue) ?? ""
     }
     
-    func hybridUrlPathAllowedString () -> String {
+    func hybridUrlPathAllowedString() -> String {
         let mutStr = NSMutableString(string: self)
         let tempStr = mutStr.replacingPercentEscapes(using: String.Encoding.utf8.rawValue) ?? ""
         return tempStr.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed) ?? ""

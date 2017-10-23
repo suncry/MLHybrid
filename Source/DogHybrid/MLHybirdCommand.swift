@@ -61,8 +61,8 @@ open class MLHybirdCommand {
         return self.params[key] as? Bool ?? false
     }
 
-    public func anyFor(key: String) -> Any {
-        return self.params[key]
+    public func anyFor(key: String) -> AnyObject {
+        return self.params[key] ?? "" as AnyObject
     }
     
     //获取发出命令的控制器

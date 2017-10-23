@@ -12,12 +12,12 @@ import CoreMotion
 import JavaScriptCore
 import WebKit
 
-class MLHybridContentView: UIWebView {
+open class MLHybridContentView: UIWebView {
 
     let tool: MLHybridTools = MLHybridTools()
     //待注入的字符串
-    var htmlString: String?
-    
+    public var htmlString: String?
+
     private override init(frame: CGRect) {
         super.init(frame: frame)
         initUI()
@@ -28,7 +28,7 @@ class MLHybridContentView: UIWebView {
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
@@ -80,7 +80,7 @@ extension MLHybridContentView: UIWebViewDelegate {
         return nextResponder as? MLHybridViewController ?? MLHybridViewController()
     }
 
-    func webViewDidFinishLoad(_ webView: UIWebView) {
+    public func webViewDidFinishLoad(_ webView: UIWebView) {
         /*
         if self.scrollView.mj_header != nil {
             self.scrollView.mj_header?.endRefreshing()
@@ -95,7 +95,7 @@ extension MLHybridContentView: UIWebViewDelegate {
         }
     }
     
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    public func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         if self.tool.performCommand(request: request, webView: webView) {
             return false
         }

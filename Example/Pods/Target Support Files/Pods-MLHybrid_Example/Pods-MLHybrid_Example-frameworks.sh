@@ -102,11 +102,15 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MLHybrid/MLHybrid.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/NJKWebViewProgress/NJKWebViewProgress.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MLHybrid/MLHybrid.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/NJKWebViewProgress/NJKWebViewProgress.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

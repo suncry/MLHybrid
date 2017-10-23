@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MLHybrid'
-  s.version          = '0.2.4'
+  s.version          = '0.2.5'
   s.summary          = 'Hybrid take U fly'
   s.description      = <<-DESC
 this is description
@@ -16,5 +16,7 @@ this is description
   s.source_files = 'Source/**/*'
 
   s.dependency 'SSZipArchive'
+  s.dependency 'NJKWebViewProgress'
+  s.dependency 'Kingfisher'
 
 end

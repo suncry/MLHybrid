@@ -1,6 +1,14 @@
 PODS:
-  - MLHybrid (0.2.3):
+  - Kingfisher (4.1.1)
+  - MLHybrid (0.2.5):
+    - Kingfisher
+    - NJKWebViewProgress
     - SSZipArchive
+  - NJKWebViewProgress (0.2.3):
+    - NJKWebViewProgress/Core (= 0.2.3)
+    - NJKWebViewProgress/ProgressView (= 0.2.3)
+  - NJKWebViewProgress/Core (0.2.3)
+  - NJKWebViewProgress/ProgressView (0.2.3)
   - SSZipArchive (2.1.1)
 
 DEPENDENCIES:
@@ -11,9 +19,11 @@ EXTERNAL SOURCES:
     :path: ../MLHybrid.podspec
 
 SPEC CHECKSUMS:
-  MLHybrid: fd49f2a93419835b516dfe87a388bbdaa0191499
+  Kingfisher: 6793a473357b5dbee42b0068ef203fe8325f259e
+  MLHybrid: c6874478e5cd4143a9e9f08c41a9f2cfeb2ee680
+  NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
 
-PODFILE CHECKSUM: 778629d2207d295715987434bb610b062d287fa0
+PODFILE CHECKSUM: 3f4bd0cf6fa3ead7770bd98e46b66662776891e5
 
 COCOAPODS: 1.4.0.beta.1

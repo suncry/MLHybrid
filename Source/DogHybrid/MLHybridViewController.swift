@@ -12,12 +12,12 @@ open class MLHybridViewController: UIViewController {
 
     var locationModel = MLHybridLocation()
     public var naviBarHidden = false
-    var URLPath: URL?
+    public var URLPath: URL?
     public var htmlString: String?
     var onShowCallBack: String?
     var onHideCallBack: String?
-    var contentView: MLHybridContentView!
-    
+    public var contentView: MLHybridContentView!
+
     //MARK: - init
     deinit {
         locationModel.stopUpdateLocation()

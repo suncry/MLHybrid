@@ -10,8 +10,6 @@
 #endif
 #endif
 
-#import "NJKWebViewProgress.h"
-#import "NJKWebViewProgressView.h"
 
 FOUNDATION_EXPORT double MLHybridVersionNumber;
 FOUNDATION_EXPORT const unsigned char MLHybridVersionString[];

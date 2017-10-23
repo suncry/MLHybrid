@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HybridNaviTitleView: UIView {
 
@@ -44,18 +45,16 @@ class HybridNaviTitleView: UIView {
         //右图标
         self.righticon.frame = CGRect(x: self.titleLabel.frame.origin.x + self.titleLabel.frame.size.width + 5, y: 0, width: 15, height: 15)
         if righticonUrl.absoluteString.characters.count > 0 {
-            self.righticon.setZYHWebImage(righticonUrl.absoluteString as NSString?, defaultImage: "", isCache: true)
+            self.righticon.kf.setImage(with: righticonUrl)
         }
-//        self.righticon.setImageWithURL(righticonUrl)
         self.righticon.center.y = self.center.y
         self.addSubview(self.righticon)
         
         //左图标
         self.lefticon.frame = CGRect(x: self.titleLabel.frame.origin.x - 20, y: 0, width: 15, height: 15)
         if lefticonUrl.absoluteString.characters.count > 0 {
-            self.lefticon.setZYHWebImage(lefticonUrl.absoluteString as NSString?, defaultImage: "", isCache: true)
+            self.lefticon.kf.setImage(with: lefticonUrl)
         }
-//        self.lefticon.setImageWithURL(lefticonUrl)
         self.lefticon.center.y = self.center.y
         self.addSubview(self.lefticon)
 

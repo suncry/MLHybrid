@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NJKWebViewProgress
 
 private class MLOpenWebViewController: UIViewController, UIWebViewDelegate, NJKWebViewProgressDelegate {
 //    let webview = UIWebView()
