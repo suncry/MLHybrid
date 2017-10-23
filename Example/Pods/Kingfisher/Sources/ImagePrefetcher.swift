@@ -181,9 +181,13 @@ public class ImagePrefetcher {
      */
     public func stop() {
         DispatchQueue.main.safeAsync {
+            
             if self.finished { return }
+            
             self.stopped = true
-            self.tasks.values.forEach { $0.cancel() }
+            self.tasks.forEach { (_, task) -> () in
+                task.cancel()
+            }
         }
     }
     
@@ -233,8 +237,9 @@ public class ImagePrefetcher {
         if optionsInfo.forceRefresh {
             downloadAndCache(resource)
         } else {
-            let alreadyInCache = manager.cache.imageCachedType(forKey: resource.cacheKey,
+            let alreadyInCache = manager.cache.isImageCached(forKey: resource.cacheKey,
                                                              processorIdentifier: optionsInfo.processor.identifier).cached
+
             if alreadyInCache {
                 append(cached: resource)
             } else {
