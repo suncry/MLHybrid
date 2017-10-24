@@ -1,9 +1,7 @@
 PODS:
   - Kingfisher (4.2.0)
-  - MJRefresh (3.1.14.1)
-  - MLHybrid (0.3.2):
+  - MLHybrid (0.3.3):
     - Kingfisher
-    - MJRefresh
     - NJKWebViewProgress
     - SSZipArchive
   - NJKWebViewProgress (0.2.3):
@@ -22,8 +20,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
-  MJRefresh: 238e6a37e2dba12160ee3b79f6d2a2b26abcab42
-  MLHybrid: 80cfa32264955eefbcf6a5208ba33c2d6d9414ac
+  MLHybrid: 1954f1ffceef6968d7a0ab770b377c3d0404215b
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
 
