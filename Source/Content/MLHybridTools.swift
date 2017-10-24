@@ -54,7 +54,6 @@ class MLHybridTools: NSObject {
         case .Pop            : pop()
         case .Openlink       : openlink()
         case .Addtoclipboard : copyContent()
-        case .Gallery        : gallery()
         }
     }
     
@@ -178,93 +177,7 @@ class MLHybridTools: NSObject {
 //MARK: 支付
 
 extension MLHybridTools {
-    /**
-     * 支付宝支付
-     */
-    func handleAlipay() {
-//        let orderString  = args["payInfo"] as? String ?? ""
-//        MLPay.sharedInstance.alipay(orderString) { (success, errorMsg, resultCode) in
-//            let payResult = ["code":resultCode,
-//                             "result":errorMsg]
-//            _ = self.callBack(data: payResult, err_no: 0, msg: errorMsg, callback: callbackID, webView: webView, completion: {js in
-//            })
-//            if let finishBlock = MLPay.sharedInstance.finishBlock {
-//                finishBlock(success, errorMsg, resultCode)
-//            }
-//        }
-    }
     
-    /**
-     * 微信支付
-     */
-    func handleWeChatPay() {
-//        let orderString = args["payInfo"] as? String ?? ""
-//        let data = orderString.data(using: String.Encoding.utf8)
-//        let orderDic = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)
-//        MLPay.sharedInstance.weChat(orderDic as! [AnyHashable : Any], finishBlock: { (success, errorMsg, resultCode) in
-//            let payResult = ["code":resultCode,
-//                             "result":errorMsg]
-//            _ = self.callBack(data: payResult, err_no: 0, msg: errorMsg, callback: callbackID, webView: webView, completion: {js in })
-//            if let finishBlock = MLPay.sharedInstance.finishBlock {
-//                finishBlock(success, errorMsg, resultCode)
-//            }
-//        })
-    }
-    
-    /**
-     * H5钱包支付回调
-     */
-    func handlePayCallBack() {
-        print("handlePayCallBack")
-//        print("args == \(args)")
-        
-//        if let finishBlock = MLPay.sharedInstance.finishBlock, let vc = self.currentVC() {
-//            let status = args["status"] as? Int ?? 0
-//            _ = vc.navigationController?.popViewController(animated: true)
-//            switch status {
-//            case 1:
-//                //成功
-//                finishBlock(true, "钱包支付成功", "")
-//                break
-//            case 2:
-//                //失败
-//                finishBlock(false, "钱包支付失败", "")
-//                break
-//            case 3:
-//                //用户取消
-//                finishBlock(false, "用户取消钱包支付", "")
-//                break
-//            default:
-//                finishBlock(false, "钱包支付未知错误", "")
-//                break
-//            }
-//        }
-//        else {
-//            if let vc = self.currentVC() {
-//                _ = vc.navigationController?.popViewController(animated: true)
-//            }
-//        }
-    }
-
-    func iOSBuy() {
-//        if MLIAPHelper.isIAPPurching {
-//            return
-//        }
-//        MLIAPHelper.isIAPPurching = true
-////        let productID = args["pid"] as? String ?? ""
-//        let productID = args["pid"] as? String ?? ""
-//        MLIAPHelper.buyWithProductID(productID) { (success, errorMsg) in
-//            print("productID == \(productID)")
-//            MLIAPHelper.isIAPPurching = false
-//            NotificationCenter.default.post(name: Notification.Name(rawValue: "updateAccount"), object: nil)
-//            if success {
-//                //                MLTosat.message("充值成功")
-//            } else {
-//                print("充值失败")
-//            }
-//        }
-    }
-
     /**
      * 复制网页链接
      */
@@ -313,56 +226,15 @@ extension MLHybridTools {
     }
 
     func openlink() {
-        self.jumpToThirdParty(url: command.args.url)
+        if let vc = MLHybrid.load(urlString: command.args.url) {
+            command.viewController.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func copyContent() {
         UIPasteboard.general.string = command.args.content
-//        MLToast.message("已复制")
     }
     
-    func jumpToThirdParty(url: String) {
-//        if let vc = MLOpenWebViewController.loadURL(url: url) {
-//            self.currentNavi()?.pushViewController(vc, animated: true)
-//        }
-    }
-    
-    func logout() {
-//        LoginUserViewModel.shared.logout { (data, error) in
-//            if error != nil {
-//                CyAlertView.message(error?.localizedDescription)
-//            }
-//        }
-    }
-    
-    func uploadImage() {
-//        let maxCount = args["maxCount"] as? Int ?? 1
-//        let imageUploader = ImageUploader()
-//        let currentVC = self.viewControllerOf(webView)
-//        MLPhotoPicker.picker(maxCount: maxCount, delegateController: self.currentVC()!) { (assets, nil) in
-//            currentVC.startAnimating()
-//            imageUploader.uploadImages(assets, authority: .isPublic, warterMark: .withoutMark, bucket: .post, completion: { (error) in
-//                currentVC.stopAnimating()
-//                if error == nil {
-//                    _ = self.callBack(data:( ["urls": imageUploader.imageURLPathes] as Any), err_no: 0 , callback: callbackID, webView: webView, completion: {js in
-//                    })
-//                } else {
-//                    _ = self.callBack(data: "", err_no: 0 , callback: callbackID, webView: webView, completion: {js in
-//                    })
-//                }
-//            })
-//        }
-    }
-    func gallery() {
-//        if let index = args["index"] as? Int, let imgs = args["imgs"] as? [String] {
-//            guard imgs.count > 0 else {
-//                CyAlertView.message("图片信息错误")
-//                return
-//            }
-//            let imageBrowser = MLImageBrowserViewController(imageURLStrings: imgs)
-//            imageBrowser.showWithIndex (index)
-//        }
-    }
 }
 
 //MARK: 离线包相关

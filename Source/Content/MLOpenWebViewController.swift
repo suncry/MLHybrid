@@ -8,12 +8,11 @@
 import UIKit
 import NJKWebViewProgress
 
-private class MLOpenWebViewController: UIViewController, UIWebViewDelegate, NJKWebViewProgressDelegate {
+//private class MLOpenWebViewController: UIViewController, UIWebViewDelegate, NJKWebViewProgressDelegate {
 //    let webview = UIWebView()
 //    var _webViewProgressView = NJKWebViewProgressView()
 //    let _webViewProgress = NJKWebViewProgress()
-//
-//    var tool: MLHybridTools = MLHybridToolForMedlinker()
+//    let tool: MLHybridTools = MLHybridTools()
 //
 //    class func loadURL(url: String) -> MLOpenWebViewController? {
 //        let vc = MLOpenWebViewController()
@@ -62,11 +61,12 @@ private class MLOpenWebViewController: UIViewController, UIWebViewDelegate, NJKW
 //        return true
 //    }
 //
-    func webViewProgress(_ webViewProgress: NJKWebViewProgress!, updateProgress progress: Float) {
+//    func webViewProgress(_ webViewProgress: NJKWebViewProgress!, updateProgress progress: Float) {
 //        if progress > 0.7 && progress > _webViewProgressView.progress {
 //            _webViewProgressView.setProgress(progress, animated: true)
 //        } else if 0.7 > _webViewProgressView.progress {
 //            _webViewProgressView.setProgress(0.7, animated: true)
 //        }
-    }
-}
+//    }
+//}
+

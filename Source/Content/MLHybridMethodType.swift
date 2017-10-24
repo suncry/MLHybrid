@@ -14,7 +14,6 @@ enum MLHybridMethodType: String {
     case UpdateHeader = "updateheader"
     case Back = "back"
     case Forward = "forward"
-    case Gallery = "gallery"
     case ShowHeader = "showheader"
     case CheckVersion = "checkver"
     case OnWebViewShow = "onwebviewshow"
