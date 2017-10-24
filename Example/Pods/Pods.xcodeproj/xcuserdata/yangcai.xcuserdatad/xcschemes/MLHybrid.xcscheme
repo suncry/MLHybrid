@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '62183C2259F78FC4D23613513160B605'
+               BlueprintIdentifier = '2E168369F1B6686A019FFEF438993105'
                BlueprintName = 'MLHybrid'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'MLHybrid.framework'>

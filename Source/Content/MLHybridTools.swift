@@ -150,14 +150,6 @@ class MLHybridTools: NSObject {
             })
         }
     }
-    
-    func oldPay() {
-//        let payUrl = args["orderurl"] as? String ?? ""
-//        MLPay.wallet(payUrl, currentController: self.currentVC() ?? UIViewController()) { (success, errorMsg, resultCode) in
-//            webView.reload()
-//            print("状态： \(success)  errorMsg: \(errorMsg) resultCode: \(resultCode)")
-//        }
-    }
 
     func onWebViewShow() {
         self.command.viewController.onShowCallBack = self.command.callbackId
