@@ -65,20 +65,22 @@ open class MLHybridViewController: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         self.navigationController?.isNavigationBarHidden = naviBarHidden
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate;
-        
-        
+        self.setUpBackButton()
+    }
+    
+    func setUpBackButton() {
         let button = UIButton()
-        
-        let buttonWidth = 42
-        
-        button.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: 44)
+        button.frame = CGRect(x: 0, y: 0, width: 42, height: 44)
+        button.addTarget(self, action: #selector(MLHybridViewController.back), for: .touchUpInside)
         let image = UIImage(named: MLHybrid.shared.backIndicator)
         button.setImage(image, for: .normal)
         button.contentHorizontalAlignment = .left
-
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         let item = UIBarButtonItem(customView: button)
-        self.navigationItem.backBarButtonItem = item
+        self.navigationItem.setLeftBarButton(item, animated: true)
+    }
+    
+    @objc func back() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func initProgressView() {

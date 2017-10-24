@@ -84,7 +84,8 @@ class MLHybridTools: NSObject {
         if !command.viewController.needSetHeader { return }
         let header = command.args.header
         let navigationItem = command.viewController.navigationItem
-        navigationItem.titleView = self.setUpNaviTitleView(header.title)
+//        navigationItem.titleView = self.setUpNaviTitleView(header.title)
+        navigationItem.title = header.title.title
         self.setRightButtons(header.right, navigationItem: navigationItem)
         self.setLeftButtons(header.left, navigationItem: navigationItem)
     }
@@ -110,7 +111,7 @@ class MLHybridTools: NSObject {
     func setUpButtons(_ buttonModels:[Hybrid_naviButtonModel]) -> [UIBarButtonItem] {
         var barButtons = MLHybridButton.setUp(models: buttonModels, webView: command.webView)
         let spaceBar = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        spaceBar.width = -15
+        spaceBar.width = 21
         barButtons.insert(spaceBar, at: 0)
         return barButtons
     }

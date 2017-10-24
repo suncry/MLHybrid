@@ -21,6 +21,7 @@ class MLHybridButton: UIButton {
             let button = MLHybridButton()
             button.model = model
             button.webView = webView
+//            button.backgroundColor = .red
             let titleWidth = model.value.hybridStringWidthWith(15, height: 20) + 2*button.margin
             
             let buttonWidth = titleWidth > 42 ? titleWidth : 42
@@ -47,7 +48,7 @@ class MLHybridButton: UIButton {
             if model.tagname == "back" {
                 let image = UIImage(named: MLHybrid.shared.backIndicator)
                 button.setImage(image, for: .normal)
-                button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -15, bottom: 0, right: 0)
+                button.contentHorizontalAlignment = .left
             }
             
             if model.value.characters.count > 0 {
