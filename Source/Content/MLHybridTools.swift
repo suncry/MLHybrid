@@ -81,8 +81,7 @@ class MLHybridTools: NSObject {
     }
     
     func updateHeader() {
-        //如果有父控制器则不设置header
-        if let _ = command.viewController.parent { return }
+        if !command.viewController.needSetHeader { return }
         let header = command.args.header
         let navigationItem = command.viewController.navigationItem
         navigationItem.titleView = self.setUpNaviTitleView(header.title)

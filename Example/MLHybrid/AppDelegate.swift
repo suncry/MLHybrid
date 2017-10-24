@@ -15,7 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        MLHybrid.register(sess: "pkSwIuKT8Jh4toBE2Vzg6Ni87wyWfyA0DFbVXAzXlfuHCoMKYqRmm31GnZbUgZdc",
+//        sess    cr2iPYCeaU6ElkldDKowOoJFpSqVaWXRZIFbk7vNbA9xQ3IvK8h2QtYwujGj1esT    .medlinker.com    /    2018/3/23 下午7:06:57    68 B
+
+        MLHybrid.register(sess: "cr2iPYCeaU6ElkldDKowOoJFpSqVaWXRZIFbk7vNbA9xQ3IvK8h2QtYwujGj1esT",
                           platform: "i",
                           appName: "medlinker",
                           domain: "medlinker.com",

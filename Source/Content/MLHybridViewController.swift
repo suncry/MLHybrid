@@ -12,6 +12,7 @@ import NJKWebViewProgress
 open class MLHybridViewController: UIViewController {
 
     var locationModel = MLHybridLocation()
+    public var needSetHeader = true
     public var naviBarHidden = false
     public var URLPath: URL?
     public var htmlString: String?
@@ -71,9 +72,10 @@ open class MLHybridViewController: UIViewController {
         let buttonWidth = 42
         
         button.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: 44)
-        button.backgroundColor = .red
         let image = UIImage(named: MLHybrid.shared.backIndicator)
         button.setImage(image, for: .normal)
+        button.contentHorizontalAlignment = .left
+
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         let item = UIBarButtonItem(customView: button)
         self.navigationItem.backBarButtonItem = item

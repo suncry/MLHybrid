@@ -37,7 +37,6 @@ open class MLHybridContentView: UIWebView {
         self.scrollView.bounces = false
         self.translatesAutoresizingMaskIntoConstraints = false
         self.delegate = self
-        self.backgroundColor = .red
     }
 
     //设置userAgent
