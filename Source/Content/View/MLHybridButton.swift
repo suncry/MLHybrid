@@ -9,7 +9,7 @@
 import Foundation
 
 class MLHybridButton: UIButton {
-    let margin: CGFloat = 13
+    let margin: CGFloat = 0
     var model: Hybrid_naviButtonModel = Hybrid_naviButtonModel()
     var webView: UIWebView = UIWebView()
     
@@ -36,7 +36,6 @@ class MLHybridButton: UIButton {
                 print("加载图片 \(NaviImageHeader + model.tagname)")
                 print(UIImage(named: NaviImageHeader + model.tagname) ?? "未找到对应图片资源")
                 button.setImage(UIImage(named: NaviImageHeader + model.tagname), for: .normal)
-                button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -13, bottom: 0, right: 0)
             }
             if let _ = UIImage(named: NaviImageHeader + model.tagname) {
             } else {
@@ -44,7 +43,6 @@ class MLHybridButton: UIButton {
                     button.setTitle(model.value, for: .normal)
                 }
             }
-
             if model.tagname == "back" {
                 let image = UIImage(named: MLHybrid.shared.backIndicator)
                 button.setImage(image, for: .normal)

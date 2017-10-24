@@ -111,7 +111,7 @@ class MLHybridTools: NSObject {
     func setUpButtons(_ buttonModels:[Hybrid_naviButtonModel]) -> [UIBarButtonItem] {
         var barButtons = MLHybridButton.setUp(models: buttonModels, webView: command.webView)
         let spaceBar = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        spaceBar.width = 21
+        spaceBar.width = 1
         barButtons.insert(spaceBar, at: 0)
         return barButtons
     }
