@@ -38,6 +38,7 @@ open class MLHybridViewController: UIViewController {
         super.viewDidLoad()
         self.initUI()
         self.initContentView()
+        self.initProgressView()
     }
     
     override open func viewWillAppear(_ animated: Bool) {
@@ -65,6 +66,18 @@ open class MLHybridViewController: UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate;
     }
     
+    func initProgressView() {
+        contentView.delegate = _webViewProgress
+        _webViewProgress.webViewProxyDelegate = contentView;
+        _webViewProgress.progressDelegate = self;
+        
+        let navBounds = self.navigationController?.navigationBar.bounds
+        let barFrame = CGRect(x: 0, y: (navBounds?.size.height ?? 0) - 2, width: navBounds?.size.width ?? 0, height: 2)
+        _webViewProgressView = NJKWebViewProgressView(frame: barFrame)
+        _webViewProgressView.setProgress(0, animated: true)
+        self.navigationController?.navigationBar.addSubview(_webViewProgressView)
+    }
+
     func initContentView() {
         self.contentView = MLHybridContentView()
         self.view.addSubview(self.contentView)
