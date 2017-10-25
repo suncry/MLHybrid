@@ -130,7 +130,8 @@ class MLHybridTools: NSObject {
             guard let navi = self.command.viewController.navigationController else {return}
             navi.pushViewController(webViewController, animated: true)
         } else {
-            //这里指定跳转到本地某页面   需要一个判断映射的方法
+            //native跳转交给外部处理
+            MLHybrid.shared.delegate?.methodExtension(command: command)
         }
     }
     

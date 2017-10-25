@@ -19,6 +19,8 @@ class MLHybridButton: UIButton {
         var items: [UIBarButtonItem] = []
         for model in models {
             let button = MLHybridButton()
+            button.imageView?.contentMode = .scaleAspectFit
+            button.imageEdgeInsets = UIEdgeInsetsMake(13, 13, 13, 13)
             button.model = model
             button.webView = webView
 //            button.backgroundColor = .red
