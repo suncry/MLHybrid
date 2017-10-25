@@ -53,7 +53,7 @@ open class MLHybirdCommand {
 
     /// 获取整型参数
     public func intFor(key: String) -> Int {
-        return self.params[key] as? Int ?? -99
+        return self.params[key] as? Int ?? 1
     }
     
     /// 获取BOOL参数
