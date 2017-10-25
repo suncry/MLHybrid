@@ -19,11 +19,8 @@ class MLHybridButton: UIButton {
         var items: [UIBarButtonItem] = []
         for model in models {
             let button = MLHybridButton()
-            button.imageView?.contentMode = .scaleAspectFit
-            button.imageEdgeInsets = UIEdgeInsetsMake(13, 13, 13, 13)
             button.model = model
             button.webView = webView
-//            button.backgroundColor = .red
             let titleWidth = model.value.hybridStringWidthWith(15, height: 20) + 2*button.margin
             
             let buttonWidth = titleWidth > 42 ? titleWidth : 42
@@ -49,6 +46,9 @@ class MLHybridButton: UIButton {
                 let image = UIImage(named: MLHybrid.shared.backIndicator)
                 button.setImage(image, for: .normal)
                 button.contentHorizontalAlignment = .left
+            } else {
+                button.imageView?.contentMode = .scaleAspectFit
+                button.imageEdgeInsets = UIEdgeInsetsMake(13, 13, 13, 13)
             }
             
             if model.value.characters.count > 0 {

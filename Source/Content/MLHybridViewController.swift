@@ -63,6 +63,7 @@ open class MLHybridViewController: UIViewController {
     func initUI() {
         self.hidesBottomBarWhenPushed = true
         self.automaticallyAdjustsScrollViewInsets = false
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = naviBarHidden
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate;
         self.setUpBackButton()
