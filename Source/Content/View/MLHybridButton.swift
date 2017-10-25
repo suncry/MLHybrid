@@ -30,7 +30,7 @@ class MLHybridButton: UIButton {
 
             button.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: 44)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-            button.setTitleColor(.black, for: .normal)
+            button.setTitleColor(UIColor(red: 0, green: 122/255.0, blue: 255/255.0, alpha: 1), for: .normal)
             if model.icon.characters.count > 0 {
                 button.kf.setImage(with: URL(string: model.icon), for: .normal)
             }
