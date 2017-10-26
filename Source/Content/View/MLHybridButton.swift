@@ -48,7 +48,7 @@ class MLHybridButton: UIButton {
                 button.contentHorizontalAlignment = .left
             } else {
                 button.imageView?.contentMode = .scaleAspectFit
-                button.imageEdgeInsets = UIEdgeInsetsMake(13, 13, 13, 13)
+                button.imageEdgeInsets = UIEdgeInsetsMake(0, 13, 0, 13)
             }
             
             if model.value.characters.count > 0 {
