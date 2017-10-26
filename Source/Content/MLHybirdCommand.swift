@@ -39,10 +39,12 @@ open class MLHybirdCommand {
                     "msg": msg,
                     "callback": self.callbackId] as [String : Any]
         let dataString = data.hybridJSONString()
-        if let resultStr = self.webView.stringByEvaluatingJavaScript(from: HybridEvent + "(\(dataString));") {
-            completion(resultStr)
-        } else {
-            completion("")
+        if let callbackWeb = self.webView {
+            if let resultStr = callbackWeb.stringByEvaluatingJavaScript(from: HybridEvent + "(\(dataString));") {
+                completion(resultStr)
+            } else {
+                completion("")
+            }
         }
     }
     
