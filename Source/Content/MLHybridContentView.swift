@@ -89,7 +89,8 @@ extension MLHybridContentView: UIWebViewDelegate {
             self.vcOfView(view: webView).title = title
         }
         if let htmlString = self.htmlString {
-            webView.stringByEvaluatingJavaScript(from: "document.body.innerHTML = document.body.innerHTML + '\(htmlString)'")
+            let js = "var string = '\(htmlString)', style = string.match(/<style(?:.*)>(.*)<\\/style>/i) || [], script = string.match(/<script(?:.*)>(.*)<\\/script>/i) || []; if (style[1]){var styleEle = document.createElement('style'); styleEle.innerHTML = style[1]; document.head.appendChild(styleEle)};if (script[1]){var scriptEle = document.createElement('script'); scriptEle.innerHTML = script[1]; document.body.appendChild(scriptEle)}"
+            webView.stringByEvaluatingJavaScript(from: js)
             self.htmlString = nil
         }
     }
