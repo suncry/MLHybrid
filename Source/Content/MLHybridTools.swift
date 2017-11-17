@@ -131,7 +131,6 @@ class MLHybridTools: NSObject {
             navi.pushViewController(webViewController, animated: true)
         } else {
             //native跳转交给外部处理
-            command.params["topage"] = command.args.topage as AnyObject
             MLHybrid.shared.delegate?.methodExtension(command: command)
         }
     }
