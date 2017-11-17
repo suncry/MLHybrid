@@ -49,11 +49,22 @@ open class MLHybrid {
     }
 
     //加载页面
-    open class func load(urlString: String) -> MLHybridViewController? {
+    open class func load(urlString: String, injectedHtml: String = "", scrollDelegate: UIScrollViewDelegate? = nil) -> UIViewController? {
         guard let url = URL(string: urlString.hybridUrlPathAllowedString()) else {return nil}
         let webViewController = MLHybridViewController()
         webViewController.URLPath = url
-        return webViewController        
+        webViewController.injectedHtml = injectedHtml
+        webViewController.scrollDelegate = scrollDelegate
+        return webViewController
+    }
+    
+    //通过Html字符串加载页面
+    open class func load(html: String, injectedHtml: String = "", scrollDelegate: UIScrollViewDelegate? = nil) -> UIViewController? {
+        let webViewController = MLHybridViewController()
+        webViewController.html = injectedHtml
+        webViewController.injectedHtml = injectedHtml
+        webViewController.scrollDelegate = scrollDelegate
+        return webViewController
     }
 
     //更新Cookie

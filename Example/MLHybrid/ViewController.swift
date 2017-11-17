@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         let navi = UINavigationController(rootViewController: dddd!)
         navi.navigationBar.isTranslucent = false
         self.present(navi, animated: true, completion: nil)
+        
     }
 
 }

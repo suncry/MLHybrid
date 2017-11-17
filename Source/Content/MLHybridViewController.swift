@@ -9,17 +9,19 @@
 import UIKit
 import NJKWebViewProgress
 
-open class MLHybridViewController: UIViewController {
+class MLHybridViewController: UIViewController {
 
     var locationModel = MLHybridLocation()
-    public var needSetHeader = true
-    public var naviBarHidden = false
-    public var URLPath: URL?
-    public var htmlString: String?
+    var needSetHeader = true
+    var naviBarHidden = false
+    var URLPath: URL?
+    var html: String?
+    var injectedHtml: String?
     var onShowCallBack: String?
     var onHideCallBack: String?
-    public var contentView: MLHybridContentView!
-
+    var contentView: MLHybridContentView!
+    var scrollDelegate: UIScrollViewDelegate?
+    
     var _webViewProgressView = NJKWebViewProgressView()
     let _webViewProgress = NJKWebViewProgress()
 
@@ -97,24 +99,28 @@ open class MLHybridViewController: UIViewController {
     }
 
     func initContentView() {
-        self.contentView = MLHybridContentView()
-        self.view.addSubview(self.contentView)
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        let leftConstraint = NSLayoutConstraint(item: self.contentView, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1.0, constant: 0)
+        contentView = MLHybridContentView()
+        contentView.scrollView.delegate = scrollDelegate
+        self.view.addSubview(contentView)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        let leftConstraint = NSLayoutConstraint(item: contentView, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1.0, constant: 0)
         self.view.addConstraint(leftConstraint)
-        let rightConstraint = NSLayoutConstraint(item: self.contentView, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1.0, constant: 0)
+        let rightConstraint = NSLayoutConstraint(item: contentView, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1.0, constant: 0)
         self.view.addConstraint(rightConstraint)
         let topGuide = self.topLayoutGuide
-        let topConstraint = NSLayoutConstraint(item: self.contentView, attribute: .top, relatedBy: .equal, toItem: topGuide, attribute: .bottom, multiplier: 1.0, constant: 0)
+        let topConstraint = NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: topGuide, attribute: .bottom, multiplier: 1.0, constant: 0)
         self.view.addConstraint(topConstraint)
-        let bottomConstraint = NSLayoutConstraint(item: self.contentView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: contentView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: 0)
         self.view.addConstraint(bottomConstraint)
         
-        if let htmlString = self.htmlString {
-            self.contentView.htmlString = htmlString
+        if let injectedHtml = self.injectedHtml {
+            self.contentView.injectedHtml = injectedHtml
         }
-        guard URLPath != nil else {return}
-        self.contentView.loadRequest(URLRequest(url: URLPath!))
+        if let url = URLPath {
+            self.contentView.loadRequest(URLRequest(url: url))
+        } else {
+            self.contentView.loadHTMLString(self.html ?? "", baseURL: nil)
+        }
     }
     
 }

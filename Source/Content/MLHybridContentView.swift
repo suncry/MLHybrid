@@ -12,11 +12,11 @@ import CoreMotion
 import JavaScriptCore
 import WebKit
 
-open class MLHybridContentView: UIWebView {
+class MLHybridContentView: UIWebView {
 
     let tool: MLHybridTools = MLHybridTools()
     //待注入的字符串
-    public var htmlString: String?
+    var injectedHtml: String?
 
     private override init(frame: CGRect) {
         super.init(frame: frame)
@@ -88,10 +88,10 @@ extension MLHybridContentView: UIWebViewDelegate {
         if let title = webView.stringByEvaluatingJavaScript(from: "document.title"), title.characters.count > 0 {
             self.vcOfView(view: webView).title = title
         }
-        if let htmlString = self.htmlString {
+        if let htmlString = self.injectedHtml {
             let js = "var string = '\(htmlString)', style = string.match(/<style(?:.*)>(.*)<\\/style>/i) || [], script = string.match(/<script(?:.*)>(.*)<\\/script>/i) || []; if (style[1]){var styleEle = document.createElement('style'); styleEle.innerHTML = style[1]; document.head.appendChild(styleEle)};if (script[1]){var scriptEle = document.createElement('script'); scriptEle.innerHTML = script[1]; document.body.appendChild(scriptEle)}"
             webView.stringByEvaluatingJavaScript(from: js)
-            self.htmlString = nil
+            self.injectedHtml = nil
         }
     }
     
