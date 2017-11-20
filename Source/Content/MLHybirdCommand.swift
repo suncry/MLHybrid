@@ -17,11 +17,14 @@ open class MLHybirdCommand {
     //内部使用参数
     var args: MLCommandArgs = MLCommandArgs()
     //发出指令的控制器
-    weak var viewController: MLHybridViewController!
+    weak var hybridVC: MLHybridViewController!
+    public weak var viewController: UIViewController!
+    
     var callbackId: String = ""
-    weak var webView: UIWebView! = UIWebView() {
+    public weak var webView: UIWebView! = UIWebView() {
         didSet {
-            viewController = self.commandFromVC()
+            hybridVC = self.commandFromVC()
+            viewController = hybridVC
         }
     }
     
@@ -52,7 +55,7 @@ open class MLHybirdCommand {
     public func stringFor(key: String) -> String {
         return self.params[key] as? String ?? ""
     }
-
+    
     /// 获取整型参数
     public func intFor(key: String) -> Int {
         return self.params[key] as? Int ?? 1
@@ -62,9 +65,13 @@ open class MLHybirdCommand {
     public func boolFor(key: String) -> Bool {
         return self.params[key] as? Bool ?? false
     }
-
+    
     public func anyFor(key: String) -> AnyObject {
         return self.params[key] ?? "" as AnyObject
+    }
+    
+    public func setProgress(_ progress: Float) {
+        hybridVC.setProgress(progress)
     }
     
     //获取发出命令的控制器
@@ -75,7 +82,7 @@ open class MLHybirdCommand {
         }
         return nextResponder as? MLHybridViewController ?? MLHybridViewController()
     }
-
+    
     /// 解析并执行hybrid指令
     ///
     /// - Parameters:
@@ -112,3 +119,4 @@ open class MLHybirdCommand {
     }
     
 }
+

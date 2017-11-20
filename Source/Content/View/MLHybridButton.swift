@@ -15,7 +15,7 @@ class MLHybridButton: UIButton {
     
     class func setUp(models: [Hybrid_naviButtonModel], webView: UIWebView) -> [UIBarButtonItem] {
         let models = models.reversed()
-
+        
         var items: [UIBarButtonItem] = []
         for model in models {
             let button = MLHybridButton()
@@ -24,7 +24,7 @@ class MLHybridButton: UIButton {
             let titleWidth = model.value.hybridStringWidthWith(15, height: 20) + 2*button.margin
             
             let buttonWidth = titleWidth > 42 ? titleWidth : 42
-
+            
             button.frame = CGRect(x: 0, y: 0, width: buttonWidth, height: 44)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
             button.setTitleColor(UIColor(red: 0, green: 122/255.0, blue: 255/255.0, alpha: 1), for: .normal)
@@ -54,7 +54,7 @@ class MLHybridButton: UIButton {
             if model.value.characters.count > 0 {
                 button.setTitle(model.value, for: .normal)
             }
-
+            
             button.addTarget(button, action: #selector(MLHybridButton.click), for: .touchUpInside)
             items.append(UIBarButtonItem(customView: button))
         }
@@ -77,5 +77,6 @@ class MLHybridButton: UIButton {
         }
         let _ = MLHybridTools().callBack(callback: sender.model.callback, webView: sender.webView) { (str) in }
     }
-
+    
 }
+

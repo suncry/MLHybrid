@@ -10,7 +10,7 @@ import UIKit
 import NJKWebViewProgress
 
 class MLHybridViewController: UIViewController {
-
+    
     var locationModel = MLHybridLocation()
     var needSetHeader = true
     var naviBarHidden = false
@@ -24,7 +24,7 @@ class MLHybridViewController: UIViewController {
     
     var _webViewProgressView = NJKWebViewProgressView()
     let _webViewProgress = NJKWebViewProgress()
-
+    
     //MARK: - init
     deinit {
         locationModel.stopUpdateLocation()
@@ -51,7 +51,7 @@ class MLHybridViewController: UIViewController {
             })
         }
     }
-
+    
     override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if let callback = self.onHideCallBack {
@@ -97,7 +97,7 @@ class MLHybridViewController: UIViewController {
         _webViewProgressView.setProgress(0, animated: true)
         self.navigationController?.navigationBar.addSubview(_webViewProgressView)
     }
-
+    
     func initContentView() {
         contentView = MLHybridContentView()
         contentView.scrollView.delegate = scrollDelegate
@@ -139,3 +139,4 @@ extension MLHybridViewController: NJKWebViewProgressDelegate {
     }
     
 }
+

@@ -13,11 +13,11 @@ import JavaScriptCore
 import WebKit
 
 class MLHybridContentView: UIWebView {
-
+    
     let tool: MLHybridTools = MLHybridTools()
     //待注入的字符串
     var injectedHtml: String?
-
+    
     private override init(frame: CGRect) {
         super.init(frame: frame)
         initUI()
@@ -31,14 +31,14 @@ class MLHybridContentView: UIWebView {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
+    
     func initUI () {
         self.backgroundColor = UIColor.white
         self.scrollView.bounces = false
         self.translatesAutoresizingMaskIntoConstraints = false
         self.delegate = self
     }
-
+    
     //设置userAgent
     func configUserAgent () {
         //设置userAgent
@@ -49,13 +49,13 @@ class MLHybridContentView: UIWebView {
             UserDefaults.standard.register(defaults: ["UserAgent" : userAgentStr])
         }
     }
-
+    
     //注入cookie
     func customerCookie() {
         setCookie(value: MLHybrid.shared.sess, key: "sess")
         setCookie(value: MLHybrid.shared.platform, key: "platform")
     }
-
+    
     func setCookie(value: String, key: String) {
         var properties = [HTTPCookiePropertyKey: Any]()
         properties.updateValue(HTTPCookiePropertyKey(rawValue: value), forKey: HTTPCookiePropertyKey(rawValue: HTTPCookiePropertyKey.value.rawValue))
@@ -78,13 +78,13 @@ extension MLHybridContentView: UIWebViewDelegate {
         }
         return nextResponder as? MLHybridViewController ?? MLHybridViewController()
     }
-
+    
     public func webViewDidFinishLoad(_ webView: UIWebView) {
         /*
-        if self.scrollView.mj_header != nil {
-            self.scrollView.mj_header?.endRefreshing()
-        }
-        */
+         if self.scrollView.mj_header != nil {
+         self.scrollView.mj_header?.endRefreshing()
+         }
+         */
         if let title = webView.stringByEvaluatingJavaScript(from: "document.title"), title.characters.count > 0 {
             self.vcOfView(view: webView).title = title
         }
@@ -103,3 +103,4 @@ extension MLHybridContentView: UIWebViewDelegate {
     }
     
 }
+

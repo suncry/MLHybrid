@@ -81,13 +81,14 @@ class MLHybridTools: NSObject {
     }
     
     func updateHeader() {
-        if !command.viewController.needSetHeader { return }
-        let header = command.args.header
-        let navigationItem = command.viewController.navigationItem
-//        navigationItem.titleView = self.setUpNaviTitleView(header.title)
-        navigationItem.title = header.title.title
-        self.setRightButtons(header.right, navigationItem: navigationItem)
-        self.setLeftButtons(header.left, navigationItem: navigationItem)
+        if let vcs = command.hybridVC.navigationController?.viewControllers, vcs.contains(command.hybridVC) {
+            let header = command.args.header
+            let navigationItem = command.viewController.navigationItem
+            //        navigationItem.titleView = self.setUpNaviTitleView(header.title)
+            navigationItem.title = header.title.title
+            self.setRightButtons(header.right, navigationItem: navigationItem)
+            self.setLeftButtons(header.left, navigationItem: navigationItem)
+        }
     }
     
     func setLeftButtons(_ leftButtons:[Hybrid_naviButtonModel], navigationItem: UINavigationItem) {
@@ -99,7 +100,7 @@ class MLHybridTools: NSObject {
         let barButtons = self.setUpButtons(rightButtons)
         self.command.viewController.navigationItem.setRightBarButtonItems(barButtons, animated: true)
     }
-
+    
     func setUpNaviTitleView(_ titleModel:Hybrid_titleModel) -> HybridNaviTitleView {
         let naviTitleView = HybridNaviTitleView(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
         let leftUrl = NSURL(string: titleModel.lefticon) ?? NSURL()
@@ -146,20 +147,20 @@ class MLHybridTools: NSObject {
      * 获取设备位置
      */
     func handleGetCurrentPosition() {
-        self.command.viewController.locationModel.getLocation { (success, errcode, resultData) in
+        self.command.hybridVC.locationModel.getLocation { (success, errcode, resultData) in
             _ = self.callBack(data: resultData as AnyObject? ?? "" as AnyObject, err_no: errcode, callback: self.command.callbackId, webView: self.command.webView, completion: {js in
             })
         }
     }
-
+    
     func onWebViewShow() {
-        self.command.viewController.onShowCallBack = self.command.callbackId
+        self.command.hybridVC.onShowCallBack = self.command.callbackId
     }
     
     func onWebViewHide() {
-        self.command.viewController.onHideCallBack = self.command.callbackId
+        self.command.hybridVC.onHideCallBack = self.command.callbackId
     }
-
+    
     func switchCache() {
         UserDefaults.standard.set(!command.args.open, forKey: "HybridSwitchCacheClose")
     }
@@ -185,7 +186,7 @@ extension MLHybridTools {
      * 获取位置
      */
     func handleGetLocation() {
-        self.command.viewController.locationModel.getLocation { (success, errcode, resultData) in
+        self.command.hybridVC.locationModel.getLocation { (success, errcode, resultData) in
             _ = self.callBack(data: resultData as AnyObject? ?? "" as AnyObject, err_no: errcode, callback: self.command.callbackId, webView: self.command.webView, completion: {js in })
         }
     }
@@ -217,7 +218,7 @@ extension MLHybridTools {
             }
         }
     }
-
+    
     func openlink() {
         if let vc = MLHybrid.load(urlString: command.args.url) {
             command.viewController.navigationController?.pushViewController(vc, animated: true)
@@ -242,8 +243,8 @@ extension MLHybridTools {
     
     open func checkVersion() {
         let versionStr = Bundle.main.infoDictionary!["CFBundleShortVersionString"]
-//        let checkVersionURLString = MLConfiguration.mlHTTPType == .qa ? checkVersionQAURL : checkVersionURL
-
+        //        let checkVersionURLString = MLConfiguration.mlHTTPType == .qa ? checkVersionQAURL : checkVersionURL
+        
         let checkVersionURLString = checkVersionURL
         
         let url:URL! = URL(string: checkVersionURLString + "\(versionStr!)")
@@ -356,5 +357,6 @@ extension MLHybridTools {
         defaultsDic[channel] = version
         UserDefaults.standard.set(defaultsDic, forKey: "LocalResourcesVersionDic")
     }
-
+    
 }
+
