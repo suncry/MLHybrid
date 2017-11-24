@@ -243,10 +243,12 @@ extension MLHybridTools {
     
     open func checkVersion() {
         let versionStr = Bundle.main.infoDictionary!["CFBundleShortVersionString"]
-        //        let checkVersionURLString = MLConfiguration.mlHTTPType == .qa ? checkVersionQAURL : checkVersionURL
-        
-        let checkVersionURLString = checkVersionURL
-        
+        var checkVersionURLString = ""
+        #if DEBUG
+            checkVersionURLString = checkVersionQAURL
+        #else
+            checkVersionURLString = checkVersionURL
+        #endif
         let url:URL! = URL(string: checkVersionURLString + "\(versionStr!)")
         let urlRequest:NSMutableURLRequest = NSMutableURLRequest(url: url)
         urlRequest.httpMethod = "GET"

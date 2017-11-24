@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                           domain: "medlinker.com",
                           backIndicator: "hybridBack",
                           delegate: MethodExtension())
+        
+        MLHybrid.checkVersion()
+        
         return true
     }
 
