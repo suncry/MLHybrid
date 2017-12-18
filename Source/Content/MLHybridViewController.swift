@@ -29,6 +29,10 @@ class MLHybridViewController: UIViewController {
     deinit {
         locationModel.stopUpdateLocation()
         if contentView != nil {
+            contentView.delegate = nil
+            _webViewProgress.webViewProxyDelegate = nil;
+            _webViewProgress.progressDelegate = nil;
+            _webViewProgressView.removeFromSuperview()
             contentView.loadRequest(URLRequest(url: URL(string: "about:blank")!))
             contentView.stopLoading()
             contentView.removeFromSuperview()
