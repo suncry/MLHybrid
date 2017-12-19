@@ -249,11 +249,14 @@ extension MLHybridTools {
         #else
             checkVersionURLString = checkVersionURL
         #endif
+        
+        
         let url:URL! = URL(string: checkVersionURLString + "\(versionStr!)")
         let urlRequest:NSMutableURLRequest = NSMutableURLRequest(url: url)
         urlRequest.httpMethod = "GET"
-        //响应对象
-        NSURLConnection.sendAsynchronousRequest(urlRequest as URLRequest, queue: OperationQueue.main, completionHandler: { (response, data, error) -> Void in
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, respone, error) in
             do{//发送请求
                 if let responseData = data {
                     let jsonData = try JSONSerialization.jsonObject(with: responseData, options: JSONSerialization.ReadingOptions.allowFragments)
@@ -265,7 +268,9 @@ extension MLHybridTools {
                             let version = dataDic["version"] as? String ?? ""
                             let src = dataDic["src"] as? String ?? ""
                             if version.compare(self.localResourcesVersion(channel: channel), options: NSString.CompareOptions.numeric) == .orderedDescending {
-                                self.loadZip(channel: channel, version: version, urlString: src, completion: nil)
+                                DispatchQueue.global().async { [weak self] in
+                                    self?.loadZip(channel: channel, version: version, urlString: src, completion: nil)
+                                }
                             }
                             else {
                                 print("不更新 \(channel).zip")
@@ -280,7 +285,10 @@ extension MLHybridTools {
             catch let error as NSError{
                 print(error.localizedDescription)
             }
-        })
+        }
+        
+        task.resume()
+        
     }
     
     private func loadZip(channel: String, version: String, urlString: String, completion: ((_ success: Bool, _ msg: String) -> Void)?) {
@@ -297,22 +305,33 @@ extension MLHybridTools {
                     completion?(false, error!.localizedDescription)
                 }
                 if let responseData = data {
-                    let filePath = self.filePath(channel: channel)
-                    let zipPath = filePath + ".zip"
-                    self.deleteAllFiles(path: filePath)
-                    if (try? responseData.write(to: URL(fileURLWithPath: zipPath), options: [.atomic])) != nil {
-                        if SSZipArchive.unzipFile(atPath: zipPath, toDestination: filePath) {
-                            self.setLocalResourcesVersion(channel: channel, version: version)
-                            self.deleteAllFiles(path: zipPath)
-                            print("下载并解压了 \(channel)")
-                            completion?(true, "")
+                    DispatchQueue.global().async { [weak self] in
+                        guard let strongSelf = self else {
+                            completion?(false, "数据获取失败")
+                            return
                         }
-                        else {
-                            completion?(false, "解压失败 \(zipPath)")
+                        
+                        let filePath = strongSelf.filePath(channel: channel)
+                        let zipPath = filePath + ".zip"
+                        strongSelf.deleteAllFiles(path: filePath)
+                        if (try? responseData.write(to: URL(fileURLWithPath: zipPath), options: [.atomic])) != nil {
+                            if SSZipArchive.unzipFile(atPath: zipPath, toDestination: filePath) {
+                                strongSelf.setLocalResourcesVersion(channel: channel, version: version)
+                                strongSelf.deleteAllFiles(path: zipPath)
+                                print("下载并解压了 \(channel)")
+                                DispatchQueue.main.async {
+                                    completion?(true, "")
+                                }
+                            } else {
+                                DispatchQueue.main.async {
+                                    completion?(false, "解压失败 \(zipPath)")
+                                }
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                completion?(false, "写入失败 \(zipPath)")
+                            }
                         }
-                    }
-                    else {
-                        completion?(false, "写入失败 \(zipPath)")
                     }
                 }
                 else {
@@ -321,7 +340,6 @@ extension MLHybridTools {
             })
         }
     }
-    
     private func filePath(channel: String) -> String {
         do {
             let documentPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] + "/h5"
