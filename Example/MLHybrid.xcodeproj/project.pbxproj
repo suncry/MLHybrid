@@ -230,10 +230,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 298LEY82V6;
 						LastSwiftMigration = "";
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 298LEY82V6;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -539,6 +541,7 @@
 			baseConfigurationReference = 9B5BE757A34A8E44C7BBB0B0 /* Pods-MLHybrid_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 298LEY82V6;
 				INFOPLIST_FILE = MLHybrid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -554,6 +557,7 @@
 			baseConfigurationReference = 5CB9762C414B794E95027E9D /* Pods-MLHybrid_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 298LEY82V6;
 				INFOPLIST_FILE = MLHybrid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -568,6 +572,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6D3518D0DC8861553DA3568F /* Pods-MLHybrid_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 298LEY82V6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -589,6 +594,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1AA4EBF17360084BFFE5F5CD /* Pods-MLHybrid_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 298LEY82V6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
