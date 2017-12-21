@@ -8,7 +8,6 @@
 
 import UIKit
 import MLHybrid
-import KDEAudioPlayer
 import AVFoundation
 
 class ViewController: UIViewController {
@@ -18,14 +17,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url  = URL(string:"http://7xpdel.com1.z0.glb.clouddn.com/luwEJUGXZSN76HyXUF4KBwIiGmNt")
-        playerItem = AVPlayerItem(url:url!)
-        avplay = AVPlayer(playerItem:playerItem)
+//        let url  = URL(string:"http://7xpdel.com1.z0.glb.clouddn.com/luwEJUGXZSN76HyXUF4KBwIiGmNt")
+//        playerItem = AVPlayerItem(url:url!)
+//        avplay = AVPlayer(playerItem:playerItem)
        
     }
 
     @IBAction func click(_ sender: Any) {
-        avplay.play()
+        MLAVPlay.share.play()
 //        let dddd = MLHybrid.load(urlString: "http://web.qa.medlinker.com/h5/hospital/z_index.html?serviceType=1&type=d")
 //        let dddd = MLHybrid.load(urlString: "http://7xpdel.com1.z0.glb.clouddn.com/luwEJUGXZSN76HyXUF4KBwIiGmNt")
 //

@@ -1,6 +1,6 @@
 PODS:
   - Kingfisher (4.2.0)
-  - MLHybrid (0.3.3):
+  - MLHybrid (0.4.3):
     - Kingfisher
     - NJKWebViewProgress
     - SSZipArchive
@@ -20,10 +20,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
-  MLHybrid: 1954f1ffceef6968d7a0ab770b377c3d0404215b
+  MLHybrid: 434ea72fd3747c8ec62fc81ea308edc343df5c4d
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
 
 PODFILE CHECKSUM: 3f4bd0cf6fa3ead7770bd98e46b66662776891e5
 
-COCOAPODS: 1.4.0.beta.1
+COCOAPODS: 1.4.0.beta.2

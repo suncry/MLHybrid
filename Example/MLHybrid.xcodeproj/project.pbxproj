@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0D9F82611F419D5F00503F72 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9F82601F419D5F00503F72 /* WebKit.framework */; };
 		0DCE2CAB1F4D72EB00362112 /* MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE2CAA1F4D72EB00362112 /* MethodExtension.swift */; };
+		5C42FA531FEBFA5900C00AC8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C42FA521FEBFA5900C00AC8 /* AVFoundation.framework */; };
+		5C42FA551FEBFA6100C00AC8 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C42FA541FEBFA6100C00AC8 /* AVKit.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 		0D9F82601F419D5F00503F72 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		0DCE2CAA1F4D72EB00362112 /* MethodExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodExtension.swift; sourceTree = "<group>"; };
 		1AA4EBF17360084BFFE5F5CD /* Pods-MLHybrid_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLHybrid_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MLHybrid_Tests/Pods-MLHybrid_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		5C42FA521FEBFA5900C00AC8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5C42FA541FEBFA6100C00AC8 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		5CB9762C414B794E95027E9D /* Pods-MLHybrid_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLHybrid_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MLHybrid_Example/Pods-MLHybrid_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* MLHybrid_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLHybrid_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C42FA551FEBFA6100C00AC8 /* AVKit.framework in Frameworks */,
+				5C42FA531FEBFA5900C00AC8 /* AVFoundation.framework in Frameworks */,
 				0D9F82611F419D5F00503F72 /* WebKit.framework in Frameworks */,
 				BA916347498237108A73648D /* Pods_MLHybrid_Example.framework in Frameworks */,
 			);
@@ -77,6 +83,8 @@
 		195227ED6DA26993B9C2E5D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5C42FA541FEBFA6100C00AC8 /* AVKit.framework */,
+				5C42FA521FEBFA5900C00AC8 /* AVFoundation.framework */,
 				0D9F82601F419D5F00503F72 /* WebKit.framework */,
 				E02D0B674E51B29E91B108F8 /* Pods_MLHybrid_Example.framework */,
 				71C0D99083D775BCEED5023B /* Pods_MLHybrid_Tests.framework */,

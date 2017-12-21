@@ -9,8 +9,6 @@
 import UIKit
 import MLHybrid
 import AVFoundation
-import KDEAudioPlayer
-let player = AudioPlayer()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,9 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         MLHybrid.checkVersion()
     
-        let session = AVAudioSession.sharedInstance()
-        try? session.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
-        try? session.setActive(true)
+     
         return true
     }
 
