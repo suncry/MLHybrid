@@ -11,6 +11,9 @@
 		0DCE2CAB1F4D72EB00362112 /* MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE2CAA1F4D72EB00362112 /* MethodExtension.swift */; };
 		5C42FA531FEBFA5900C00AC8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C42FA521FEBFA5900C00AC8 /* AVFoundation.framework */; };
 		5C42FA551FEBFA6100C00AC8 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C42FA541FEBFA6100C00AC8 /* AVKit.framework */; };
+		5C72E4451FECB1C00014D672 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C42FA521FEBFA5900C00AC8 /* AVFoundation.framework */; };
+		5C72E4471FECB1D50014D672 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C72E4461FECB1D50014D672 /* MediaPlayer.framework */; };
+		5C72E4491FECB5760014D672 /* MLAVPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C72E4481FECB5760014D672 /* MLAVPlay.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -38,6 +41,8 @@
 		1AA4EBF17360084BFFE5F5CD /* Pods-MLHybrid_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLHybrid_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MLHybrid_Tests/Pods-MLHybrid_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5C42FA521FEBFA5900C00AC8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5C42FA541FEBFA6100C00AC8 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		5C72E4461FECB1D50014D672 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		5C72E4481FECB5760014D672 /* MLAVPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLAVPlay.swift; sourceTree = "<group>"; };
 		5CB9762C414B794E95027E9D /* Pods-MLHybrid_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLHybrid_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MLHybrid_Example/Pods-MLHybrid_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* MLHybrid_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLHybrid_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C72E4471FECB1D50014D672 /* MediaPlayer.framework in Frameworks */,
+				5C72E4451FECB1C00014D672 /* AVFoundation.framework in Frameworks */,
 				822CC38C76B13F5BDC32BA5C /* Pods_MLHybrid_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +90,7 @@
 		195227ED6DA26993B9C2E5D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5C72E4461FECB1D50014D672 /* MediaPlayer.framework */,
 				5C42FA541FEBFA6100C00AC8 /* AVKit.framework */,
 				5C42FA521FEBFA5900C00AC8 /* AVFoundation.framework */,
 				0D9F82601F419D5F00503F72 /* WebKit.framework */,
@@ -128,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				5C72E4481FECB5760014D672 /* MLAVPlay.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				0DCE2CAA1F4D72EB00362112 /* MethodExtension.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -232,6 +241,11 @@
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 298LEY82V6;
 						LastSwiftMigration = "";
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -396,6 +410,7 @@
 				0DCE2CAB1F4D72EB00362112 /* MethodExtension.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				5C72E4491FECB5760014D672 /* MLAVPlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,7 +560,7 @@
 				INFOPLIST_FILE = MLHybrid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.MLHybrid-Example11";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -561,7 +576,7 @@
 				INFOPLIST_FILE = MLHybrid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.MLHybrid-Example11";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;

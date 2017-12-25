@@ -162,7 +162,7 @@ class MLHybridTools: NSObject {
     }
     
     func switchCache() {
-        UserDefaults.standard.set(!command.args.open, forKey: "HybridSwitchCacheClose")
+        UserDefaults.standard.set(!command.args.open, forKey: MLHybrideConstantUserDefaultKey.hybridSwitchCacheClose)
     }
     
 }
@@ -235,7 +235,7 @@ extension MLHybridTools {
 
 extension MLHybridTools {
     open func showVersion() {
-        let hybridVersionArray = UserDefaults.standard.value(forKey: "HybridVersion") as? NSMutableArray ?? ["未获取到版本信息"]
+        let hybridVersionArray = UserDefaults.standard.value(forKey: MLHybrideConstantUserDefaultKey.hybridVersion) as? NSMutableArray ?? ["未获取到版本信息"]
         let msg = hybridVersionArray.description
         let alert = UIAlertView(title: "离线包版本信息", message: msg, delegate: nil, cancelButtonTitle: "确定")
         alert.show()
@@ -243,14 +243,7 @@ extension MLHybridTools {
     
     open func checkVersion() {
         let versionStr = Bundle.main.infoDictionary!["CFBundleShortVersionString"]
-        var checkVersionURLString = ""
-        #if DEBUG
-            checkVersionURLString = checkVersionQAURL
-        #else
-            checkVersionURLString = checkVersionURL
-        #endif
-        
-        
+        let checkVersionURLString = MLHybrid.shared.isProduceEnvironment ? checkVersionQAURL : checkVersionURL
         let url:URL! = URL(string: checkVersionURLString + "\(versionStr!)")
         let urlRequest:NSMutableURLRequest = NSMutableURLRequest(url: url)
         urlRequest.httpMethod = "GET"
@@ -262,7 +255,7 @@ extension MLHybridTools {
                     let jsonData = try JSONSerialization.jsonObject(with: responseData, options: JSONSerialization.ReadingOptions.allowFragments)
                     if let dic = jsonData as? NSDictionary, let dataArray = dic["data"] as? [AnyObject] {
                         
-                        UserDefaults.standard.setValue(dataArray, forKey: "HybridVersion")
+                        UserDefaults.standard.setValue(dataArray, forKey: MLHybrideConstantUserDefaultKey.hybridVersion)
                         for dataDic in dataArray {
                             let channel = dataDic["channel"] as? String ?? ""
                             let version = dataDic["version"] as? String ?? ""
@@ -368,14 +361,14 @@ extension MLHybridTools {
     }
     
     private func localResourcesVersion(channel:String) -> String {
-        let versionDic = UserDefaults.standard.value(forKey: "LocalResourcesVersionDic") as? [String: String] ?? ["": ""]
+        let versionDic = UserDefaults.standard.value(forKey: MLHybrideConstantUserDefaultKey.localResourcesVersionDic) as? [String: String] ?? ["": ""]
         return versionDic[channel] ?? ""
     }
     
     private func setLocalResourcesVersion(channel:String, version: String) {
-        var defaultsDic = UserDefaults.standard.value(forKey: "LocalResourcesVersionDic") as? [String: String] ?? ["": ""]
+        var defaultsDic = UserDefaults.standard.value(forKey: MLHybrideConstantUserDefaultKey.localResourcesVersionDic) as? [String: String] ?? ["": ""]
         defaultsDic[channel] = version
-        UserDefaults.standard.set(defaultsDic, forKey: "LocalResourcesVersionDic")
+        UserDefaults.standard.set(defaultsDic, forKey: MLHybrideConstantUserDefaultKey.localResourcesVersionDic)
     }
     
 }

@@ -19,7 +19,7 @@ open class MLHybridURLProtocol: URLProtocol {
     
     //查找本地文件是否存在
     fileprivate class func findCache(_ request: URLRequest) -> String? {
-        let closeSwitch = UserDefaults.standard.bool(forKey: "HybridSwitchCacheClose")
+        let closeSwitch = UserDefaults.standard.bool(forKey: MLHybrideConstantUserDefaultKey.hybridSwitchCacheClose)
         if closeSwitch {
             print("读取资源 关")
             return nil

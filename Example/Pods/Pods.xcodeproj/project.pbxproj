@@ -42,7 +42,7 @@
 		49A14DDF6FE6FFAE1544DC509AAB8722 /* minishared.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E274A1F6F67C1BC5E69C0D3DA5B1FDC /* minishared.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		509A5621DAB44B06929B30ACCA7CA598 /* Kingfisher-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E166270BEFEE96A97CB0A97DCDF84FE0 /* Kingfisher-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B20EE63A416AD931230D755703E1ECC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893EB5BB82144AE4C62C78D06B3E6ABA /* Foundation.framework */; };
-		5C7EA5BC1FEC11C7008776C4 /* MLAVPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7EA5BB1FEC11C7008776C4 /* MLAVPlay.swift */; };
+		5C6A7BA41FF08733002F621C /* MLHybrideConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A7BA21FF0867F002F621C /* MLHybrideConstant.swift */; };
 		5EEC065595C416104C1D8D844B2D2CBD /* MLHybrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B5A2EB58072658D800D03AC70704EE /* MLHybrid.swift */; };
 		5F93F44E700295694F8B2B41C83A2496 /* aestab.c in Sources */ = {isa = PBXBuildFile; fileRef = 36B72B43F57FA4996B45CEF9F6CBFCDF /* aestab.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		62B34703D9816D8E5B917A40B88213F3 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 8DC6D1442567E48CE4A72A2B38EA1FFE /* unzip.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -214,7 +214,7 @@
 		58FF233C695657103578F0D4AFAB96A3 /* MLHybridTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MLHybridTextField.swift; sourceTree = "<group>"; };
 		590E22EC0BA20B0A080EEC6A4EF5727F /* MLHybridMethodType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MLHybridMethodType.swift; sourceTree = "<group>"; };
 		5B670E5BF6BAE3820181F4C3FE541566 /* MLHybrid-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MLHybrid-prefix.pch"; sourceTree = "<group>"; };
-		5C7EA5BB1FEC11C7008776C4 /* MLAVPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MLAVPlay.swift; path = Source/MLAVPlay.swift; sourceTree = "<group>"; };
+		5C6A7BA21FF0867F002F621C /* MLHybrideConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLHybrideConstant.swift; sourceTree = "<group>"; };
 		5F5FF039D75751389DF246CE50987760 /* ioapi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = SSZipArchive/minizip/ioapi.h; sourceTree = "<group>"; };
 		5FE5913FA86AF83A23FBE80EC9401D14 /* Kingfisher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Kingfisher.h; path = Sources/Kingfisher.h; sourceTree = "<group>"; };
 		60B5A2EB58072658D800D03AC70704EE /* MLHybrid.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MLHybrid.swift; path = Source/MLHybrid.swift; sourceTree = "<group>"; };
@@ -489,6 +489,7 @@
 				C0E762A36765D7E3DF911C1B1C153D67 /* MLHybridViewController.swift */,
 				7D37B9D5CE1B90291EB3BEED53268C70 /* MLHybridWebView.swift */,
 				C363ECEB7ABD6DB1708A9305ED4AF5E0 /* MLOpenWebViewController.swift */,
+				5C6A7BA11FF0863B002F621C /* Common */,
 				0B39AA15C62C2CA200B715FA9C4436EF /* MLHybirdURLProtocol */,
 				42CA496BA0BC1ED089A2017B7C485F93 /* Model */,
 				1F39FA900B3DC00401038E6A7ACA49BF /* Tool */,
@@ -496,6 +497,14 @@
 			);
 			name = Content;
 			path = Source/Content;
+			sourceTree = "<group>";
+		};
+		5C6A7BA11FF0863B002F621C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5C6A7BA21FF0867F002F621C /* MLHybrideConstant.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		5DA8A897D952A485253B0B35CC8F0D75 /* Frameworks */ = {
@@ -634,7 +643,6 @@
 			isa = PBXGroup;
 			children = (
 				60B5A2EB58072658D800D03AC70704EE /* MLHybrid.swift */,
-				5C7EA5BB1FEC11C7008776C4 /* MLAVPlay.swift */,
 				5BE44EA41C205EA66781A5C2A09DEC30 /* Content */,
 				D5C584ABC1F6899CE929DA0D517C0B34 /* Support Files */,
 			);
@@ -1004,6 +1012,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C6A7BA41FF08733002F621C /* MLHybrideConstant.swift in Sources */,
 				FE648B2B3C6CD1843CE88A7592FA110B /* Hybrid_headerModel.swift in Sources */,
 				AD01DAB8D5FA38EEAEFF798A500EDDD2 /* Hybrid_naviButtonModel.swift in Sources */,
 				30D63CC679958D774CCE7A5EC440ACDE /* Hybrid_titleModel.swift in Sources */,
@@ -1019,7 +1028,6 @@
 				D2CE486EF45F2CCBA2E774508F61B410 /* MLHybridLocation.swift in Sources */,
 				14033DA970C889104D89C90D81BBE5F5 /* MLHybridMethodType.swift in Sources */,
 				6C170AA9CDC93B01A1301F211C96B0BF /* MLHybridTextField.swift in Sources */,
-				5C7EA5BC1FEC11C7008776C4 /* MLAVPlay.swift in Sources */,
 				CD93BE15885B7F660F4BA0B15677E567 /* MLHybridTools.swift in Sources */,
 				3388281895E5951D4719D56F18BFD996 /* MLHybridViewController.swift in Sources */,
 				823A697404AE0592508003B9AE7C3160 /* MLHybridWebView.swift in Sources */,

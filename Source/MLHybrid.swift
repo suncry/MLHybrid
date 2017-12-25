@@ -29,7 +29,8 @@ open class MLHybrid {
     var scheme: String = unregistered
     var domain: String = unregistered
     var backIndicator: String = unregistered
-    
+    var isProduceEnvironment: Bool = true
+
     //注册信息
     //应用启动、登陆、注销 都需要调用
     open class func register(sess: String,
@@ -37,6 +38,7 @@ open class MLHybrid {
                              appName: String,
                              domain: String,
                              backIndicator: String,
+                             isProduceEnvironment:Bool = true,
                              delegate: MLHybridMethodProtocol) {
         shared.sess = sess
         shared.platform = platform
@@ -45,6 +47,7 @@ open class MLHybrid {
         shared.scheme = "med" + appName + "hybrid"
         shared.backIndicator = backIndicator
         shared.delegate = delegate
+        shared.isProduceEnvironment = isProduceEnvironment
         URLProtocol.registerClass(MLHybridURLProtocol.self)
     }
 

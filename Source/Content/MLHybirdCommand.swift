@@ -74,6 +74,10 @@ open class MLHybirdCommand {
         hybridVC.setProgress(progress)
     }
     
+    public func commandparams() -> [String: AnyObject] {
+        return self.params
+    }
+    
     //获取发出命令的控制器
     private func commandFromVC() -> MLHybridViewController {
         var nextResponder = self.webView.next
