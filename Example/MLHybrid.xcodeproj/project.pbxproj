@@ -13,7 +13,6 @@
 		5C42FA551FEBFA6100C00AC8 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C42FA541FEBFA6100C00AC8 /* AVKit.framework */; };
 		5C72E4451FECB1C00014D672 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C42FA521FEBFA5900C00AC8 /* AVFoundation.framework */; };
 		5C72E4471FECB1D50014D672 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C72E4461FECB1D50014D672 /* MediaPlayer.framework */; };
-		5C72E4491FECB5760014D672 /* MLAVPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C72E4481FECB5760014D672 /* MLAVPlay.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -42,7 +41,6 @@
 		5C42FA521FEBFA5900C00AC8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5C42FA541FEBFA6100C00AC8 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		5C72E4461FECB1D50014D672 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		5C72E4481FECB5760014D672 /* MLAVPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLAVPlay.swift; sourceTree = "<group>"; };
 		5CB9762C414B794E95027E9D /* Pods-MLHybrid_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLHybrid_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MLHybrid_Example/Pods-MLHybrid_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* MLHybrid_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLHybrid_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				5C72E4481FECB5760014D672 /* MLAVPlay.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				0DCE2CAA1F4D72EB00362112 /* MethodExtension.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -410,7 +407,6 @@
 				0DCE2CAB1F4D72EB00362112 /* MethodExtension.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				5C72E4491FECB5760014D672 /* MLAVPlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

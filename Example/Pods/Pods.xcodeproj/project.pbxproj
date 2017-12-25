@@ -102,7 +102,6 @@
 		D1575AAADDCEA395E3828EBAC2A772FA /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B892673411AD7EC00BA3E73CB56C9C3 /* Box.swift */; };
 		D2CE486EF45F2CCBA2E774508F61B410 /* MLHybridLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A4B6DA9C7BDF22929E5378AC93CE54 /* MLHybridLocation.swift */; };
 		D749A6783BF9B1CFD8FCB21B09B92FBD /* prng.c in Sources */ = {isa = PBXBuildFile; fileRef = 91F024D3763DEFE8D28D6C5CF5CE135E /* prng.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		DA692778170EF8604B4C34201CB5E4B9 /* MLOpenWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C363ECEB7ABD6DB1708A9305ED4AF5E0 /* MLOpenWebViewController.swift */; };
 		DA7A5ECA4C0B39776007BE89B99227EF /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB739C34B803DCF660BF72A28E6A6B8 /* ImageDownloader.swift */; };
 		E32AFCE8E1BADDB3281F8825967220EE /* ioapi_buf.h in Headers */ = {isa = PBXBuildFile; fileRef = B2CAAE0BB4EEC26E35D8C7E4A0AED2BA /* ioapi_buf.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E3524D114F04A950DABCCD2522664393 /* NJKWebViewProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E95611582C952773151A7675230473E /* NJKWebViewProgress.framework */; };
@@ -274,7 +273,6 @@
 		BC7065BC166DAD928B42D0830CEC0BA1 /* MLHybridExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MLHybridExtension.swift; sourceTree = "<group>"; };
 		BF78D8117471B9B3AA4044DDDA186E23 /* Kingfisher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Kingfisher.modulemap; sourceTree = "<group>"; };
 		C0E762A36765D7E3DF911C1B1C153D67 /* MLHybridViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MLHybridViewController.swift; sourceTree = "<group>"; };
-		C363ECEB7ABD6DB1708A9305ED4AF5E0 /* MLOpenWebViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MLOpenWebViewController.swift; sourceTree = "<group>"; };
 		C7B2520D2F482BFE1B1FF32B539FFEA1 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJKWebViewProgress.h; path = NJKWebViewProgress/NJKWebViewProgress.h; sourceTree = "<group>"; };
 		CCE6FED8B1240FC27B7153FB96973F6D /* pwd2key.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pwd2key.h; path = SSZipArchive/minizip/aes/pwd2key.h; sourceTree = "<group>"; };
 		CEE34942390B31653EB709381AE15EA4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -488,7 +486,6 @@
 				1997786CA81C2F243CA2E56CF6DC25E4 /* MLHybridTools.swift */,
 				C0E762A36765D7E3DF911C1B1C153D67 /* MLHybridViewController.swift */,
 				7D37B9D5CE1B90291EB3BEED53268C70 /* MLHybridWebView.swift */,
-				C363ECEB7ABD6DB1708A9305ED4AF5E0 /* MLOpenWebViewController.swift */,
 				5C6A7BA11FF0863B002F621C /* Common */,
 				0B39AA15C62C2CA200B715FA9C4436EF /* MLHybirdURLProtocol */,
 				42CA496BA0BC1ED089A2017B7C485F93 /* Model */,
@@ -1031,7 +1028,6 @@
 				CD93BE15885B7F660F4BA0B15677E567 /* MLHybridTools.swift in Sources */,
 				3388281895E5951D4719D56F18BFD996 /* MLHybridViewController.swift in Sources */,
 				823A697404AE0592508003B9AE7C3160 /* MLHybridWebView.swift in Sources */,
-				DA692778170EF8604B4C34201CB5E4B9 /* MLOpenWebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
