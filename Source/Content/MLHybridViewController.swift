@@ -38,6 +38,8 @@ class MLHybridViewController: UIViewController {
             contentView.removeFromSuperview()
             contentView = nil
         }
+        NotificationCenter.default.removeObserver(self)
+
     }
     
     //MARK: - life cycle
@@ -46,6 +48,7 @@ class MLHybridViewController: UIViewController {
         self.initUI()
         self.initContentView()
         self.initProgressView()
+        NotificationCenter.default.addObserver(self, selector:#selector(playingVideoReload) , name: MLHybridNotification.playingVideoPause, object: nil)
     }
     
     override open func viewWillAppear(_ animated: Bool) {
@@ -88,6 +91,13 @@ class MLHybridViewController: UIViewController {
     
     @objc func back() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func playingVideoReload() {
+        let playJS = "(document.getElementsByTagName(\"video\")[0]).src"
+        if (contentView.stringByEvaluatingJavaScript(from: playJS) ??  "").count > 0 {
+            contentView.reload()
+        }
     }
     
     func initProgressView() {

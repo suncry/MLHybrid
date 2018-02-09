@@ -10,68 +10,85 @@ import UIKit
 import Kingfisher
 
 class HybridNaviTitleView: UIView {
-
+    
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
     let lefticon = UIImageView()
     let righticon = UIImageView()
     let callBackButton = UIButton()
+    var command: MLHybirdCommand?
     
-    func loadTitleView(_ title: String, subtitle: String, lefticonUrl: URL, righticonUrl: URL, callback: String, currentWebView: UIWebView) {
-        //标题
-        self.titleLabel.text = title
-        self.titleLabel.font = UIFont.systemFont(ofSize: 17)
-//        self.titleLabel.textColor = MLTheme.color.black
-        let titleWidth = title.hybridStringWidthWith(17, height: 22)
-        self.titleLabel.frame = CGRect(x: 0, y: 0, width: titleWidth, height: 22)
-        self.titleLabel.center = self.center
-        self.titleLabel.textAlignment = .center
-        self.addSubview(self.titleLabel)
+    class func load(command: MLHybirdCommand) -> HybridNaviTitleView {
         
+        //标题
+        let titleModel = command.args.header.title
+        let naviTitleView = HybridNaviTitleView()
+        naviTitleView.frame = CGRect(x: 0, y: 0, width: 150, height: 30)
+        
+        naviTitleView.command = command
+        naviTitleView.titleLabel.text = titleModel.title
+        naviTitleView.titleLabel.font = UIFont.systemFont(ofSize: 18)
+        naviTitleView.titleLabel.textColor = UIColor(red: 69/255.0, green: 69/255.0, blue: 83/255.0, alpha: 1)
+        var titleWidth = titleModel.title.hybridStringWidthWith(18, height: 22)
+        titleWidth = titleWidth > 150 ? 150 : titleWidth
+        naviTitleView.titleLabel.frame = CGRect(x: 0, y: 0, width: titleWidth, height: 22)
+        naviTitleView.titleLabel.center = naviTitleView.center
+        naviTitleView.titleLabel.textAlignment = .center
+        naviTitleView.addSubview(naviTitleView.titleLabel)
+        
+        let subtitle = titleModel.subtitle
         //副标题
         if subtitle.characters.count > 0 {
-            self.subtitleLabel.text = subtitle
-            self.subtitleLabel.font = UIFont.systemFont(ofSize: 13)
-//            self.subtitleLabel.textColor = MLTheme.color.black
+            naviTitleView.subtitleLabel.text = subtitle
+            naviTitleView.subtitleLabel.font = UIFont.systemFont(ofSize: 13)
             let subtitleWidth = subtitle.hybridStringWidthWith(13, height: 15)
-            self.subtitleLabel.frame = CGRect(x: 0, y: 0, width: subtitleWidth, height: 22)
-            self.subtitleLabel.center = self.center
-            self.subtitleLabel.center.y = self.center.y + 10
-            self.titleLabel.center.y = self.center.y - 10
-            self.subtitleLabel.textAlignment = .center
-            self.addSubview(self.subtitleLabel)
+            naviTitleView.subtitleLabel.frame = CGRect(x: 0, y: 0, width: subtitleWidth, height: 22)
+            naviTitleView.subtitleLabel.center = naviTitleView.center
+            naviTitleView.subtitleLabel.center.y = naviTitleView.center.y + 10
+            naviTitleView.titleLabel.center.y = naviTitleView.center.y - 10
+            naviTitleView.subtitleLabel.textAlignment = .center
+            naviTitleView.addSubview(naviTitleView.subtitleLabel)
         }
-
+        
         //右图标
-        self.righticon.frame = CGRect(x: self.titleLabel.frame.origin.x + self.titleLabel.frame.size.width + 5, y: 0, width: 15, height: 15)
-        if righticonUrl.absoluteString.characters.count > 0 {
-            self.righticon.kf.setImage(with: righticonUrl)
+        naviTitleView.righticon.frame = CGRect(x: naviTitleView.titleLabel.frame.origin.x + naviTitleView.titleLabel.frame.size.width + 15, y: 0, width: 24, height: 24)
+        if let righticonUrl = URL(string: titleModel.righticon), righticonUrl.absoluteString.characters.count > 0 {
+            naviTitleView.righticon.kf.setImage(with: righticonUrl)
         }
-        self.righticon.center.y = self.center.y
-        self.addSubview(self.righticon)
+        naviTitleView.righticon.center.y = naviTitleView.center.y
+        naviTitleView.righticon.layer.cornerRadius = 12
+        naviTitleView.righticon.layer.masksToBounds = true
+        naviTitleView.addSubview(naviTitleView.righticon)
         
         //左图标
-        self.lefticon.frame = CGRect(x: self.titleLabel.frame.origin.x - 20, y: 0, width: 15, height: 15)
-        if lefticonUrl.absoluteString.characters.count > 0 {
-            self.lefticon.kf.setImage(with: lefticonUrl)
+        naviTitleView.lefticon.frame = CGRect(x: naviTitleView.titleLabel.frame.origin.x - 30, y: 0, width: 24, height: 24)
+        if let lefticonUrl = URL(string: titleModel.lefticon), lefticonUrl.absoluteString.characters.count > 0 {
+            naviTitleView.lefticon.kf.setImage(with: lefticonUrl)
         }
-        self.lefticon.center.y = self.center.y
-        self.addSubview(self.lefticon)
-
+        naviTitleView.lefticon.center.y = naviTitleView.center.y
+        naviTitleView.lefticon.layer.cornerRadius = 12
+        naviTitleView.lefticon.layer.masksToBounds = true
+        naviTitleView.addSubview(naviTitleView.lefticon)
         //事件按钮
-        self.callBackButton.frame = self.frame
-        self.callBackButton.backgroundColor = UIColor.clear
-
-//        self.callBackButton.addBlock(for: .touchUpInside) { (sender) in
-//            let data = ["data": "",
-//                        "errno": 0,
-//                        "msg": "title click",
-//                        "callback": callback] as [String : Any]
-//            
-//            let dataString = data.hybridJSONString()
-//            currentWebView.stringByEvaluatingJavaScript(from: HybridEvent + "(\(dataString));")
-//        }
-        self.addSubview(self.callBackButton)
+        naviTitleView.callBackButton.frame = naviTitleView.frame
+        naviTitleView.callBackButton.backgroundColor = UIColor.clear
+        
+        naviTitleView.callBackButton.addTarget(naviTitleView, action: #selector(HybridNaviTitleView.titleClick), for: .touchUpInside)
+        naviTitleView.addSubview(naviTitleView.callBackButton)
+        return naviTitleView
+    }
+    
+    @objc func titleClick() {
+        guard let callback = self.command?.args.header.title.callback else { return }
+        let data = ["data": "",
+                    "errno": 0,
+                    "msg": "",
+                    "callback": callback] as [String : Any]
+        let dataString = data.hybridJSONString()
+        if let callbackWeb = self.command?.webView {
+            callbackWeb.stringByEvaluatingJavaScript(from: HybridEvent + "(\(dataString));")
+        }
     }
     
 }
+

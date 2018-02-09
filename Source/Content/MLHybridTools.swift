@@ -81,32 +81,24 @@ class MLHybridTools: NSObject {
     }
     
     func updateHeader() {
-        if let vcs = command.hybridVC.navigationController?.viewControllers, vcs.contains(command.hybridVC) {
+        guard let hybridVC = command.hybridVC else { return }
+        if let vcs = hybridVC.navigationController?.viewControllers, vcs.contains(hybridVC) {
             let header = command.args.header
-            let navigationItem = command.viewController.navigationItem
-            //        navigationItem.titleView = self.setUpNaviTitleView(header.title)
-            navigationItem.title = header.title.title
-            self.setRightButtons(header.right, navigationItem: navigationItem)
-            self.setLeftButtons(header.left, navigationItem: navigationItem)
+            guard let navigationItem = command.viewController?.navigationItem else { return }
+//            navigationItem.titleView = HybridNaviTitleView.load(command: command)
+//            self.setRightButtons(header.right, navigationItem: navigationItem)
+//            self.setLeftButtons(header.left, navigationItem: navigationItem)
         }
     }
     
     func setLeftButtons(_ leftButtons:[Hybrid_naviButtonModel], navigationItem: UINavigationItem) {
         let barButtons = self.setUpButtons(leftButtons)
-        self.command.viewController.navigationItem.setLeftBarButtonItems(barButtons, animated: true)
+        self.command.viewController?.navigationItem.setLeftBarButtonItems(barButtons, animated: true)
     }
     
     func setRightButtons(_ rightButtons:[Hybrid_naviButtonModel], navigationItem: UINavigationItem) {
         let barButtons = self.setUpButtons(rightButtons)
-        self.command.viewController.navigationItem.setRightBarButtonItems(barButtons, animated: true)
-    }
-    
-    func setUpNaviTitleView(_ titleModel:Hybrid_titleModel) -> HybridNaviTitleView {
-        let naviTitleView = HybridNaviTitleView(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
-        let leftUrl = NSURL(string: titleModel.lefticon) ?? NSURL()
-        let rightUrl = NSURL(string: titleModel.righticon) ?? NSURL()
-        naviTitleView.loadTitleView(titleModel.title, subtitle: titleModel.subtitle, lefticonUrl: leftUrl as URL, righticonUrl: rightUrl as URL, callback: titleModel.callback, currentWebView: command.webView)
-        return naviTitleView
+        self.command.viewController?.navigationItem.setRightBarButtonItems(barButtons, animated: true)
     }
     
     func setUpButtons(_ buttonModels:[Hybrid_naviButtonModel]) -> [UIBarButtonItem] {
@@ -118,17 +110,17 @@ class MLHybridTools: NSObject {
     }
     
     func back() {
-        if let navi = self.command.viewController.navigationController {
+        if let navi = self.command.viewController?.navigationController {
             navi.popViewController(animated: true)
         } else {
-            self.command.viewController.dismiss(animated: true, completion: nil)
+            self.command.viewController?.dismiss(animated: true, completion: nil)
         }
     }
     
     func forward() {
         if command.args.isH5 {
             guard let webViewController = MLHybrid.load(urlString: command.args.topage) else {return}
-            guard let navi = self.command.viewController.navigationController else {return}
+            guard let navi = self.command.viewController?.navigationController else {return}
             navi.pushViewController(webViewController, animated: true)
         } else {
             //native跳转交给外部处理
@@ -147,18 +139,18 @@ class MLHybridTools: NSObject {
      * 获取设备位置
      */
     func handleGetCurrentPosition() {
-        self.command.hybridVC.locationModel.getLocation { (success, errcode, resultData) in
+        self.command.hybridVC?.locationModel.getLocation { (success, errcode, resultData) in
             _ = self.callBack(data: resultData as AnyObject? ?? "" as AnyObject, err_no: errcode, callback: self.command.callbackId, webView: self.command.webView, completion: {js in
             })
         }
     }
     
     func onWebViewShow() {
-        self.command.hybridVC.onShowCallBack = self.command.callbackId
+        self.command.hybridVC?.onShowCallBack = self.command.callbackId
     }
     
     func onWebViewHide() {
-        self.command.hybridVC.onHideCallBack = self.command.callbackId
+        self.command.hybridVC?.onHideCallBack = self.command.callbackId
     }
     
     func switchCache() {
@@ -186,7 +178,7 @@ extension MLHybridTools {
      * 获取位置
      */
     func handleGetLocation() {
-        self.command.hybridVC.locationModel.getLocation { (success, errcode, resultData) in
+        self.command.hybridVC?.locationModel.getLocation { (success, errcode, resultData) in
             _ = self.callBack(data: resultData as AnyObject? ?? "" as AnyObject, err_no: errcode, callback: self.command.callbackId, webView: self.command.webView, completion: {js in })
         }
     }
@@ -197,7 +189,7 @@ extension MLHybridTools {
     func pop() {
         //推出所有hybrid页面
         if command.args.num == 999 {
-            guard let vcs = self.command.viewController.navigationController?.viewControllers else {return}
+            guard let vcs = self.command.viewController?.navigationController?.viewControllers else {return}
             var toVC = vcs.first
             var i = 0
             while i < vcs.count {
@@ -207,21 +199,21 @@ extension MLHybridTools {
                 i = i + 1
             }
             if let toVC = toVC {
-                let _ = self.command.viewController.navigationController?.popToViewController(toVC, animated: true)
+                let _ = self.command.viewController?.navigationController?.popToViewController(toVC, animated: true)
             }
         }
         //返回指定步骤
-        if let vcs = self.command.viewController.navigationController?.viewControllers {
+        if let vcs = self.command.viewController?.navigationController?.viewControllers {
             if vcs.count > command.args.num {
                 let vc = vcs[vcs.count - command.args.num - 1]
-                let _ = self.command.viewController.navigationController?.popToViewController(vc, animated: true)
+                let _ = self.command.viewController?.navigationController?.popToViewController(vc, animated: true)
             }
         }
     }
     
     func openlink() {
         if let vc = MLHybrid.load(urlString: command.args.url) {
-            command.viewController.navigationController?.pushViewController(vc, animated: true)
+            command.viewController?.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -243,7 +235,7 @@ extension MLHybridTools {
     
     open func checkVersion() {
         let versionStr = Bundle.main.infoDictionary!["CFBundleShortVersionString"]
-        let checkVersionURLString = MLHybrid.shared.isProduceEnvironment ? checkVersionQAURL : checkVersionURL
+        let checkVersionURLString = MLHybrid.shared.isProduceEnvironment ? checkVersionURL : checkVersionQAURL
         let url:URL! = URL(string: checkVersionURLString + "\(versionStr!)")
         let urlRequest:NSMutableURLRequest = NSMutableURLRequest(url: url)
         urlRequest.httpMethod = "GET"

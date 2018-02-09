@@ -36,7 +36,7 @@ open class MLHybirdCommand {
     ///   - msg: 描述
     ///   - callback: 回调方法
     ///   - webView: 执行回调的容器
-    public func callback(data:Any = "", err_no: Int = 0, msg: String = "succuess", completion: @escaping ((String) ->Void)) {
+    public func callback(data: Any = "", err_no: Int = 0, msg: String = "succuess", completion: @escaping ((String) ->Void)) {
         let data = ["data": data,
                     "errno": err_no,
                     "msg": msg,

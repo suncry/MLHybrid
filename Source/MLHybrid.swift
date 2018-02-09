@@ -13,8 +13,9 @@ public protocol MLHybridMethodProtocol {
     func methodExtension(command: MLHybirdCommand)
 }
 
-struct MLHybridNotification {
+public struct MLHybridNotification {
     static let updateCookie: Notification.Name = Notification.Name(rawValue: "MLHybridUpdateCookie")
+    static let playingVideoPause: Notification.Name = Notification.Name(rawValue: "playingVideoPause")
 }
 
 open class MLHybrid {
