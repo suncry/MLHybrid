@@ -85,9 +85,9 @@ class MLHybridTools: NSObject {
         if let vcs = hybridVC.navigationController?.viewControllers, vcs.contains(hybridVC) {
             let header = command.args.header
             guard let navigationItem = command.viewController?.navigationItem else { return }
-//            navigationItem.titleView = HybridNaviTitleView.load(command: command)
-//            self.setRightButtons(header.right, navigationItem: navigationItem)
-//            self.setLeftButtons(header.left, navigationItem: navigationItem)
+            navigationItem.titleView = HybridNaviTitleView.load(command: command)
+            self.setRightButtons(header.right, navigationItem: navigationItem)
+            self.setLeftButtons(header.left, navigationItem: navigationItem)
         }
     }
     
